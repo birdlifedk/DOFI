@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1261ABB1AC4B33700308DF3 /* UIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1261ABA1AC4B33700308DF3 /* UIPageViewController.swift */; };
 		E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A50091AB5B9B4008CB207 /* AppDelegate.swift */; };
 		E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A500B1AB5B9B4008CB207 /* ViewController.swift */; };
 		E12A500F1AB5B9B4008CB207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12A500D1AB5B9B4008CB207 /* Main.storyboard */; };
 		E12A50111AB5B9B4008CB207 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E12A50101AB5B9B4008CB207 /* Images.xcassets */; };
 		E12A50141AB5B9B4008CB207 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12A50121AB5B9B4008CB207 /* LaunchScreen.xib */; };
 		E12A50201AB5B9B4008CB207 /* DOFITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A501F1AB5B9B4008CB207 /* DOFITests.swift */; };
+		E12A502A1AB5CBFD008CB207 /* nav-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = E12A50291AB5CBFD008CB207 /* nav-bar.png */; };
+		E14DD9031ABC847300EB7B92 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14DD9021ABC847300EB7B92 /* TripViewController.swift */; };
+		E17342111AC55B16009020CC /* ObservationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17342101AC55B16009020CC /* ObservationPageViewController.swift */; };
+		E1BC48C41AD2C5DB008C1BC1 /* ObservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BC48C31AD2C5DB008C1BC1 /* ObservationViewController.swift */; };
+		E1BC48C61AD3F2D4008C1BC1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BC48C51AD3F2D4008C1BC1 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E1261ABA1AC4B33700308DF3 /* UIPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPageViewController.swift; sourceTree = "<group>"; };
 		E12A50041AB5B9B4008CB207 /* DOFI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOFI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12A50081AB5B9B4008CB207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E12A50091AB5B9B4008CB207 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +43,11 @@
 		E12A50191AB5B9B4008CB207 /* DOFITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DOFITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12A501E1AB5B9B4008CB207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E12A501F1AB5B9B4008CB207 /* DOFITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOFITests.swift; sourceTree = "<group>"; };
+		E12A50291AB5CBFD008CB207 /* nav-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-bar.png"; sourceTree = "<group>"; };
+		E14DD9021ABC847300EB7B92 /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
+		E17342101AC55B16009020CC /* ObservationPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationPageViewController.swift; sourceTree = "<group>"; };
+		E1BC48C31AD2C5DB008C1BC1 /* ObservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationViewController.swift; sourceTree = "<group>"; };
+		E1BC48C51AD3F2D4008C1BC1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1BC48C61AD3F2D4008C1BC1 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +72,7 @@
 		E12A4FFB1AB5B9B4008CB207 = {
 			isa = PBXGroup;
 			children = (
+				E1BC48C51AD3F2D4008C1BC1 /* MapKit.framework */,
 				E12A50061AB5B9B4008CB207 /* DOFI */,
 				E12A501C1AB5B9B4008CB207 /* DOFITests */,
 				E12A50051AB5B9B4008CB207 /* Products */,
@@ -77,9 +91,13 @@
 		E12A50061AB5B9B4008CB207 /* DOFI */ = {
 			isa = PBXGroup;
 			children = (
+				E173420F1AC559D5009020CC /* Controllers */,
 				E12A50091AB5B9B4008CB207 /* AppDelegate.swift */,
 				E12A500B1AB5B9B4008CB207 /* ViewController.swift */,
+				E14DD9021ABC847300EB7B92 /* TripViewController.swift */,
+				E1261ABA1AC4B33700308DF3 /* UIPageViewController.swift */,
 				E12A500D1AB5B9B4008CB207 /* Main.storyboard */,
+				E12A50291AB5CBFD008CB207 /* nav-bar.png */,
 				E12A50101AB5B9B4008CB207 /* Images.xcassets */,
 				E12A50121AB5B9B4008CB207 /* LaunchScreen.xib */,
 				E12A50071AB5B9B4008CB207 /* Supporting Files */,
@@ -110,6 +128,15 @@
 				E12A501E1AB5B9B4008CB207 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E173420F1AC559D5009020CC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E17342101AC55B16009020CC /* ObservationPageViewController.swift */,
+				E1BC48C31AD2C5DB008C1BC1 /* ObservationViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +188,7 @@
 				TargetAttributes = {
 					E12A50031AB5B9B4008CB207 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = T4PH285UDA;
 					};
 					E12A50181AB5B9B4008CB207 = {
 						CreatedOnToolsVersion = 6.2;
@@ -193,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12A500F1AB5B9B4008CB207 /* Main.storyboard in Resources */,
+				E12A502A1AB5CBFD008CB207 /* nav-bar.png in Resources */,
 				E12A50141AB5B9B4008CB207 /* LaunchScreen.xib in Resources */,
 				E12A50111AB5B9B4008CB207 /* Images.xcassets in Resources */,
 			);
@@ -212,8 +241,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E14DD9031ABC847300EB7B92 /* TripViewController.swift in Sources */,
+				E1BC48C41AD2C5DB008C1BC1 /* ObservationViewController.swift in Sources */,
 				E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */,
 				E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */,
+				E17342111AC55B16009020CC /* ObservationPageViewController.swift in Sources */,
+				E1261ABB1AC4B33700308DF3 /* UIPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +440,7 @@
 				E12A50251AB5B9B4008CB207 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E12A50261AB5B9B4008CB207 /* Build configuration list for PBXNativeTarget "DOFITests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +449,7 @@
 				E12A50281AB5B9B4008CB207 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
