@@ -11,14 +11,29 @@ import UIKit
 
 class ObservationPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
+	var origin:String = ""
 	var index = 0
 	var identifiers: NSArray = ["observationRequired", "observationExtra"]
+
+	var obsPages: NSArray = ["observationRequired", "observationExtra"]
+	var breadingPages: NSArray = ["breadingPairRequired", "breadingPairExtra"]
+	var tripPages: NSArray = ["tripRequired", "tripExtra"]
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		self.dataSource = self
 		self.delegate = self
+
+		if(origin == "newObservation") {
+			identifiers = obsPages
+		}
+		if(origin == "newBreadingPair") {
+			identifiers = breadingPages
+		}
+		if(origin == "tripSettings") {
+			identifiers = tripPages
+		}
 
 		let startingViewController = self.viewControllerAtIndex(self.index)
 		//let secondViewController   = self.viewControllerAtIndex(1)

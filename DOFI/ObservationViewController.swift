@@ -52,7 +52,6 @@ class ObservationViewController: UIViewController, UITextFieldDelegate, UIPicker
 		directionText.inputView = secondaryBehaviourPicker
 		directionText.inputAccessoryView = toolbar
 
-
 		secondaryBehaviourPicker.delegate = self
 		secondaryBehaviourPicker.hidden = true
 		secondaryBehaviourPicker.showsSelectionIndicator = true
