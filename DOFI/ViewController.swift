@@ -13,8 +13,7 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
-		
-		setupSwipe()
+
 
 		var nav = self.navigationController?.navigationBar
 
@@ -27,29 +26,16 @@ class ViewController: UIViewController {
 
 	}
 
-	func setupSwipe() {
-		var downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
-		downSwipe.direction = .Down
-		view.addGestureRecognizer(downSwipe)
-	}
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(true)
 
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated)
-		let test = animated
-	}
+		let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+		let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
 
-	func handleSwipes(sender:UISwipeGestureRecognizer) {
-		if(sender.direction == .Down) {
-
-			var navigation = self.navigationController?
-			var storyboard = self.storyboard?
-			var vc = storyboard?.instantiateViewControllerWithIdentifier("tripModal") as UITabBarController
-			
-
-			//self.navigationController?.showViewController(vc: UIViewController, sender: <#AnyObject!#>)
-
-			navigation?.pushViewController(vc, animated: true)
-			//performSegueWithIdentifier("tur", sender: nil)
+		if (isLoggedIn != 1) {
+			self.performSegueWithIdentifier("goto", sender: self)
+		} else {
+			//self.usernameLabel.text = prefs.valueForKey("USERNAME") as NSString
 		}
 	}
 
@@ -63,11 +49,13 @@ class ViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		let vc:ObservationPageViewController = segue.destinationViewController as ObservationPageViewController
-		vc.origin = segue.identifier!
+	//override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	//	if(segue.identifier != "goto") {
+		//	let vc:ObservationPageViewController = segue.destinationViewController as ObservationPageViewController
+		//	vc.origin = segue.identifier!
+		//}
 
-	}
+	//}
 
 
 }
