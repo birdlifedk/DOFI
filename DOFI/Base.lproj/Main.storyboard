@@ -130,11 +130,12 @@
                     <connections>
                         <outlet property="TextPassword" destination="q0i-5w-YIb" id="eCv-h8-LIm"/>
                         <outlet property="textUsername" destination="GWF-Fu-0dz" id="RMw-gR-yop"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="gotoWelcome" id="k4H-uH-kFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIN-jC-a13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1612" y="1992"/>
+            <point key="canvasLocation" x="1612" y="2043"/>
         </scene>
         <!--Ekstra-->
         <scene sceneID="l8A-BB-FDr">
@@ -699,6 +700,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="k4H-uH-kFc"/>
         <segue reference="3B2-8B-vVr"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ObservationViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate
+class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPickerViewDelegate
 {
 	@IBOutlet var secondaryBehaviourText: UITextField!
 	@IBOutlet var directionText: UITextField!
@@ -82,22 +82,19 @@ class ObservationViewController: UIViewController, UITextFieldDelegate, UIPicker
 		activeTextView.text = picks[row]
 	}
 
-	func textFieldDidBeginEditing(textField: UITextField) -> Bool {
+	func textFieldDidBeginEditing(textField: UITextField) {
 		activeTextView = textField
 
 		if(textField == secondaryBehaviourText) {
 			picks = secondaryBehaviours
 			secondaryBehaviourPicker.reloadAllComponents()
 			secondaryBehaviourPicker.hidden = false
-			return true
 		}
 		if(textField == directionText) {
 			picks = directions
 			secondaryBehaviourPicker.reloadAllComponents()
 			secondaryBehaviourPicker.hidden = false
-			return true
 		}
-		return false
 	}
 
 	func textFieldShouldBeginEditing(textField: UITextField) -> Bool {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: DOFIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -30,9 +30,10 @@ class ViewController: UIViewController {
 		super.viewDidAppear(true)
 
 		let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-		let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
 
-		if (isLoggedIn != 1) {
+		let isLoggedIn:Bool = prefs.boolForKey("ISLOGGEDIN") as Bool
+
+		if (!isLoggedIn) {
 			self.performSegueWithIdentifier("goto", sender: self)
 		} else {
 			//self.usernameLabel.text = prefs.valueForKey("USERNAME") as NSString
