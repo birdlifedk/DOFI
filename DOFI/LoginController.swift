@@ -43,7 +43,7 @@ class LoginController: UIViewController {
 		var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
 		request.HTTPMethod = "POST"
 		request.HTTPBody = postData
-		request.setValue(postLength, forHTTPHeaderField: "Content-Length")
+		request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
 		request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 		request.setValue("application/json", forHTTPHeaderField: "Accept")
 

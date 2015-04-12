@@ -38,7 +38,7 @@ class ObservationPageViewController: UIPageViewController, UIPageViewControllerD
 		let startingViewController = self.viewControllerAtIndex(self.index)
 		//let secondViewController   = self.viewControllerAtIndex(1)
 		let viewControllers: NSArray = [startingViewController]
-		self.setViewControllers(viewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+		self.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
 
 	}
 
@@ -47,8 +47,8 @@ class ObservationPageViewController: UIPageViewController, UIPageViewControllerD
 		if (index < 0 || index > identifiers.count) {
 			return nil
 		} else {
-			var vcName = identifiers[index] as String
-			return self.storyboard?.instantiateViewControllerWithIdentifier(vcName) as UIViewController
+			var vcName = identifiers[index] as! String
+			return self.storyboard?.instantiateViewControllerWithIdentifier(vcName) as! UIViewController
 		}
 	}
 
