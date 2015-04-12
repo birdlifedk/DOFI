@@ -23,6 +23,11 @@
 		E16961E31AD9A89F002D8814 /* DOFIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961E21AD9A89F002D8814 /* DOFIViewController.swift */; };
 		E16961E61AD9AC6F002D8814 /* WebserviceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961E51AD9AC6F002D8814 /* WebserviceProtocol.swift */; };
 		E16961E81AD9AE59002D8814 /* DOFIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961E71AD9AE59002D8814 /* DOFIService.swift */; };
+		E16961EB1AD9AFC4002D8814 /* StorageStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961EA1AD9AFC4002D8814 /* StorageStrategy.swift */; };
+		E16961ED1AD9AFDD002D8814 /* OnlineStorageStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961EC1AD9AFDD002D8814 /* OnlineStorageStrategy.swift */; };
+		E16961EF1AD9B01F002D8814 /* LocalStorageStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961EE1AD9B01F002D8814 /* LocalStorageStrategy.swift */; };
+		E16961F11AD9B108002D8814 /* StrategyFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961F01AD9B108002D8814 /* StrategyFacade.swift */; };
+		E16961F31AD9B23A002D8814 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961F21AD9B23A002D8814 /* Reachability.swift */; };
 		E16D7BD21AD9479D00C75CD9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D7BD11AD9479D00C75CD9 /* User.swift */; };
 		E17342111AC55B16009020CC /* ObservationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17342101AC55B16009020CC /* ObservationPageViewController.swift */; };
 		E18130B11AD7CA1900C8E952 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18130B01AD7CA1900C8E952 /* LoginController.swift */; };
@@ -62,6 +67,11 @@
 		E16961E21AD9A89F002D8814 /* DOFIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFIViewController.swift; sourceTree = "<group>"; };
 		E16961E51AD9AC6F002D8814 /* WebserviceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceProtocol.swift; sourceTree = "<group>"; };
 		E16961E71AD9AE59002D8814 /* DOFIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFIService.swift; sourceTree = "<group>"; };
+		E16961EA1AD9AFC4002D8814 /* StorageStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageStrategy.swift; sourceTree = "<group>"; };
+		E16961EC1AD9AFDD002D8814 /* OnlineStorageStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineStorageStrategy.swift; sourceTree = "<group>"; };
+		E16961EE1AD9B01F002D8814 /* LocalStorageStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageStrategy.swift; sourceTree = "<group>"; };
+		E16961F01AD9B108002D8814 /* StrategyFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyFacade.swift; sourceTree = "<group>"; };
+		E16961F21AD9B23A002D8814 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		E16D7BD11AD9479D00C75CD9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E17342101AC55B16009020CC /* ObservationPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationPageViewController.swift; sourceTree = "<group>"; };
 		E18130B01AD7CA1900C8E952 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -114,8 +124,10 @@
 		E12A50061AB5B9B4008CB207 /* DOFI */ = {
 			isa = PBXGroup;
 			children = (
+				E16961F41AD9B23F002D8814 /* Vendor */,
 				E18130B41AD8003A00C8E952 /* DOFI.entitlements */,
 				E16961E41AD9AC44002D8814 /* Webservice */,
+				E16961E91AD9AF72002D8814 /* Strategy */,
 				E16961DB1AD9A2E0002D8814 /* Communication */,
 				E16A884F1AD5CED800A526FF /* Models */,
 				E173420F1AC559D5009020CC /* Controllers */,
@@ -171,6 +183,25 @@
 				E16961E71AD9AE59002D8814 /* DOFIService.swift */,
 			);
 			name = Webservice;
+			sourceTree = "<group>";
+		};
+		E16961E91AD9AF72002D8814 /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				E16961EA1AD9AFC4002D8814 /* StorageStrategy.swift */,
+				E16961EC1AD9AFDD002D8814 /* OnlineStorageStrategy.swift */,
+				E16961EE1AD9B01F002D8814 /* LocalStorageStrategy.swift */,
+				E16961F01AD9B108002D8814 /* StrategyFacade.swift */,
+			);
+			name = Strategy;
+			sourceTree = "<group>";
+		};
+		E16961F41AD9B23F002D8814 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				E16961F21AD9B23A002D8814 /* Reachability.swift */,
+			);
+			name = Vendor;
 			sourceTree = "<group>";
 		};
 		E16A884F1AD5CED800A526FF /* Models */ = {
@@ -308,15 +339,20 @@
 				E16961D81AD96920002D8814 /* Token.swift in Sources */,
 				E14DD9031ABC847300EB7B92 /* TripViewController.swift in Sources */,
 				E16961E31AD9A89F002D8814 /* DOFIViewController.swift in Sources */,
+				E16961F11AD9B108002D8814 /* StrategyFacade.swift in Sources */,
 				E1BC48C41AD2C5DB008C1BC1 /* ObservationViewController.swift in Sources */,
 				E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */,
+				E16961EB1AD9AFC4002D8814 /* StorageStrategy.swift in Sources */,
+				E16961EF1AD9B01F002D8814 /* LocalStorageStrategy.swift in Sources */,
 				E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */,
 				E16961E61AD9AC6F002D8814 /* WebserviceProtocol.swift in Sources */,
 				E16D7BD21AD9479D00C75CD9 /* User.swift in Sources */,
+				E16961ED1AD9AFDD002D8814 /* OnlineStorageStrategy.swift in Sources */,
 				E16961E81AD9AE59002D8814 /* DOFIService.swift in Sources */,
 				E17342111AC55B16009020CC /* ObservationPageViewController.swift in Sources */,
 				E16961E11AD9A3A3002D8814 /* GPSCommunication.swift in Sources */,
 				E18130B11AD7CA1900C8E952 /* LoginController.swift in Sources */,
+				E16961F31AD9B23A002D8814 /* Reachability.swift in Sources */,
 				E16961DF1AD9A390002D8814 /* WebCommunication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -36,7 +36,7 @@ class LoginController: DOFIViewController {
 
 	func login(username:NSString, password:NSString) {
 		self.communicationFacade.login(username, password: password)
-
+		/*
 		var post = "username=\(username)&password=\(password)&grant_type=password&client_id=2&client_secret=DOFISECRET"
 		var params = ["username":username, "password":password, "grant_type":"password", "client_id": "2", "client_secret" : "DOFISECRET"] as Dictionary<String, String>
 
@@ -79,7 +79,6 @@ class LoginController: DOFIViewController {
 
 		if ( urlData != nil ) {
 			var res = response as NSHTTPURLResponse;
-			var code = res.statusCode
 
 			if (res.statusCode >= 200 && res.statusCode < 300) {
 				var responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
@@ -114,11 +113,8 @@ class LoginController: DOFIViewController {
 						//self.dismissViewControllerAnimated(true, completion: nil)
 					}
 				}
-
-
-
 			}
-		}
+		}*/
 
 
 	}

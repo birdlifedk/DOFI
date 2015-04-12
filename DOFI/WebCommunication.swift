@@ -10,7 +10,9 @@ import Foundation
 
 class WebCommunication {
 
-	func login(username:NSString, password:NSString) {
+	let strategyFacade:StrategyFacade = StrategyFacade()
 
+	func login(username:NSString, password:NSString) {
+		strategyFacade.login(username, password: password)
 	}
 }
