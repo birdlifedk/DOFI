@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TripViewController: UIViewController {
+class TripViewController: DOFIViewController {
 
 	
 	@IBOutlet var primaryView: UIView!

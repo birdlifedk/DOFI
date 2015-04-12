@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ObservationViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate
+class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPickerViewDelegate
 {
 	@IBOutlet var secondaryBehaviourText: UITextField!
 	@IBOutlet var directionText: UITextField!
