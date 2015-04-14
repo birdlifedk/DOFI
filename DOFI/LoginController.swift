@@ -46,9 +46,11 @@ class LoginController: DOFIViewController {
 		var err: NSError?
 		var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
 		request.HTTPMethod = "POST"
-		request.HTTPBody = postData
-		request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
-		request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+
+		request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+		//request.HTTPBody = postData
+		request.setValue(postLength, forHTTPHeaderField: "Content-Length")
+		request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 		request.setValue("application/json", forHTTPHeaderField: "Accept")
 		//let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
 			//data, response, error in

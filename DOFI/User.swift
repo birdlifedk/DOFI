@@ -19,13 +19,13 @@ public class User {
 
 	private let name:NSString
 
-	private let surname:NSString = ""
+	private let surname:NSString
 
 	private var token:Token?
 
 	init(name: NSString, surname: NSString) {
 		self.name = name
-		self.surname = surname
+        self.surname = surname
 	}
 
 	init(id: NSInteger, name: NSString, surname: NSString) {

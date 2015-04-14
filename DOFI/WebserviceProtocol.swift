@@ -10,5 +10,5 @@ import Foundation
 
 protocol WebserviceProtocol {
 
-	func login(username: NSString, password: NSString)
+	func login(username: NSString, password: NSString) -> (ReturnMessage, User, [Trip])
 }

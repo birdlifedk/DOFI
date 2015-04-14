@@ -81,23 +81,20 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 	{
 		activeTextView.text = picks[row]
 	}
- 
-    func textFieldDidBeginEditing(textField: UITextField) {
-        activeTextView = textField
-        
-        if(textField == secondaryBehaviourText) {
-            picks = secondaryBehaviours
-            secondaryBehaviourPicker.reloadAllComponents()
-            secondaryBehaviourPicker.hidden = false
-           // return true
-        }
-        if(textField == directionText) {
-            picks = directions
-            secondaryBehaviourPicker.reloadAllComponents()
-            secondaryBehaviourPicker.hidden = false
-            //return true
-        }
-        //return false
+
+	func textFieldDidBeginEditing(textField: UITextField) {
+		activeTextView = textField
+
+		if(textField == secondaryBehaviourText) {
+			picks = secondaryBehaviours
+			secondaryBehaviourPicker.reloadAllComponents()
+			secondaryBehaviourPicker.hidden = false
+		}
+		if(textField == directionText) {
+			picks = directions
+			secondaryBehaviourPicker.reloadAllComponents()
+			secondaryBehaviourPicker.hidden = false
+		}
 	}
 
 	func textFieldShouldBeginEditing(textField: UITextField) -> Bool {

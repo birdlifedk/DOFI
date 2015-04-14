@@ -10,11 +10,10 @@ import Foundation
 
 class CommunicationFacade {
 
-	var webCommunication = WebCommunication()
-
-	var gpsCommunication = GPSCommunication()
+    var strategyFactory = StrategyFactory()
 
 	func login(username:NSString, password:NSString) {
-		webCommunication.login(username, password: password)
+		var storageStrategy = strategyFactory.getStorageStrategy()
+        storageStrategy.login(username, password: password)
 	}
 }

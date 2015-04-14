@@ -10,7 +10,10 @@ import Foundation
 
 class DOFIService: WebserviceProtocol {
 
-	func login(username: NSString, password:NSString) {
+	func login(username: NSString, password:NSString) -> (ReturnMessage, User, [Trip]) {
+        var returnMessage = ReturnMessage(message: "", isDone: true)
+        var user = User(name: "name", surname: "surname")
+        var trips = [Trip(), Trip()]
 		//var params = ["username":username, "password":password, "grant_type":"password", "client_id": "2", "client_secret" : "DOFISECRET"] as Dictionary<String, String>
 		//var url:NSURL = NSURL(string: "http://dev.dofbasenweb/login")!
 
@@ -26,5 +29,7 @@ class DOFIService: WebserviceProtocol {
 		//var response: NSURLResponse?
 
 		//var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&err)
+        
+        return (returnMessage, user, trips)
 	}
 }
