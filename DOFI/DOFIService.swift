@@ -10,7 +10,7 @@ import Foundation
 
 class DOFIService: WebserviceProtocol {
 
-	func login(username: NSString, password:NSString) {
+	func login(username: NSString, password:NSString) -> (ReturnMessage, User, [Trip]){
 		let params = ["username":username, "password":password, "grant_type":"password", "client_id": "2", "client_secret" : "DOFISECRET"] as Dictionary<String, String>
 		var url:NSURL = NSURL(string: "http://dev.dofbasenweb/login")!
 
@@ -50,6 +50,9 @@ class DOFIService: WebserviceProtocol {
 						let jsonDataa:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &responseError) as NSDictionary
 
 						var user = User(id: 1 as NSInteger, name: "Andreas" as NSString, surname: "Sørensen" as NSString)
+                        
+                        var trips = [] // Vi skal vel også have trips tilbage ved login, eller er det separat?
+                        
 						Session.setUser(user)
 						Session.setLoggedInStatus(true)
 						//self.performSegueWithIdentifier("gotoWelcome", sender: self)
@@ -58,9 +61,20 @@ class DOFIService: WebserviceProtocol {
 						prefs.setObject(Session.getUser().getUsername(), forKey: "USERNAME")
 						prefs.setBool(Session.isLoggedIn(), forKey: "ISLOGGEDIN")
 						prefs.synchronize()
-					}
-				}
-			}
-		}
+                        
+                        return (ReturnMessage(message: "Success!", isDone: true), user, trips)
+                        
+                    }else {
+                        return (ReturnMessage(message: "second status code out of range", isDone: false), User(name: "", surname: ""), [])
+                    }
+                }else {
+                    return (ReturnMessage(message: "second url data is nil", isDone: false), User(name: "", surname: ""), [])
+                }
+            }else {
+               return (ReturnMessage(message: "first status code out of range", isDone: false), User(name: "", surname: ""), [])
+            }
+		}else {
+            return (ReturnMessage(message: "first url data is nil", isDone: false), User(name: "", surname: ""), [])
+        }
 	}
 }
