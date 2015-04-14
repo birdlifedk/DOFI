@@ -11,9 +11,23 @@ import Foundation
 class CommunicationFacade {
 
     var strategyFactory = StrategyFactory()
+    var storageStrategy:StorageStrategy
 
-	func login(username:NSString, password:NSString) {
-		var storageStrategy = strategyFactory.getStorageStrategy()
-        storageStrategy.login(username, password: password)
+    init(){
+        storageStrategy = strategyFactory.getStorageStrategy()
+    }
+    
+	func login(username:NSString, password:NSString) -> (ReturnMessage, User, [Trip]){
+		getStorageStrategy()
+        return storageStrategy.login(username, password: password)
 	}
+    
+    func storeObservation(userId:NSInteger, tripId:NSInteger, observation:Observation) -> ReturnMessage{
+        getStorageStrategy()
+        return storageStrategy.storeObservation(userId, tripId: tripId, observation: observation)
+    }
+    
+    private func getStorageStrategy(){
+        storageStrategy = strategyFactory.getStorageStrategy()
+    }
 }

@@ -12,6 +12,11 @@
 		57133D871ADD41A700665C77 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D861ADD41A700665C77 /* Observation.swift */; };
 		57133D891ADD429900665C77 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D881ADD429900665C77 /* Trip.swift */; };
 		57133D8B1ADD43FB00665C77 /* ReturnMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D8A1ADD43FB00665C77 /* ReturnMessage.swift */; };
+		57133D8F1ADD5FD600665C77 /* LocalStorageFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D8E1ADD5FD600665C77 /* LocalStorageFacade.swift */; };
+		57133D911ADD628C00665C77 /* PositionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D901ADD628B00665C77 /* PositionStrategy.swift */; };
+		57133D931ADD62EC00665C77 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D921ADD62EC00665C77 /* Position.swift */; };
+		57133D951ADD651B00665C77 /* HighPrecisionPositionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D941ADD651B00665C77 /* HighPrecisionPositionStrategy.swift */; };
+		57133D971ADD653A00665C77 /* LowPrecisionPositionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D961ADD653A00665C77 /* LowPrecisionPositionStrategy.swift */; };
 		E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A50091AB5B9B4008CB207 /* AppDelegate.swift */; };
 		E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A500B1AB5B9B4008CB207 /* ViewController.swift */; };
 		E12A500F1AB5B9B4008CB207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12A500D1AB5B9B4008CB207 /* Main.storyboard */; };
@@ -53,6 +58,11 @@
 		57133D861ADD41A700665C77 /* Observation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
 		57133D881ADD429900665C77 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		57133D8A1ADD43FB00665C77 /* ReturnMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnMessage.swift; sourceTree = "<group>"; };
+		57133D8E1ADD5FD600665C77 /* LocalStorageFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageFacade.swift; sourceTree = "<group>"; };
+		57133D901ADD628B00665C77 /* PositionStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionStrategy.swift; sourceTree = "<group>"; };
+		57133D921ADD62EC00665C77 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		57133D941ADD651B00665C77 /* HighPrecisionPositionStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighPrecisionPositionStrategy.swift; sourceTree = "<group>"; };
+		57133D961ADD653A00665C77 /* LowPrecisionPositionStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowPrecisionPositionStrategy.swift; sourceTree = "<group>"; };
 		E12A50041AB5B9B4008CB207 /* DOFI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOFI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12A50081AB5B9B4008CB207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E12A50091AB5B9B4008CB207 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +113,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57133D8C1ADD5F8E00665C77 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				57133D8E1ADD5FD600665C77 /* LocalStorageFacade.swift */,
+			);
+			name = LocalStorage;
+			sourceTree = "<group>";
+		};
+		57133D8D1ADD5FB100665C77 /* GPS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GPS;
+			sourceTree = "<group>";
+		};
 		E12A4FFB1AB5B9B4008CB207 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +151,8 @@
 		E12A50061AB5B9B4008CB207 /* DOFI */ = {
 			isa = PBXGroup;
 			children = (
+				57133D8D1ADD5FB100665C77 /* GPS */,
+				57133D8C1ADD5F8E00665C77 /* LocalStorage */,
 				E16961F41AD9B23F002D8814 /* Vendor */,
 				E18130B41AD8003A00C8E952 /* DOFI.entitlements */,
 				E16961E41AD9AC44002D8814 /* Webservice */,
@@ -184,6 +211,9 @@
 				E16961EC1AD9AFDD002D8814 /* OnlineStorageStrategy.swift */,
 				E16961EE1AD9B01F002D8814 /* LocalStorageStrategy.swift */,
 				57133D841ADD3B9600665C77 /* StrategyFactory.swift */,
+				57133D901ADD628B00665C77 /* PositionStrategy.swift */,
+				57133D941ADD651B00665C77 /* HighPrecisionPositionStrategy.swift */,
+				57133D961ADD653A00665C77 /* LowPrecisionPositionStrategy.swift */,
 			);
 			name = Communication;
 			sourceTree = "<group>";
@@ -205,6 +235,7 @@
 				57133D861ADD41A700665C77 /* Observation.swift */,
 				57133D881ADD429900665C77 /* Trip.swift */,
 				57133D8A1ADD43FB00665C77 /* ReturnMessage.swift */,
+				57133D921ADD62EC00665C77 /* Position.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -330,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57133D8B1ADD43FB00665C77 /* ReturnMessage.swift in Sources */,
+				57133D8F1ADD5FD600665C77 /* LocalStorageFacade.swift in Sources */,
 				57133D891ADD429900665C77 /* Trip.swift in Sources */,
 				E16961DD1AD9A33C002D8814 /* CommunicationFacade.swift in Sources */,
 				E16961DA1AD97C5F002D8814 /* Session.swift in Sources */,
@@ -339,12 +371,16 @@
 				E1BC48C41AD2C5DB008C1BC1 /* ObservationViewController.swift in Sources */,
 				E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */,
 				E16961EF1AD9B01F002D8814 /* LocalStorageStrategy.swift in Sources */,
+				57133D971ADD653A00665C77 /* LowPrecisionPositionStrategy.swift in Sources */,
 				E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */,
 				E16961E61AD9AC6F002D8814 /* WebserviceProtocol.swift in Sources */,
+				57133D951ADD651B00665C77 /* HighPrecisionPositionStrategy.swift in Sources */,
 				57133D851ADD3B9600665C77 /* StrategyFactory.swift in Sources */,
+				57133D931ADD62EC00665C77 /* Position.swift in Sources */,
 				E16D7BD21AD9479D00C75CD9 /* User.swift in Sources */,
 				E16961ED1AD9AFDD002D8814 /* OnlineStorageStrategy.swift in Sources */,
 				E16961E81AD9AE59002D8814 /* DOFIService.swift in Sources */,
+				57133D911ADD628C00665C77 /* PositionStrategy.swift in Sources */,
 				E17342111AC55B16009020CC /* ObservationPageViewController.swift in Sources */,
 				57133D871ADD41A700665C77 /* Observation.swift in Sources */,
 				E18130B11AD7CA1900C8E952 /* LoginController.swift in Sources */,

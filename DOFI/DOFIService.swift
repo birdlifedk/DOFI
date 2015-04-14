@@ -77,4 +77,10 @@ class DOFIService: WebserviceProtocol {
             return (ReturnMessage(message: "first url data is nil", isDone: false), User(name: "", surname: ""), [])
         }
 	}
+    
+    func storeObservation(userId: NSInteger, tripId: NSInteger, observation: Observation) -> ReturnMessage{
+        var returnMessage = ReturnMessage(message: "Failed", isDone: false)
+        
+        return returnMessage
+    }
 }

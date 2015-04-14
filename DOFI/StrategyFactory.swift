@@ -18,4 +18,8 @@ class StrategyFactory {
             return LocalStorageStrategy()
         }
     }
+    
+    func getPositionStrategy() -> PositionStrategy{
+        
+    }
 }
