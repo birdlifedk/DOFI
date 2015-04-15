@@ -20,7 +20,7 @@ class CommunicationFacade {
         locationStrategy = strategyFactory.getLocationStrategy()
     }
     
-	func login(username:NSString, password:NSString) -> (ReturnMessage, User, [Trip]){
+	func login(username:NSString, password:NSString) -> ReturnMessage{
 		getStorageStrategy()
         return storageStrategy.login(username, password: password)
 	}

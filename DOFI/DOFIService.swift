@@ -10,7 +10,7 @@ import Foundation
 
 class DOFIService: WebserviceProtocol {
 
-	func login(username: NSString, password:NSString) -> (ReturnMessage, User, [Trip]){
+	func login(username: NSString, password:NSString) -> ReturnMessage{
 		let params = ["username":username, "password":password, "grant_type":"password", "client_id": "2", "client_secret" : "DOFISECRET"] as Dictionary<NSString, NSString>
 		var url:NSURL = NSURL(string: "http://dev.dofbasenweb/login")!
 
@@ -62,24 +62,24 @@ class DOFIService: WebserviceProtocol {
 						prefs.setBool(Session.isLoggedIn(), forKey: "ISLOGGEDIN")
 						prefs.synchronize()
                         
-                        return (ReturnMessage(message: "Success!", isDone: true), user, trips as! [Trip])
-                        
+                        //return (ReturnMessage(message: "Success!", isDone: true), [user, trips])
+                        return (ReturnMessage(message: "Success!", isDone: true, objects: []))
                     }else {
-                        return (ReturnMessage(message: "second status code out of range", isDone: false), User(name: "", surname: ""), [])
+                        return (ReturnMessage(message: "second status code out of range", isDone: false, objects: nil))
                     }
                 }else {
-                    return (ReturnMessage(message: "second url data is nil", isDone: false), User(name: "", surname: ""), [])
+                    return (ReturnMessage(message: "second url data is nil", isDone: false, objects: nil))
                 }
             }else {
-               return (ReturnMessage(message: "first status code out of range", isDone: false), User(name: "", surname: ""), [])
+               return (ReturnMessage(message: "first status code out of range", isDone: false, objects: nil))
             }
 		}else {
-            return (ReturnMessage(message: "first url data is nil", isDone: false), User(name: "", surname: ""), [])
+            return (ReturnMessage(message: "first url data is nil", isDone: false, objects: nil))
         }
 	}
     
     func storeObservation(userId: NSInteger, tripId: NSInteger, observation: Observation) -> ReturnMessage{
-        var returnMessage = ReturnMessage(message: "Failed", isDone: false)
+        var returnMessage = ReturnMessage(message: "Failed", isDone: false, objects: nil)
         
         return returnMessage
     }

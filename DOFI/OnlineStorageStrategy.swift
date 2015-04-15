@@ -12,7 +12,7 @@ class OnlineStorageStrategy: StorageStrategy {
 
 	let dofiService = DOFIService()
 
-	func login(username: NSString, password: NSString) -> (ReturnMessage, User, [Trip]){
+	func login(username: NSString, password: NSString) -> ReturnMessage{
 		return dofiService.login(username, password: password)
 	}
     
