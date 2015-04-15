@@ -11,7 +11,7 @@ import Foundation
 class DOFIService: WebserviceProtocol {
 
 	func login(username: NSString, password:NSString) {
-		let params = ["username":username, "password":password, "grant_type":"password", "client_id": "2", "client_secret" : "DOFISECRET"] as Dictionary<String, String>
+		let params = ["username":username, "password":password, "grant_type":"password", "client_id": "2", "client_secret" : "DOFISECRET"] as Dictionary<NSString, NSString>
 		var url:NSURL = NSURL(string: "http://dev.dofbasenweb/login")!
 
 		var err: NSError?
@@ -28,14 +28,14 @@ class DOFIService: WebserviceProtocol {
 		var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&err)
 
 		if ( urlData != nil ) {
-			var res = response as NSHTTPURLResponse;
+			var res = response as! NSHTTPURLResponse;
 
 			if (res.statusCode >= 200 && res.statusCode < 300) {
 				var responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
-				let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &responseError) as NSDictionary
-				let accessToken:NSString = jsonData.valueForKey("access_token") as NSString
-				let refreshToken:NSString = jsonData.valueForKey("refresh_token") as NSString
-				let expiresIn:Double = jsonData.valueForKey("expires_in") as Double
+				let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &responseError) as! NSDictionary
+				let accessToken:NSString = jsonData.valueForKey("access_token") as! NSString
+				let refreshToken:NSString = jsonData.valueForKey("refresh_token") as! NSString
+				let expiresIn:Double = jsonData.valueForKey("expires_in") as! Double
 
 				var token = Token(accessToken: accessToken, refreshToken: refreshToken, expiresIn: expiresIn)
 
@@ -44,10 +44,10 @@ class DOFIService: WebserviceProtocol {
 				request.HTTPMethod = "GET"
 				urlData = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&responseError)
 				if ( urlData != nil ) {
-					res = response as NSHTTPURLResponse;
+					res = response as! NSHTTPURLResponse;
 					if (res.statusCode >= 200 && res.statusCode < 300) {
 						var responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
-						let jsonDataa:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &responseError) as NSDictionary
+						let jsonDataa:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &responseError) as! NSDictionary
 
 						var user = User(id: 1 as NSInteger, name: "Andreas" as NSString, surname: "Sørensen" as NSString)
 						Session.setUser(user)

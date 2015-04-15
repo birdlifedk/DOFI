@@ -50,13 +50,13 @@ class ViewController: DOFIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 
-	//override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-	//	if(segue.identifier != "goto") {
-		//	let vc:ObservationPageViewController = segue.destinationViewController as ObservationPageViewController
-		//	vc.origin = segue.identifier!
-		//}
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if(segue.identifier != "goto") {
+			let vc:ObservationPageViewController = segue.destinationViewController as! ObservationPageViewController
+			vc.origin = segue.identifier!
+		}
 
-	//}
+	}
 
 
 }

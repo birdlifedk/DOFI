@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E10FFC9A1ADD4C00003AC82D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10FFC991ADD4C00003AC82D /* Realm.framework */; };
+		E10FFC9C1ADD4C71003AC82D /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E10FFC9B1ADD4C71003AC82D /* libc++.dylib */; };
+		E10FFC9E1ADD4C92003AC82D /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FFC9D1ADD4C92003AC82D /* RLMSupport.swift */; };
 		E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A50091AB5B9B4008CB207 /* AppDelegate.swift */; };
 		E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A500B1AB5B9B4008CB207 /* ViewController.swift */; };
 		E12A500F1AB5B9B4008CB207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12A500D1AB5B9B4008CB207 /* Main.storyboard */; };
@@ -28,6 +31,9 @@
 		E16961EF1AD9B01F002D8814 /* LocalStorageStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961EE1AD9B01F002D8814 /* LocalStorageStrategy.swift */; };
 		E16961F11AD9B108002D8814 /* StrategyFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961F01AD9B108002D8814 /* StrategyFacade.swift */; };
 		E16961F31AD9B23A002D8814 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961F21AD9B23A002D8814 /* Reachability.swift */; };
+		E16BB84B1ADE3E86006D54EB /* DOFILocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BB84A1ADE3E86006D54EB /* DOFILocalStorage.swift */; };
+		E16BB84D1ADE4155006D54EB /* DOFIInMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BB84C1ADE4155006D54EB /* DOFIInMemoryStorage.swift */; };
+		E16BB84F1ADE4162006D54EB /* StorageFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BB84E1ADE4162006D54EB /* StorageFacade.swift */; };
 		E16D7BD21AD9479D00C75CD9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D7BD11AD9479D00C75CD9 /* User.swift */; };
 		E17342111AC55B16009020CC /* ObservationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17342101AC55B16009020CC /* ObservationPageViewController.swift */; };
 		E18130B11AD7CA1900C8E952 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18130B01AD7CA1900C8E952 /* LoginController.swift */; };
@@ -47,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E10FFC991ADD4C00003AC82D /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		E10FFC9B1ADD4C71003AC82D /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		E10FFC9D1ADD4C92003AC82D /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		E12A50041AB5B9B4008CB207 /* DOFI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOFI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12A50081AB5B9B4008CB207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E12A50091AB5B9B4008CB207 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +81,9 @@
 		E16961EE1AD9B01F002D8814 /* LocalStorageStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageStrategy.swift; sourceTree = "<group>"; };
 		E16961F01AD9B108002D8814 /* StrategyFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyFacade.swift; sourceTree = "<group>"; };
 		E16961F21AD9B23A002D8814 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		E16BB84A1ADE3E86006D54EB /* DOFILocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFILocalStorage.swift; sourceTree = "<group>"; };
+		E16BB84C1ADE4155006D54EB /* DOFIInMemoryStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFIInMemoryStorage.swift; sourceTree = "<group>"; };
+		E16BB84E1ADE4162006D54EB /* StorageFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageFacade.swift; sourceTree = "<group>"; };
 		E16D7BD11AD9479D00C75CD9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E17342101AC55B16009020CC /* ObservationPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationPageViewController.swift; sourceTree = "<group>"; };
 		E18130B01AD7CA1900C8E952 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -86,6 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E10FFC9C1ADD4C71003AC82D /* libc++.dylib in Frameworks */,
+				E10FFC9A1ADD4C00003AC82D /* Realm.framework in Frameworks */,
 				E18130B31AD8003A00C8E952 /* ExternalAccessory.framework in Frameworks */,
 				E1BC48C61AD3F2D4008C1BC1 /* MapKit.framework in Frameworks */,
 			);
@@ -101,9 +115,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E10FFC9F1ADD53A6003AC82D /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				E16BB84A1ADE3E86006D54EB /* DOFILocalStorage.swift */,
+				E16BB84C1ADE4155006D54EB /* DOFIInMemoryStorage.swift */,
+				E16BB84E1ADE4162006D54EB /* StorageFacade.swift */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
 		E12A4FFB1AB5B9B4008CB207 = {
 			isa = PBXGroup;
 			children = (
+				E10FFC9B1ADD4C71003AC82D /* libc++.dylib */,
+				E10FFC9D1ADD4C92003AC82D /* RLMSupport.swift */,
+				E10FFC991ADD4C00003AC82D /* Realm.framework */,
 				E18130B21AD8003A00C8E952 /* ExternalAccessory.framework */,
 				E1BC48C51AD3F2D4008C1BC1 /* MapKit.framework */,
 				E12A50061AB5B9B4008CB207 /* DOFI */,
@@ -124,8 +151,9 @@
 		E12A50061AB5B9B4008CB207 /* DOFI */ = {
 			isa = PBXGroup;
 			children = (
-				E16961F41AD9B23F002D8814 /* Vendor */,
 				E18130B41AD8003A00C8E952 /* DOFI.entitlements */,
+				E10FFC9F1ADD53A6003AC82D /* Storage */,
+				E16961F41AD9B23F002D8814 /* Vendor */,
 				E16961E41AD9AC44002D8814 /* Webservice */,
 				E16961E91AD9AF72002D8814 /* Strategy */,
 				E16961DB1AD9A2E0002D8814 /* Communication */,
@@ -334,11 +362,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E16BB84D1ADE4155006D54EB /* DOFIInMemoryStorage.swift in Sources */,
 				E16961DD1AD9A33C002D8814 /* CommunicationFacade.swift in Sources */,
 				E16961DA1AD97C5F002D8814 /* Session.swift in Sources */,
 				E16961D81AD96920002D8814 /* Token.swift in Sources */,
 				E14DD9031ABC847300EB7B92 /* TripViewController.swift in Sources */,
 				E16961E31AD9A89F002D8814 /* DOFIViewController.swift in Sources */,
+				E16BB84B1ADE3E86006D54EB /* DOFILocalStorage.swift in Sources */,
+				E16BB84F1ADE4162006D54EB /* StorageFacade.swift in Sources */,
 				E16961F11AD9B108002D8814 /* StrategyFacade.swift in Sources */,
 				E1BC48C41AD2C5DB008C1BC1 /* ObservationViewController.swift in Sources */,
 				E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */,
@@ -350,6 +381,7 @@
 				E16961ED1AD9AFDD002D8814 /* OnlineStorageStrategy.swift in Sources */,
 				E16961E81AD9AE59002D8814 /* DOFIService.swift in Sources */,
 				E17342111AC55B16009020CC /* ObservationPageViewController.swift in Sources */,
+				E10FFC9E1ADD4C92003AC82D /* RLMSupport.swift in Sources */,
 				E16961E11AD9A3A3002D8814 /* GPSCommunication.swift in Sources */,
 				E18130B11AD7CA1900C8E952 /* LoginController.swift in Sources */,
 				E16961F31AD9B23A002D8814 /* Reachability.swift in Sources */,
@@ -479,9 +511,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DOFI/DOFI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DOFI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -490,9 +530,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DOFI/DOFI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DOFI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
