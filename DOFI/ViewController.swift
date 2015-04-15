@@ -36,7 +36,11 @@ class ViewController: DOFIViewController {
 		if (!isLoggedIn) {
 			self.performSegueWithIdentifier("goto", sender: self)
 		} else {
-			//self.usernameLabel.text = prefs.valueForKey("USERNAME") as NSString
+            var user = prefs.objectForKey("USER")
+            
+            var test = User(id: user?.valueForKey("ID") as! NSInteger, name: user?.valueForKey("NAME") as! NSString, surname: user?.valueForKey("SURNAME") as! NSString)
+            
+			Session.setUser(test)
 		}
 	}
 

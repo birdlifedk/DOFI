@@ -29,7 +29,9 @@ class DOFIService: WebserviceProtocol {
 
 		if ( urlData != nil ) {
 			var res = response as! NSHTTPURLResponse;
-
+            println(response)
+            println(res)
+            
 			if (res.statusCode >= 200 && res.statusCode < 300) {
 				var responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
 				let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &responseError) as! NSDictionary
@@ -58,7 +60,8 @@ class DOFIService: WebserviceProtocol {
 						//self.performSegueWithIdentifier("gotoWelcome", sender: self)
 
 						var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-						prefs.setObject(Session.getUser().getUsername(), forKey: "USERNAME")
+                        //prefs.setValue(user.user, forKey: "USER")
+                        prefs.setObject(["ID" : user.getId(), "USERNAME" : user.getUsername(), "NAME" : user.getName(), "SURNAME" : user.getSurname()], forKey: "USER")
 						prefs.setBool(Session.isLoggedIn(), forKey: "ISLOGGEDIN")
 						prefs.synchronize()
                         
@@ -78,7 +81,7 @@ class DOFIService: WebserviceProtocol {
         }
 	}
     
-    func storeObservation(userId: NSInteger, tripId: NSInteger, observation: Observation) -> ReturnMessage{
+    func storeObservation(userId: NSInteger, trip: Trip, observation: Observation) -> ReturnMessage{
         var returnMessage = ReturnMessage(message: "Failed", isDone: false, objects: nil)
         
         return returnMessage

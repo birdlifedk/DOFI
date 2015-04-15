@@ -16,7 +16,7 @@ class OnlineStorageStrategy: StorageStrategy {
 		return dofiService.login(username, password: password)
 	}
     
-    func storeObservation(userId: NSInteger, tripId: NSInteger, observation: Observation) -> ReturnMessage{
-        return dofiService.storeObservation(userId, tripId: tripId, observation: observation)
+    func storeObservation(userId: NSInteger, trip: Trip, observation: Observation) -> ReturnMessage{
+        return dofiService.storeObservation(userId, trip: trip, observation: observation)
     }
 }

@@ -8,26 +8,44 @@
 
 import Foundation
 
+/// A way to communicate with different storages and location handlers
 class CommunicationFacade {
 
+    ///The factory responsible for choosing strategies for CommunicationFacade
     var strategyFactory = StrategyFactory()
     
+    ///The strategy for storing data
     var storageStrategy:StorageStrategy
+    ///The strategy for getting the location of the device
     var locationStrategy:LocationStrategy
 
+    /**
+        Initializes the CommunicationFacade with the strategies provided by the StrategyFactory
+    */
     init(){
         storageStrategy = strategyFactory.getStorageStrategy()
         locationStrategy = strategyFactory.getLocationStrategy()
     }
     
+    /**
+        Log in a user
+    
+        :param: username - The user's user name
+        :param: password - The user's password
+    */
 	func login(username:NSString, password:NSString) -> ReturnMessage{
 		getStorageStrategy()
         return storageStrategy.login(username, password: password)
 	}
     
-    func storeObservation(userId:NSInteger, tripId:NSInteger, observation:Observation) -> ReturnMessage{
+    /**
+        Store Observation
+        
+        
+    */
+    func storeObservation(userId:NSInteger, trip: Trip, observation:Observation) -> ReturnMessage{
         getStorageStrategy()
-        return storageStrategy.storeObservation(userId, tripId: tripId, observation: observation)
+        return storageStrategy.storeObservation(userId, trip: trip, observation: observation)
     }
     
     func getLocation() -> Location{

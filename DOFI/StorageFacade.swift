@@ -8,7 +8,7 @@
 
 import Foundation
 class StorageFacade {
-    func storeObservation(userId:NSInteger, tripId:NSInteger, observation:Observation) -> ReturnMessage{
+    func storeObservation(userId:NSInteger, trip: Trip, observation:Observation) -> ReturnMessage{
 
 		var returnMessage = ReturnMessage(message: "Failed", isDone: false, objects: nil)
         
