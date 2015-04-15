@@ -11,7 +11,7 @@ import Foundation
 class DOFIService: WebserviceProtocol {
 
 	func login(username: NSString, password:NSString) -> (ReturnMessage, User, [Trip]){
-		let params = ["username":username, "password":password, "grant_type":"password", "client_id": "2", "client_secret" : "DOFISECRET"] as Dictionary<String, String>
+		let params = ["username":username, "password":password, "grant_type":"password", "client_id": "2", "client_secret" : "DOFISECRET"] as Dictionary<NSString, NSString>
 		var url:NSURL = NSURL(string: "http://dev.dofbasenweb/login")!
 
 		var err: NSError?
@@ -62,7 +62,7 @@ class DOFIService: WebserviceProtocol {
 						prefs.setBool(Session.isLoggedIn(), forKey: "ISLOGGEDIN")
 						prefs.synchronize()
                         
-                        return (ReturnMessage(message: "Success!", isDone: true), user, trips)
+                        return (ReturnMessage(message: "Success!", isDone: true), user, trips as! [Trip])
                         
                     }else {
                         return (ReturnMessage(message: "second status code out of range", isDone: false), User(name: "", surname: ""), [])
