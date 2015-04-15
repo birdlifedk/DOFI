@@ -7,7 +7,17 @@
 //
 
 import Foundation
+import Realm
 
 class DOFILocalStorage {
 
+	let realm =  RLMRealm.defaultRealm()
+
+	func store(object: RLMObject) {
+		self.realm.addObject(object)
+	}
+
+	func delete(object: RLMObject) {
+		self.delete(object)
+	}
 }

@@ -7,7 +7,18 @@
 //
 
 import Foundation
+import Realm
 
 class DOFIInMemoryStorage {
-	
+
+	let realm =  RLMRealm.inMemoryRealmWithIdentifier("DOFIMemory")
+
+	func store(object: RLMObject) {
+		self.realm.addObject(object)
+	}
+
+	func delete(object: RLMObject) {
+		self.delete(object)
+
+	}
 }
