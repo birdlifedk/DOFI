@@ -1,13 +1,17 @@
 //
-//  StorageFacade.swift
+//  LocalStorageFacade.swift
 //  DOFI
 //
-//  Created by Andreas Dahl on 15/04/15.
+//  Created by Rasmus Rosted on 14/04/15.
 //  Copyright (c) 2015 DOF. All rights reserved.
 //
 
 import Foundation
-
 class StorageFacade {
-	
+    func storeObservation(userId:NSInteger, tripId:NSInteger, observation:Observation) -> ReturnMessage{
+
+		var returnMessage = ReturnMessage(message: "Failed", isDone: false)
+        
+        return returnMessage
+    }
 }

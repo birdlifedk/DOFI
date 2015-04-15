@@ -12,7 +12,7 @@
 		57133D871ADD41A700665C77 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D861ADD41A700665C77 /* Observation.swift */; };
 		57133D891ADD429900665C77 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D881ADD429900665C77 /* Trip.swift */; };
 		57133D8B1ADD43FB00665C77 /* ReturnMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D8A1ADD43FB00665C77 /* ReturnMessage.swift */; };
-		57133D8F1ADD5FD600665C77 /* LocalStorageFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D8E1ADD5FD600665C77 /* LocalStorageFacade.swift */; };
+		57133D8F1ADD5FD600665C77 /* StorageFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D8E1ADD5FD600665C77 /* StorageFacade.swift */; };
 		57133D911ADD628C00665C77 /* LocationStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D901ADD628B00665C77 /* LocationStrategy.swift */; };
 		57133D931ADD62EC00665C77 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D921ADD62EC00665C77 /* Position.swift */; };
 		57133D951ADD651B00665C77 /* HighPrecisionLocationStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57133D941ADD651B00665C77 /* HighPrecisionLocationStrategy.swift */; };
@@ -36,9 +36,9 @@
 		E16961ED1AD9AFDD002D8814 /* OnlineStorageStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961EC1AD9AFDD002D8814 /* OnlineStorageStrategy.swift */; };
 		E16961EF1AD9B01F002D8814 /* LocalStorageStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961EE1AD9B01F002D8814 /* LocalStorageStrategy.swift */; };
 		E16961F31AD9B23A002D8814 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961F21AD9B23A002D8814 /* Reachability.swift */; };
-		E16BB84B1ADE3E86006D54EB /* DOFILocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BB84A1ADE3E86006D54EB /* DOFILocalStorage.swift */; };
-		E16BB84D1ADE4155006D54EB /* DOFIInMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BB84C1ADE4155006D54EB /* DOFIInMemoryStorage.swift */; };
-		E16BB84F1ADE4162006D54EB /* StorageFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BB84E1ADE4162006D54EB /* StorageFacade.swift */; };
+		E16BB8541ADE5EFA006D54EB /* DOFIInMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BB8501ADE5EFA006D54EB /* DOFIInMemoryStorage.swift */; };
+		E16BB8551ADE5EFA006D54EB /* DOFILocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BB8511ADE5EFA006D54EB /* DOFILocalStorage.swift */; };
+		E16BB8561ADE5EFA006D54EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16BB8521ADE5EFA006D54EB /* Images.xcassets */; };
 		E16D7BD21AD9479D00C75CD9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D7BD11AD9479D00C75CD9 /* User.swift */; };
 		E17342111AC55B16009020CC /* ObservationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17342101AC55B16009020CC /* ObservationPageViewController.swift */; };
 		E18130B11AD7CA1900C8E952 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18130B01AD7CA1900C8E952 /* LoginController.swift */; };
@@ -63,7 +63,7 @@
 		57133D861ADD41A700665C77 /* Observation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
 		57133D881ADD429900665C77 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		57133D8A1ADD43FB00665C77 /* ReturnMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnMessage.swift; sourceTree = "<group>"; };
-		57133D8E1ADD5FD600665C77 /* LocalStorageFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageFacade.swift; sourceTree = "<group>"; };
+		57133D8E1ADD5FD600665C77 /* StorageFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageFacade.swift; sourceTree = "<group>"; };
 		57133D901ADD628B00665C77 /* LocationStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationStrategy.swift; sourceTree = "<group>"; };
 		57133D921ADD62EC00665C77 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		57133D941ADD651B00665C77 /* HighPrecisionLocationStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighPrecisionLocationStrategy.swift; sourceTree = "<group>"; };
@@ -91,9 +91,9 @@
 		E16961EC1AD9AFDD002D8814 /* OnlineStorageStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineStorageStrategy.swift; sourceTree = "<group>"; };
 		E16961EE1AD9B01F002D8814 /* LocalStorageStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageStrategy.swift; sourceTree = "<group>"; };
 		E16961F21AD9B23A002D8814 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		E16BB84A1ADE3E86006D54EB /* DOFILocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFILocalStorage.swift; sourceTree = "<group>"; };
-		E16BB84C1ADE4155006D54EB /* DOFIInMemoryStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFIInMemoryStorage.swift; sourceTree = "<group>"; };
-		E16BB84E1ADE4162006D54EB /* StorageFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageFacade.swift; sourceTree = "<group>"; };
+		E16BB8501ADE5EFA006D54EB /* DOFIInMemoryStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFIInMemoryStorage.swift; sourceTree = "<group>"; };
+		E16BB8511ADE5EFA006D54EB /* DOFILocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFILocalStorage.swift; sourceTree = "<group>"; };
+		E16BB8521ADE5EFA006D54EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E16D7BD11AD9479D00C75CD9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E17342101AC55B16009020CC /* ObservationPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationPageViewController.swift; sourceTree = "<group>"; };
 		E18130B01AD7CA1900C8E952 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -108,8 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E10FFC9C1ADD4C71003AC82D /* libc++.dylib in Frameworks */,
-				E10FFC9A1ADD4C00003AC82D /* Realm.framework in Frameworks */,
 				E18130B31AD8003A00C8E952 /* ExternalAccessory.framework in Frameworks */,
 				E1BC48C61AD3F2D4008C1BC1 /* MapKit.framework in Frameworks */,
 			);
@@ -125,12 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		57133D8C1ADD5F8E00665C77 /* LocalStorage */ = {
+		57133D8C1ADD5F8E00665C77 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				57133D8E1ADD5FD600665C77 /* LocalStorageFacade.swift */,
+				E16BB8501ADE5EFA006D54EB /* DOFIInMemoryStorage.swift */,
+				E16BB8511ADE5EFA006D54EB /* DOFILocalStorage.swift */,
+				57133D8E1ADD5FD600665C77 /* StorageFacade.swift */,
 			);
-			name = LocalStorage;
+			name = Storage;
 			sourceTree = "<group>";
 		};
 		57133D8D1ADD5FB100665C77 /* GPS */ = {
@@ -143,9 +143,6 @@
 		E12A4FFB1AB5B9B4008CB207 = {
 			isa = PBXGroup;
 			children = (
-				E10FFC9B1ADD4C71003AC82D /* libc++.dylib */,
-				E10FFC9D1ADD4C92003AC82D /* RLMSupport.swift */,
-				E10FFC991ADD4C00003AC82D /* Realm.framework */,
 				E18130B21AD8003A00C8E952 /* ExternalAccessory.framework */,
 				E1BC48C51AD3F2D4008C1BC1 /* MapKit.framework */,
 				E12A50061AB5B9B4008CB207 /* DOFI */,
@@ -166,11 +163,10 @@
 		E12A50061AB5B9B4008CB207 /* DOFI */ = {
 			isa = PBXGroup;
 			children = (
+				E16BB8521ADE5EFA006D54EB /* Images.xcassets */,
 				57133D8D1ADD5FB100665C77 /* GPS */,
-				57133D8C1ADD5F8E00665C77 /* LocalStorage */,
-				E16961F41AD9B23F002D8814 /* Vendor */,
+				57133D8C1ADD5F8E00665C77 /* Storage */,
 				E18130B41AD8003A00C8E952 /* DOFI.entitlements */,
-				E10FFC9F1ADD53A6003AC82D /* Storage */,
 				E16961F41AD9B23F002D8814 /* Vendor */,
 				E16961E41AD9AC44002D8814 /* Webservice */,
 				E16961E91AD9AF72002D8814 /* Communication */,
@@ -359,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12A500F1AB5B9B4008CB207 /* Main.storyboard in Resources */,
+				E16BB8561ADE5EFA006D54EB /* Images.xcassets in Resources */,
 				E12A502A1AB5CBFD008CB207 /* nav-bar.png in Resources */,
 				E12A50141AB5B9B4008CB207 /* LaunchScreen.xib in Resources */,
 				E12A50111AB5B9B4008CB207 /* Images.xcassets in Resources */,
@@ -380,7 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57133D8B1ADD43FB00665C77 /* ReturnMessage.swift in Sources */,
-				57133D8F1ADD5FD600665C77 /* LocalStorageFacade.swift in Sources */,
+				57133D8F1ADD5FD600665C77 /* StorageFacade.swift in Sources */,
 				57133D891ADD429900665C77 /* Trip.swift in Sources */,
 				E16961DD1AD9A33C002D8814 /* CommunicationFacade.swift in Sources */,
 				E16961DA1AD97C5F002D8814 /* Session.swift in Sources */,
@@ -388,6 +385,7 @@
 				57133D9B1ADD693E00665C77 /* NoConnectionLocationStrategy.swift in Sources */,
 				E14DD9031ABC847300EB7B92 /* TripViewController.swift in Sources */,
 				E16961E31AD9A89F002D8814 /* DOFIViewController.swift in Sources */,
+				E16BB8541ADE5EFA006D54EB /* DOFIInMemoryStorage.swift in Sources */,
 				E1BC48C41AD2C5DB008C1BC1 /* ObservationViewController.swift in Sources */,
 				E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */,
 				E16961EF1AD9B01F002D8814 /* LocalStorageStrategy.swift in Sources */,
@@ -403,6 +401,7 @@
 				E16961E81AD9AE59002D8814 /* DOFIService.swift in Sources */,
 				57133D911ADD628C00665C77 /* LocationStrategy.swift in Sources */,
 				E17342111AC55B16009020CC /* ObservationPageViewController.swift in Sources */,
+				E16BB8551ADE5EFA006D54EB /* DOFILocalStorage.swift in Sources */,
 				57133D871ADD41A700665C77 /* Observation.swift in Sources */,
 				E18130B11AD7CA1900C8E952 /* LoginController.swift in Sources */,
 				57133D831ADD3AEF00665C77 /* StorageStrategy.swift in Sources */,
