@@ -14,7 +14,7 @@ class Location {
     var longitude: CLLocationDegrees?
     
     
-    init (latitude: CLLocationDegrees, longitude: CLLocationDegrees)
+    init (latitude: CLLocationDegrees?, longitude: CLLocationDegrees?)
     {
         self.latitude = latitude
         self.longitude = longitude
