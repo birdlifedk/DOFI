@@ -11,7 +11,7 @@ import UIKit
 
 class LocalStorageStrategy: StorageStrategy {
 
-    let localStorageFacade = LocalStorageFacade()
+    let localStorageFacade = StorageFacade()
     
 	func login(username: NSString, password: NSString) -> (ReturnMessage, User, [Trip]){
 		var alert = UIAlertView()
