@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 class StrategyFactory {
     
     func getStorageStrategy() -> StorageStrategy{
@@ -19,7 +21,24 @@ class StrategyFactory {
         }
     }
     
-    func getPositionStrategy() -> PositionStrategy{
+    func getLocationStrategy() -> LocationStrategy{
+        UIDevice.currentDevice().batteryMonitoringEnabled = true
         
+        var batteriLevel = batteryLevel()
+        
+        if(batteryLevel()>10)
+        {
+            return HighPrecisionLocationStrategy()
+        }else {
+            return LowPrecisionLocationStrategy()
+        }
+        //return NoConnectionLocationStrategi()
     }
+    
+    func batteryLevel()-> Float {
+        
+        return UIDevice.currentDevice().batteryLevel
+    }
+    
+    
 }

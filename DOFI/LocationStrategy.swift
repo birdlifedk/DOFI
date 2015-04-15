@@ -1,5 +1,5 @@
 //
-//  HighPrecisionPositionStrategy.swift
+//  LocationStrategy.swift
 //  DOFI
 //
 //  Created by Rasmus Rosted on 14/04/15.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-class HighPrecisionPositionStrategy: PositionStrategy {
+protocol LocationStrategy {
     
+    func getLocation() -> Location
 }

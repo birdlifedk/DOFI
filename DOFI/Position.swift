@@ -1,5 +1,5 @@
 //
-//  Position.swift
+//  Location.swift
 //  DOFI
 //
 //  Created by Rasmus Rosted on 14/04/15.
