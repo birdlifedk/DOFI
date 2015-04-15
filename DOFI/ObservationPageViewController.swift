@@ -77,11 +77,11 @@ class ObservationPageViewController: UIPageViewController, UIPageViewControllerD
 		return self.viewControllerAtIndex(++self.index)
 	}
 
-	func presentationCountForPageViewController(pageViewController: UIPageViewController!) -> Int {
+	func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
 		return self.identifiers.count
 	}
 
-	func presentationIndexForPageViewController(pageViewController: UIPageViewController!) -> Int {
+	func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
 		return 0
 	}
 }

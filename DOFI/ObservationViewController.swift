@@ -73,7 +73,7 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 		return picks.count
 	}
 
-	func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String! {
+	func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
 		return picks[row]
 	}
 
