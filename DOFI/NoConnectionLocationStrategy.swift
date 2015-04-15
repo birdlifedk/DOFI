@@ -10,6 +10,6 @@ import Foundation
 
 class NoConnectionLocationStrategy: LocationStrategy {
     func getLocation() -> Location{
-        return Location(nil, nil)
+        return Location(latitude: nil, longitude: nil)
     }
 }
