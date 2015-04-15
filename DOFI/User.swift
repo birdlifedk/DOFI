@@ -19,7 +19,7 @@ public class User {
 
 	private let name:NSString
 
-	private let surname:NSString
+	private var surname:NSString
 
 	private var token:Token?
 

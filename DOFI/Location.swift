@@ -10,13 +10,9 @@ import Foundation
 import CoreLocation
 
 class Location {
-    var latitude: CLLocationDegrees
-    var longitude: CLLocationDegrees
+    var latitude: CLLocationDegrees?
+    var longitude: CLLocationDegrees?
     
-    init()
-    {
-        
-    }
     
     init (latitude: CLLocationDegrees, longitude: CLLocationDegrees)
     {
