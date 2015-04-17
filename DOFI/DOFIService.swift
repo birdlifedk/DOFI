@@ -12,7 +12,7 @@ class DOFIService: WebserviceProtocol {
 
 	func login(username: NSString, password:NSString) -> (ReturnMessage, User, [Trip]){
 		let params = ["username":username, "password":password, "grant_type":"password", "client_id": "2", "client_secret" : "DOFISECRET"] as Dictionary<NSString, NSString>
-		var url:NSURL = NSURL(string: "http://dev.dofbasenweb/login")!
+		var url:NSURL = NSURL(string: "http://dev.backbone/login")!
 
 		var err: NSError?
 		var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
@@ -39,7 +39,7 @@ class DOFIService: WebserviceProtocol {
 
 				var token = Token(accessToken: accessToken, refreshToken: refreshToken, expiresIn: expiresIn)
 
-				url = NSURL(string: "http://dev.dofbasenweb/user/\(username)?access_token=\(token.accessToken)")!
+				url = NSURL(string: "http://dev.backbone/user/\(username)?access_token=\(token.accessToken)")!
 				request = NSMutableURLRequest(URL: url)
 				request.HTTPMethod = "GET"
 				urlData = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&responseError)

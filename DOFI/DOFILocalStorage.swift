@@ -20,4 +20,14 @@ class DOFILocalStorage {
 	func delete(object: RLMObject) {
 		self.delete(object)
 	}
+
+	func getAllObservations() -> RLMResults {
+		return Observation.allObjects()
+	}
+
+	func uploadContent() {
+		var observations = Observation.allObjects()
+
+
+	}
 }

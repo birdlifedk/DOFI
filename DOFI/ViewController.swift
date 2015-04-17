@@ -12,8 +12,7 @@ class ViewController: DOFIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
-
+		// Do any additional setup after loading the view, typically from a nib
 
 		var nav = self.navigationController?.navigationBar
 
@@ -24,11 +23,6 @@ class ViewController: DOFIViewController {
 		nav?.barTintColor = color
 		nav?.backgroundColor = color
 
-	}
-
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(true)
-
 		let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
 
 		let isLoggedIn:Bool = prefs.boolForKey("ISLOGGEDIN") as Bool
@@ -37,6 +31,24 @@ class ViewController: DOFIViewController {
 			self.performSegueWithIdentifier("goto", sender: self)
 		} else {
 			//self.usernameLabel.text = prefs.valueForKey("USERNAME") as NSString
+		}
+
+		self.startMonitoring()
+
+	}
+
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(true)
+
+
+	}
+
+	func startMonitoring() {
+		let queue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
+		dispatch_async(queue) {
+			var monitor = Monitor()
+			monitor.start()
 		}
 	}
 
