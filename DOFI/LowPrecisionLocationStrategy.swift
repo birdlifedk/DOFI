@@ -9,16 +9,20 @@
 import Foundation
 import CoreLocation
 
-class LowPrecisionLocationStrategy: LocationStrategy {
+class LowPrecisionLocationStrategy: LocationStrategy, CLLocationManagerDelegate {
+    
+    let locationManager = CLLocationManager()
+    
     func getLocation() -> Location{
-        var locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        
         if CLLocationManager.authorizationStatus() == .NotDetermined {
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
+            self.locationManager.requestWhenInUseAuthorization()
+            self.locationManager.startUpdatingLocation()
         }
-            
+        
+        
         var location = locationManager.location
             
         var coordinate = location.coordinate
@@ -30,6 +34,22 @@ class LowPrecisionLocationStrategy: LocationStrategy {
         return Location(latitude: latitude, longitude: longitude)
     }
     
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        CLGeocoder.reverseGeocodeLocation(manager.location, completionHandler: { (placemarks, error) -> Void in
+            
+            if (error != nil){
+                println(error.localizedDescription)
+                return
+            }
+            
+            if (placemarks.count>0) {
+                let pm = placemarks[0] as CLPlacemark
+                self.displayLocationInfo(pm)
+            }else {
+                println()
+            }
+    })
+    
     //    func locationManager(manager: CLLocationManager!,
     //        didChangeAuthorizationStatus status: CLAuthorizationStatus)
     //    {
@@ -38,4 +58,14 @@ class LowPrecisionLocationStrategy: LocationStrategy {
     //        }
     //    }
 
+    }
+    
+    func displayLocationInfo (placemark: CLPlacemark) {
+        self.locationManager.stopUpdatingLocation()
+        println(placemark.location)
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println(error.localizedDescription)
+    }
 }

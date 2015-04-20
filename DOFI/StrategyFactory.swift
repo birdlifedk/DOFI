@@ -22,11 +22,10 @@ class StrategyFactory {
     }
     
     func getLocationStrategy() -> LocationStrategy{
-        UIDevice.currentDevice().batteryMonitoringEnabled = true
         
-        var batteriLevel = batteryLevel()
+        var currentBatteryLevel = batteryLevel()
         
-        if(batteryLevel()>10)
+        if(currentBatteryLevel>0.1)
         {
             return HighPrecisionLocationStrategy()
         }else {
@@ -36,7 +35,7 @@ class StrategyFactory {
     }
     
     func batteryLevel()-> Float {
-        
+        UIDevice.currentDevice().batteryMonitoringEnabled = true
         return UIDevice.currentDevice().batteryLevel
     }
     

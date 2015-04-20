@@ -23,6 +23,8 @@ class ViewController: DOFIViewController {
 		var color = UIColor(red: 0.6, green:0.0, blue: 0.0, alpha: 1.0)
 		nav?.barTintColor = color
 		nav?.backgroundColor = color
+        
+        
 
 	}
 
