@@ -98,6 +98,9 @@
                                 <state key="normal" title="Er du ikke oprettet som bruger?">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="newUserHandler:" destination="UWA-8e-aH6" eventType="touchUpInside" id="DwI-nJ-QNb"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brugernavn" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GWF-Fu-0dz">
                                 <rect key="frame" x="123" y="145" width="355" height="30"/>
@@ -703,7 +706,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wcl-Ci-UQB"/>
         <segue reference="k4H-uH-kFc"/>
+        <segue reference="wcl-Ci-UQB"/>
     </inferredMetricsTieBreakers>
 </document>

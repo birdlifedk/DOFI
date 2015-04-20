@@ -13,6 +13,8 @@ class LoginController: DOFIViewController {
 
 	@IBOutlet var textUsername: UITextField!
 	@IBOutlet var TextPassword: UITextField!
+    
+    let dofbasenURL =  NSURL(string: "http://www.dofbasen.dk/opretmig.php")
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -38,6 +40,10 @@ class LoginController: DOFIViewController {
 		self.communicationFacade.login(username, password: password)
 		self.navigationController?.popViewControllerAnimated(true)
 	}
+    
+    @IBAction func newUserHandler(sender: UIButton) {
+        UIApplication.sharedApplication().openURL(self.dofbasenURL!)
+    }
 
 
 }
