@@ -7,6 +7,12 @@
 //
 
 import Foundation
-public class Trip {
-    
+import Realm
+
+class Trip: RLMObject {
+
+	var location:NSString?
+
+	var date:NSDate?
+	
 }

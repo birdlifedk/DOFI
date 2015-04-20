@@ -359,7 +359,7 @@
         <!--Primær-->
         <scene sceneID="J5E-Ii-Xj8">
             <objects>
-                <viewController storyboardIdentifier="tripRequired" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lpq-BM-hLx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tripRequired" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lpq-BM-hLx" customClass="TripViewController" customModule="DOFI" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UW7-B4-0hG"/>
                         <viewControllerLayoutGuide type="bottom" id="xPe-6G-haF"/>
@@ -398,6 +398,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Primær" id="dVb-OY-Gzq"/>
+                    <connections>
+                        <outlet property="locationText" destination="szH-Ej-hOp" id="sh0-RR-lgJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUt-he-YIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
