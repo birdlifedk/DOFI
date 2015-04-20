@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 /// A way to communicate with different storages and location handlers
 class CommunicationFacade {
@@ -15,16 +16,16 @@ class CommunicationFacade {
     var strategyFactory = StrategyFactory()
     
     ///The strategy for storing data
-    var storageStrategy:StorageStrategy
+    var storageStrategy:StorageStrategy?
     ///The strategy for getting the location of the device
-    var locationStrategy:LocationStrategy
+    var locationStrategy:LocationStrategy?
 
     /**
         Initializes the CommunicationFacade with the strategies provided by the StrategyFactory
     */
     init(){
-        storageStrategy = strategyFactory.getStorageStrategy()
-        locationStrategy = strategyFactory.getLocationStrategy()
+        storageStrategy = nil
+        locationStrategy = nil
     }
     
     /**
@@ -35,7 +36,7 @@ class CommunicationFacade {
     */
 	func login(username:NSString, password:NSString) -> ReturnMessage{
 		getStorageStrategy()
-        return storageStrategy.login(username, password: password)
+        return storageStrategy!.login(username, password: password)
 	}
     
     /**
@@ -45,12 +46,17 @@ class CommunicationFacade {
     */
     func storeObservation(userId:NSInteger, trip: Trip, observation:Observation) -> ReturnMessage{
         getStorageStrategy()
-        return storageStrategy.storeObservation(userId, trip: trip, observation: observation)
+        return storageStrategy!.storeObservation(userId, trip: trip, observation: observation)
     }
     
-    func getLocation() -> Location{
+    func getLocation(locationManager: CLLocationManager) -> Location{
+        locationManager.startUpdatingLocation()
         getLocationStrategy()
-        return locationStrategy.getLocation()
+        
+        
+        var location = locationStrategy!.getLocation(locationManager)
+        
+        return location
     }
     
     private func getStorageStrategy(){

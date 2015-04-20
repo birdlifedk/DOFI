@@ -109,7 +109,7 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
         var trip = Trip()
         var observation = Observation()
         
-        var returnMessage = communicationFacade.getLocation()
+        var returnMessage = communicationFacade.getLocation(self.locationManager)
         //var returnMessage = communicationFacade.storeObservation(userId, trip: trip, observation: observation)
         self.navigationController?.popViewControllerAnimated(true)
     }

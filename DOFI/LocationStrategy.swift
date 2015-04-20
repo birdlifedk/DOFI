@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import CoreLocation
 
 protocol LocationStrategy {
     
-    func getLocation() -> Location
+    func getLocation(locationManager: CLLocationManager) -> Location
 }

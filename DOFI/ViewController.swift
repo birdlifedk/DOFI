@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: DOFIViewController {
-
+class ViewController: DOFIViewController, CLLocationManagerDelegate {
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
@@ -24,7 +25,7 @@ class ViewController: DOFIViewController {
 		nav?.barTintColor = color
 		nav?.backgroundColor = color
         
-        
+        setupLocationManager()
 
 	}
 
@@ -64,6 +65,36 @@ class ViewController: DOFIViewController {
 
 	}
 
+    func setupLocationManager(){
+        self.locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: { (placemarks, error) -> Void in
+            
+            if (error != nil){
+                println("Error: " + error.localizedDescription)
+                return
+            }
+            
+            if (placemarks.count>0) {
+                let pm = placemarks[0] as! CLPlacemark
+                self.displayLocationInfo(pm)
+            }else {
+                println("No placemarks")
+            }
+        })
+    }
+    
+    func displayLocationInfo(placemark: CLPlacemark)
+    {
+        println(placemark.location.coordinate.latitude)
+        println(placemark.location.coordinate.longitude)
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println("Did fail with error: " + error.localizedDescription)
+    }
 
 }
 
