@@ -19,6 +19,7 @@
 		57175C3E1ADE61AF00116D0F /* StorageStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57175C3D1ADE61AF00116D0F /* StorageStrategy.swift */; };
 		57175C401AE6934D00116D0F /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57175C3F1AE6934D00116D0F /* UserMapper.swift */; };
 		57175C421AE69E1D00116D0F /* TokenMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57175C411AE69E1D00116D0F /* TokenMapper.swift */; };
+		57175C441AE6BD8600116D0F /* TripMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57175C431AE6BD8600116D0F /* TripMapper.swift */; };
 		E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A50091AB5B9B4008CB207 /* AppDelegate.swift */; };
 		E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A500B1AB5B9B4008CB207 /* ViewController.swift */; };
 		E12A500F1AB5B9B4008CB207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12A500D1AB5B9B4008CB207 /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		57175C3D1ADE61AF00116D0F /* StorageStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageStrategy.swift; sourceTree = "<group>"; };
 		57175C3F1AE6934D00116D0F /* UserMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
 		57175C411AE69E1D00116D0F /* TokenMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenMapper.swift; sourceTree = "<group>"; };
+		57175C431AE6BD8600116D0F /* TripMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripMapper.swift; sourceTree = "<group>"; };
 		E12A50041AB5B9B4008CB207 /* DOFI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOFI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12A50081AB5B9B4008CB207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E12A50091AB5B9B4008CB207 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				E16961E71AD9AE59002D8814 /* DOFIService.swift */,
 				57175C3F1AE6934D00116D0F /* UserMapper.swift */,
 				57175C411AE69E1D00116D0F /* TokenMapper.swift */,
+				57175C431AE6BD8600116D0F /* TripMapper.swift */,
 			);
 			name = Webservice;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				E17342111AC55B16009020CC /* ObservationPageViewController.swift in Sources */,
 				E16BB8551ADE5EFA006D54EB /* DOFILocalStorage.swift in Sources */,
 				57133D871ADD41A700665C77 /* Observation.swift in Sources */,
+				57175C441AE6BD8600116D0F /* TripMapper.swift in Sources */,
 				E18130B11AD7CA1900C8E952 /* LoginController.swift in Sources */,
 				E16961F31AD9B23A002D8814 /* Reachability.swift in Sources */,
 			);
