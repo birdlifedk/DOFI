@@ -13,15 +13,24 @@ import Realm
 class LocalStorageStrategy: StorageStrategy {
 
     let localStorageFacade = StorageFacade()
+    let dofiService = DOFIService()
     
 	func login(username: NSString, password: NSString) -> ReturnMessage{
-		var alert = UIAlertView()
-		alert.title = "Ingen internet?"
-		alert.message = "Det ser ud til du ikke har forbindelse til internettet"
-		alert.addButtonWithTitle("Ok")
-		alert.show()
-        var returnMessage = ReturnMessage(message: "Det ser ud til du ikke har forbindelse til internettet", isDone: false, objects: [])
-        return (returnMessage)
+        var connection = Reachability.reachabilityForInternetConnection()
+        
+        if(connection.isReachableViaWiFi()) {
+            return dofiService.login(username, password: password)
+        }
+        else{
+            var alert = UIAlertView()
+            alert.title = "Ingen internet?"
+            alert.message = "Det ser ud til du ikke har forbindelse til internettet"
+            alert.addButtonWithTitle("Ok")
+            alert.show()
+            var returnMessage = ReturnMessage(message: "Det ser ud til du ikke har forbindelse til internettet", isDone: false, objects: [])
+            
+            return (returnMessage)
+        }
         
 	}
     

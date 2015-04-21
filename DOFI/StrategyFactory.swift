@@ -12,32 +12,10 @@ import UIKit
 class StrategyFactory {
     
     func getStorageStrategy() -> StorageStrategy{
-        var connection = Reachability.reachabilityForInternetConnection()
-        
-        if(connection.isReachableViaWiFi()) {
-            return OnlineStorageStrategy()
-        } else {
             return LocalStorageStrategy()
-        }
     }
     
     func getLocationStrategy() -> LocationStrategy{
-        
-        var currentBatteryLevel = batteryLevel()
-        
-        if(currentBatteryLevel>0.1)
-        {
             return HighPrecisionLocationStrategy()
-        }else {
-            return LowPrecisionLocationStrategy()
-        }
-        //return NoConnectionLocationStrategi()
     }
-    
-    func batteryLevel()-> Float {
-        UIDevice.currentDevice().batteryMonitoringEnabled = true
-        return UIDevice.currentDevice().batteryLevel
-    }
-    
-    
 }
