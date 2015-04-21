@@ -9,10 +9,19 @@
 import Foundation
 import Realm
 
+struct Time {
+	var from = "", to = ""
+}
+
 class Trip: RLMObject {
 
 	var location:NSString?
 
 	var date:NSDate?
+
+	var time:Time?
+
+	var method:NSString?
 	
+	var note:NSString?
 }
