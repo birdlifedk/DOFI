@@ -105,7 +105,7 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 
 
     @IBAction func confirmButtonHandler(sender: UIButton) {
-        var userId = Session.getUser().getId()
+        var userId = Session.getUser().id
         var trip = Trip()
         var observation = Observation()
         

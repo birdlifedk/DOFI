@@ -7,78 +7,20 @@
 //
 
 import Foundation
+import Realm
 
 //
 // The User class, representing af user.
 //
-public class User {
+public class User: RLMObject {
 
-	private var id:NSInteger = -1
+	var id = -1
 
-	private var username:NSString = ""
+	var username:NSString?
 
-	private let name:NSString?
+	var name:NSString?
 
-	private var surname:NSString
+	var surname:NSString?
 
-	private var token:Token?
-    
-	init(name: NSString, surname: NSString) {
-		self.name = name
-        self.surname = surname
-	}
-
-	init(id: NSInteger, name: NSString, surname: NSString) {
-		self.id = id
-		self.name = name
-		self.surname = surname
-	}
-
-	//
-	// Returns a users id
-	//
-	// :Returns: user id
-	public func getId() -> NSInteger {
-		return self.id
-	}
-
-	//
-	//	Get a users obserkode.
-	//
-	// :Returns: Obserkode - A users obserkode
-	public func getUsername () -> NSString {
-		return self.username
-	}
-
-	//
-	//	Get a users name.
-	//
-	// :Returns: Name - A users name
-	public func getName () -> NSString {
-		return self.name!
-	}
-
-	//
-	//	Get a users surname.
-	//
-	// :Returns: Surname - A users Surname
-	public func getSurname () -> NSString {
-		return self.surname
-	}
-
-	//
-	// Set a users id.
-	//
-	// :Param: Id The new id.
-	public func setId(id:NSInteger) {
-		self.id = id
-	}
-
-	//
-	// Set a users id.
-	//
-	// :Param: Id The new id.
-	public func setObserkode(username:NSString) {
-		self.username = username
-	}
+	var token:Token?
 }

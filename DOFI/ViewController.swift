@@ -41,9 +41,13 @@ class ViewController: DOFIViewController, CLLocationManagerDelegate {
 		} else {
             var user = prefs.objectForKey("USER")
             
-            var test = User(id: user?.valueForKey("ID") as! NSInteger, name: user?.valueForKey("NAME") as! NSString, surname: user?.valueForKey("SURNAME") as! NSString)
+            var sessionUser = User()
+            sessionUser.id = user?.valueForKey("ID") as! NSInteger
+            sessionUser.name = user?.valueForKey("NAME") as! NSString
+            sessionUser.surname = user?.valueForKey("SURNAME") as! NSString
             
-			Session.setUser(test)
+            
+			Session.setUser(sessionUser)
 		}
 	}
 

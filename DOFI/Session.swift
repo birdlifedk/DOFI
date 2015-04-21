@@ -13,10 +13,16 @@ struct Session {
 	private static var loggedIn = false
 
 	private static var user:User?
+    
+    private static var token:Token?
 
 	static func getUser() -> User {
 		return self.user!
 	}
+    
+    static func getToken() -> Token {
+        return self.token!
+    }
 
 	static func isLoggedIn() -> Bool {
 		return self.loggedIn
@@ -29,4 +35,8 @@ struct Session {
 	static func setUser(user: User) {
 		self.user = user
 	}
+    
+    static func setToken(token: Token) {
+        self.token = token
+    }
 }
