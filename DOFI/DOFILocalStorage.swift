@@ -24,10 +24,4 @@ class DOFILocalStorage {
 	func getAllObservations() -> RLMResults {
 		return Observation.allObjects()
 	}
-
-	func uploadContent() {
-		var observations = Observation.allObjects()
-
-
-	}
 }

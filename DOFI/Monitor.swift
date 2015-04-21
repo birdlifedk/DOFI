@@ -11,10 +11,14 @@ import Realm
 
 class Monitor {
 
-	var storage = StorageFacade()
-
+    var storageStrategy:StorageStrategy
+    
 	var run = true
 
+    init(storageStrategy: StorageStrategy){
+        self.storageStrategy = storageStrategy
+    }
+    
 	func start() {
 		NSLog("Start")
 		while run {
@@ -29,15 +33,11 @@ class Monitor {
 		self.run = false
 	}
 
-	func getAllObservations() -> RLMResults {
-		return storage.getAllObservations()
-	}
-
 	func getDbContent() {
 
 	}
 
 	func uploadContent() {
-		storage.uploadContent()
+		storageStrategy.uploadContent()
 	}
 }

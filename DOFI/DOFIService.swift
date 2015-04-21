@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Realm
 
 class DOFIService: WebserviceProtocol {
 
@@ -81,5 +82,9 @@ class DOFIService: WebserviceProtocol {
         var returnMessage = ReturnMessage(message: "Failed", isDone: false, objects: nil)
         
         return returnMessage
+    }
+    
+    func uploadContent(rlmResults: RLMResults) -> ReturnMessage{
+        return ReturnMessage(message: "Test", isDone: false)
     }
 }

@@ -179,7 +179,6 @@
 				E12A50101AB5B9B4008CB207 /* Images.xcassets */,
 				E12A50121AB5B9B4008CB207 /* LaunchScreen.xib */,
 				E12A50071AB5B9B4008CB207 /* Supporting Files */,
-				E19B93841AE0081D00072ED6 /* Monitor.swift */,
 			);
 			path = DOFI;
 			sourceTree = "<group>";
@@ -224,6 +223,7 @@
 		E16961E91AD9AF72002D8814 /* Communication */ = {
 			isa = PBXGroup;
 			children = (
+				E19B93841AE0081D00072ED6 /* Monitor.swift */,
 				57175C3D1ADE61AF00116D0F /* StorageStrategy.swift */,
 				E16961DC1AD9A33C002D8814 /* CommunicationFacade.swift */,
 				E16961EE1AD9B01F002D8814 /* LocalStorageStrategy.swift */,

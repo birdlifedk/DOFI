@@ -20,4 +20,10 @@ class ReturnMessage {
         self.isDone = isDone
         self.realmObjects = objects
     }
+    
+    init(message: NSString, isDone: Bool) {
+        self.message = message
+        self.isDone = isDone
+        self.realmObjects = nil
+    }
 }

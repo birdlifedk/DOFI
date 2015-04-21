@@ -13,5 +13,9 @@ protocol StorageStrategy {
 
 	func login(username:NSString, password:NSString) -> ReturnMessage
     
-    func storeObservation(userId:NSInteger, trip: Trip, rlmObject: RLMObject) -> ReturnMessage
+    func storeObservation(userId:NSInteger, trip: Trip, observation: Observation) -> ReturnMessage
+    
+    func uploadContent()
+    
+    func getAllObservations() -> RLMResults
 }

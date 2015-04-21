@@ -13,9 +13,9 @@ class LocalStorageStrategy: StorageStrategy {
 
     let localStorageFacade = StorageFacade()
     let dofiService = DOFIService()
+    let connection = Reachability.reachabilityForInternetConnection()
     
 	func login(username: NSString, password: NSString) -> ReturnMessage{
-        var connection = Reachability.reachabilityForInternetConnection()
         
         if(connection.isReachableViaWiFi()) {
             return dofiService.login(username, password: password)
@@ -26,7 +26,29 @@ class LocalStorageStrategy: StorageStrategy {
         
 	}
     
-    func storeObservation(userId:NSInteger, trip: Trip, rlmObject: RLMObject) -> ReturnMessage{
-        return localStorageFacade.storeObservation(userId, trip: trip, rlmObject: rlmObject)
+    func storeObservation(userId:NSInteger, trip: Trip, observation: Observation) -> ReturnMessage{
+        return localStorageFacade.storeObservation(userId, trip: trip, observation: observation)
+    }
+    
+    func uploadContent(){
+        
+        if(connection.isReachableViaWiFi()) {
+            var rlmResults = getAllObservations()
+            
+            if (rlmResults.count>0){
+                var returnMessage = dofiService.uploadContent(rlmResults)
+                
+                if (returnMessage.isDone){
+                    //Something here
+                }
+                
+            }
+        
+        }
+        
+    }
+    
+    func getAllObservations() -> RLMResults {
+        return localStorageFacade.getAllObservations()
     }
 }

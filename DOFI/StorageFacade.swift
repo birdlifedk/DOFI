@@ -10,19 +10,21 @@ import Foundation
 import Realm
 
 class StorageFacade {
-    func storeObservation(userId:NSInteger, trip: Trip, rlmObject: RLMObject) -> ReturnMessage{
 
-		var returnMessage = ReturnMessage(message: "Failed", isDone: false, objects: nil)
+	let inMemory = DOFIInMemoryStorage()
+	let localStorage = DOFILocalStorage()
+
+    func storeObservation(userId:NSInteger, trip: Trip, observation: Observation) -> ReturnMessage{
+        
+        localStorage.store(observation)
+        inMemory.store(observation)
+        
+        var returnMessage = ReturnMessage(message: "Failed", isDone: false)
         
         return returnMessage
     }
 
 	func getAllObservations() -> RLMResults {
 		return localStorage.getAllObservations()
-	}
-
-	func uploadContent() -> ReturnMessage {
-		localStorage.uploadContent()
-		return ReturnMessage(message: "msg", isDone: true)
 	}
 }

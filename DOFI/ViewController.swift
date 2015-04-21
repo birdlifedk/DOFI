@@ -44,8 +44,6 @@ class ViewController: DOFIViewController, CLLocationManagerDelegate {
 			Session.setUser(sessionUser)
 		}
 
-		self.startMonitoring()
-
 	}
 
 	override func viewDidAppear(animated: Bool) {
@@ -54,14 +52,7 @@ class ViewController: DOFIViewController, CLLocationManagerDelegate {
 
 	}
 
-	func startMonitoring() {
-		let queue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-
-		dispatch_async(queue) {
-			var monitor = Monitor()
-			monitor.start()
-		}
-	}
+	
 
 	override func prefersStatusBarHidden() -> Bool {
 		return true

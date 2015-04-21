@@ -17,16 +17,26 @@ class CommunicationFacade {
     var strategyFactory = StrategyFactory()
     
     ///The strategy for storing data
-    var storageStrategy:StorageStrategy?
+    var storageStrategy:StorageStrategy
     ///The strategy for getting the location of the device
-    var locationStrategy:LocationStrategy?
+    var locationStrategy:LocationStrategy
 
     /**
         Initializes the CommunicationFacade with the strategies provided by the StrategyFactory
     */
     init(){
-        storageStrategy = nil
-        locationStrategy = nil
+        storageStrategy = strategyFactory.getStorageStrategy()
+        locationStrategy = strategyFactory.getLocationStrategy()
+        self.startMonitoring(storageStrategy)
+    }
+    
+    func startMonitoring(storageStrategy: StorageStrategy) {
+        let queue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        
+        dispatch_async(queue) {
+            var monitor = Monitor(storageStrategy: storageStrategy)
+            monitor.start()
+        }
     }
     
     /**
@@ -36,8 +46,7 @@ class CommunicationFacade {
         :param: password - The user's password
     */
 	func login(username:NSString, password:NSString) -> ReturnMessage{
-		getStorageStrategy()
-        return storageStrategy!.login(username, password: password)
+        return storageStrategy.login(username, password: password)
 	}
     
     /**
@@ -45,26 +54,19 @@ class CommunicationFacade {
         
         
     */
-    func storeObservation(userId:NSInteger, trip: Trip, rlmObject: RLMObject) -> ReturnMessage{
-        getStorageStrategy()
-        return storageStrategy!.storeObservation(userId, trip: trip, rlmObject: rlmObject)
+    func storeObservation(userId:NSInteger, trip: Trip, observation: Observation) -> ReturnMessage{
+        return storageStrategy.storeObservation(userId, trip: trip, observation: observation)
     }
     
     func getLocation(locationManager: CLLocationManager) -> Location{
         locationManager.startUpdatingLocation()
-        getLocationStrategy()
-        
-        
-        var location = locationStrategy!.getLocation(locationManager)
+
+        var location = locationStrategy.getLocation(locationManager)
         
         return location
     }
     
-    private func getStorageStrategy(){
-        storageStrategy = strategyFactory.getStorageStrategy()
-    }
-    
-    private func getLocationStrategy(){
-        locationStrategy = strategyFactory.getLocationStrategy()
+    func uploadContent() -> ReturnMessage{
+        return ReturnMessage(message: "", isDone: false)
     }
 }
