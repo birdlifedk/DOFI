@@ -31,15 +31,27 @@ class LoginController: DOFIViewController {
 			alertView.addButtonWithTitle("Ok")
 			alertView.show()
 		} else {
-			login(username, password: password)
-		}
+			var returnMessage = login(username, password: password)
+            
+            if (returnMessage.isDone){
+                closeSite()
+            } else {
+                var alert = UIAlertView()
+                alert.title = "Fejl i login"
+                alert.message = returnMessage.message as String
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+            }
+        }
+    }
 
-	}
-
-	func login(username:NSString, password:NSString) {
-		self.communicationFacade.login(username, password: password)
-		self.navigationController?.popViewControllerAnimated(true)
-	}
+	func login(username:NSString, password:NSString) -> ReturnMessage{
+		return self.communicationFacade.login(username, password: password)
+    }
+    
+    func closeSite(){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     
     @IBAction func newUserHandler(sender: UIButton) {
         UIApplication.sharedApplication().openURL(self.dofbasenURL!)

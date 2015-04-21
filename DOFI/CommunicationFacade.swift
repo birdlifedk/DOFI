@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import Realm
 
 /// A way to communicate with different storages and location handlers
 class CommunicationFacade {
@@ -44,9 +45,9 @@ class CommunicationFacade {
         
         
     */
-    func storeObservation(userId:NSInteger, trip: Trip, observation:Observation) -> ReturnMessage{
+    func storeObservation(userId:NSInteger, trip: Trip, rlmObject: RLMObject) -> ReturnMessage{
         getStorageStrategy()
-        return storageStrategy!.storeObservation(userId, trip: trip, observation: observation)
+        return storageStrategy!.storeObservation(userId, trip: trip, rlmObject: rlmObject)
     }
     
     func getLocation(locationManager: CLLocationManager) -> Location{

@@ -17,6 +17,7 @@ class HighPrecisionLocationStrategy: LocationStrategy {
         var location = locationManager.location
         
         if (location == nil){
+            locationManager.stopUpdatingLocation()
             return Location(latitude: nil, longitude: nil)
         }
         

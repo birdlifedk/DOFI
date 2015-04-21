@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import Realm
+
 class StorageFacade {
-    func storeObservation(userId:NSInteger, trip: Trip, observation:Observation) -> ReturnMessage{
+    func storeObservation(userId:NSInteger, trip: Trip, rlmObject: RLMObject) -> ReturnMessage{
 
 		var returnMessage = ReturnMessage(message: "Failed", isDone: false, objects: nil)
         

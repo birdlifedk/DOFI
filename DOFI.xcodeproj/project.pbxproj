@@ -132,13 +132,6 @@
 			name = Storage;
 			sourceTree = "<group>";
 		};
-		57133D8D1ADD5FB100665C77 /* GPS */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = GPS;
-			sourceTree = "<group>";
-		};
 		E12A4FFB1AB5B9B4008CB207 = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				E16BB8521ADE5EFA006D54EB /* Images.xcassets */,
-				57133D8D1ADD5FB100665C77 /* GPS */,
 				57133D8C1ADD5F8E00665C77 /* Storage */,
 				E18130B41AD8003A00C8E952 /* DOFI.entitlements */,
 				E16961F41AD9B23F002D8814 /* Vendor */,

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 import Realm
 
 class LocalStorageStrategy: StorageStrategy {
@@ -22,19 +21,12 @@ class LocalStorageStrategy: StorageStrategy {
             return dofiService.login(username, password: password)
         }
         else{
-            var alert = UIAlertView()
-            alert.title = "Ingen internet?"
-            alert.message = "Det ser ud til du ikke har forbindelse til internettet"
-            alert.addButtonWithTitle("Ok")
-            alert.show()
-            var returnMessage = ReturnMessage(message: "Det ser ud til du ikke har forbindelse til internettet", isDone: false, objects: [])
-            
-            return (returnMessage)
+            return ReturnMessage(message: "Det ser ud til du ikke har forbindelse til internettet", isDone: false, objects: [])
         }
         
 	}
     
-    func storeObservation(userId:NSInteger, trip: Trip, observation:Observation) -> ReturnMessage{
-        return localStorageFacade.storeObservation(userId, trip: trip, observation: observation)
+    func storeObservation(userId:NSInteger, trip: Trip, rlmObject: RLMObject) -> ReturnMessage{
+        return localStorageFacade.storeObservation(userId, trip: trip, rlmObject: rlmObject)
     }
 }
