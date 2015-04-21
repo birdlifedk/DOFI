@@ -16,4 +16,13 @@ class StorageFacade {
         
         return returnMessage
     }
+
+	func getAllObservations() -> RLMResults {
+		return localStorage.getAllObservations()
+	}
+
+	func uploadContent() -> ReturnMessage {
+		localStorage.uploadContent()
+		return ReturnMessage(message: "msg", isDone: true)
+	}
 }

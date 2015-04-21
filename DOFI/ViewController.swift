@@ -13,8 +13,7 @@ class ViewController: DOFIViewController, CLLocationManagerDelegate {
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
-
+		// Do any additional setup after loading the view, typically from a nib
 
 		var nav = self.navigationController?.navigationBar
 
@@ -26,11 +25,6 @@ class ViewController: DOFIViewController, CLLocationManagerDelegate {
 		nav?.backgroundColor = color
         
         setupLocationManager()
-
-	}
-
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(true)
 
 		let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
 
@@ -48,6 +42,24 @@ class ViewController: DOFIViewController, CLLocationManagerDelegate {
             
             
 			Session.setUser(sessionUser)
+		}
+
+		self.startMonitoring()
+
+	}
+
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(true)
+
+
+	}
+
+	func startMonitoring() {
+		let queue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
+		dispatch_async(queue) {
+			var monitor = Monitor()
+			monitor.start()
 		}
 	}
 
