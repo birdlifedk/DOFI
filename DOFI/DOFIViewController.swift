@@ -9,8 +9,11 @@
 import Foundation
 
 import UIKit
+import CoreLocation
 
 class DOFIViewController: UIViewController {
 
 	let communicationFacade = CommunicationFacade()
+    
+    let locationManager = CLLocationManager()
 }

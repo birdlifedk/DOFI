@@ -10,16 +10,15 @@ import Foundation
 import CoreLocation
 
 class HighPrecisionLocationStrategy: LocationStrategy {
-    func getLocation() -> Location{
-        var locationManager = CLLocationManager()
+    func getLocation(locationManager: CLLocationManager) -> Location{
+
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        if CLLocationManager.authorizationStatus() == .NotDetermined {
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
-        }
-        
         var location = locationManager.location
+        
+        if (location == nil){
+            return Location(latitude: nil, longitude: nil)
+        }
         
         var coordinate = location.coordinate
         
@@ -27,14 +26,8 @@ class HighPrecisionLocationStrategy: LocationStrategy {
         
         var longitude = coordinate.longitude
         
+        locationManager.stopUpdatingLocation()
+        
         return Location(latitude: latitude, longitude: longitude)
     }
-    
-//    func locationManager(manager: CLLocationManager!,
-//        didChangeAuthorizationStatus status: CLAuthorizationStatus)
-//    {
-//        if status == .AuthorizedWhenInUse {
-//            manager.startUpdatingLocation()
-//        }
-//    }
 }

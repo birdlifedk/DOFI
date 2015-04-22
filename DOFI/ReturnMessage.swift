@@ -7,12 +7,17 @@
 //
 
 import Foundation
+import Realm
+
 class ReturnMessage {
     let message:NSString
     let isDone:Bool
     
-    init(message: NSString, isDone: Bool) {
+    let realmObjects:[RLMObject]?
+    
+    init(message: NSString, isDone: Bool, objects: [RLMObject]?) {
         self.message = message
         self.isDone = isDone
+        self.realmObjects = objects
     }
 }

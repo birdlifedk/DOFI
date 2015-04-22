@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import CoreLocation
 
 class NoConnectionLocationStrategy: LocationStrategy {
-    func getLocation() -> Location{
+    func getLocation(locationManager: CLLocationManager) -> Location{
         return Location(latitude: nil, longitude: nil)
     }
 }

@@ -23,6 +23,7 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 	var secondaryBehaviours = ["1", "2"]
 	var directions = ["d1", "d2", "d3"]
 
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -42,19 +43,19 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 
 
 
+        if(secondaryBehaviourText != nil && directionText != nil && secondaryBehaviourPicker != nil) {
+            secondaryBehaviourText.delegate = self
+            secondaryBehaviourText.inputView = secondaryBehaviourPicker
+            secondaryBehaviourText.inputAccessoryView = toolbar
 
-		secondaryBehaviourText.delegate = self
-		secondaryBehaviourText.inputView = secondaryBehaviourPicker
-		secondaryBehaviourText.inputAccessoryView = toolbar
+            directionText.delegate  = self
+            directionText.inputView = secondaryBehaviourPicker
+            directionText.inputAccessoryView = toolbar
 
-
-		directionText.delegate  = self
-		directionText.inputView = secondaryBehaviourPicker
-		directionText.inputAccessoryView = toolbar
-
-		secondaryBehaviourPicker.delegate = self
-		secondaryBehaviourPicker.hidden = true
-		secondaryBehaviourPicker.showsSelectionIndicator = true
+            secondaryBehaviourPicker.delegate = self
+            secondaryBehaviourPicker.hidden = true
+            secondaryBehaviourPicker.showsSelectionIndicator = true
+        }
 
 
 	}
@@ -103,8 +104,14 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 	}
 
 
-	
-
-
-
+    @IBAction func confirmButtonHandler(sender: UIButton) {
+        var userId = Session.getUser().getId()
+        var trip = Trip()
+        var observation = Observation()
+        
+        var returnMessage = communicationFacade.getLocation(self.locationManager)
+        //var returnMessage = communicationFacade.storeObservation(userId, trip: trip, observation: observation)
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
 }

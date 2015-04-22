@@ -8,23 +8,24 @@
 
 import Foundation
 import UIKit
+import Realm
 
 class LocalStorageStrategy: StorageStrategy {
 
     let localStorageFacade = StorageFacade()
     
-	func login(username: NSString, password: NSString) -> (ReturnMessage, User, [Trip]){
+	func login(username: NSString, password: NSString) -> ReturnMessage{
 		var alert = UIAlertView()
 		alert.title = "Ingen internet?"
 		alert.message = "Det ser ud til du ikke har forbindelse til internettet"
 		alert.addButtonWithTitle("Ok")
 		alert.show()
-        
-        return (ReturnMessage(message: "Det ser ud til du ikke har forbindelse til internettet", isDone: false), User(name: "", surname: ""), [])
+        var returnMessage = ReturnMessage(message: "Det ser ud til du ikke har forbindelse til internettet", isDone: false, objects: [])
+        return (returnMessage)
         
 	}
     
-    func storeObservation(userId:NSInteger, tripId:NSInteger, observation:Observation) -> ReturnMessage{
-        return localStorageFacade.storeObservation(userId, tripId: tripId, observation: observation)
+    func storeObservation(userId:NSInteger, trip: Trip, observation:Observation) -> ReturnMessage{
+        return localStorageFacade.storeObservation(userId, trip: trip, observation: observation)
     }
 }

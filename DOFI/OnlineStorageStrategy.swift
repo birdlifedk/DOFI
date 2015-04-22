@@ -12,11 +12,11 @@ class OnlineStorageStrategy: StorageStrategy {
 
 	let dofiService = DOFIService()
 
-	func login(username: NSString, password: NSString) -> (ReturnMessage, User, [Trip]){
+	func login(username: NSString, password: NSString) -> ReturnMessage{
 		return dofiService.login(username, password: password)
 	}
     
-    func storeObservation(userId: NSInteger, tripId: NSInteger, observation: Observation) -> ReturnMessage{
-        return dofiService.storeObservation(userId, tripId: tripId, observation: observation)
+    func storeObservation(userId: NSInteger, trip: Trip, observation: Observation) -> ReturnMessage{
+        return dofiService.storeObservation(userId, trip: trip, observation: observation)
     }
 }

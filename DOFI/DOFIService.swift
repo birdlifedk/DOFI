@@ -10,7 +10,7 @@ import Foundation
 
 class DOFIService: WebserviceProtocol {
 
-	func login(username: NSString, password:NSString) -> (ReturnMessage, User, [Trip]){
+	func login(username: NSString, password:NSString) -> ReturnMessage{
 		let params = ["username":username, "password":password, "grant_type":"password", "client_id": "2", "client_secret" : "DOFISECRET"] as Dictionary<NSString, NSString>
 		var url:NSURL = NSURL(string: "http://dev.dofbasenweb/login")!
 
@@ -29,7 +29,9 @@ class DOFIService: WebserviceProtocol {
 
 		if ( urlData != nil ) {
 			var res = response as! NSHTTPURLResponse;
-
+            println(response)
+            println(res)
+            
 			if (res.statusCode >= 200 && res.statusCode < 300) {
 				var responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
 				let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &responseError) as! NSDictionary
@@ -58,28 +60,29 @@ class DOFIService: WebserviceProtocol {
 						//self.performSegueWithIdentifier("gotoWelcome", sender: self)
 
 						var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-						prefs.setObject(Session.getUser().getUsername(), forKey: "USERNAME")
+                        //prefs.setValue(user.user, forKey: "USER")
+                        prefs.setObject(["ID" : user.getId(), "USERNAME" : user.getUsername(), "NAME" : user.getName(), "SURNAME" : user.getSurname()], forKey: "USER")
 						prefs.setBool(Session.isLoggedIn(), forKey: "ISLOGGEDIN")
 						prefs.synchronize()
                         
-                        return (ReturnMessage(message: "Success!", isDone: true), user, trips as! [Trip])
-                        
+                        //return (ReturnMessage(message: "Success!", isDone: true), [user, trips])
+                        return (ReturnMessage(message: "Success!", isDone: true, objects: []))
                     }else {
-                        return (ReturnMessage(message: "second status code out of range", isDone: false), User(name: "", surname: ""), [])
+                        return (ReturnMessage(message: "second status code out of range", isDone: false, objects: nil))
                     }
                 }else {
-                    return (ReturnMessage(message: "second url data is nil", isDone: false), User(name: "", surname: ""), [])
+                    return (ReturnMessage(message: "second url data is nil", isDone: false, objects: nil))
                 }
             }else {
-               return (ReturnMessage(message: "first status code out of range", isDone: false), User(name: "", surname: ""), [])
+               return (ReturnMessage(message: "first status code out of range", isDone: false, objects: nil))
             }
 		}else {
-            return (ReturnMessage(message: "first url data is nil", isDone: false), User(name: "", surname: ""), [])
+            return (ReturnMessage(message: "first url data is nil", isDone: false, objects: nil))
         }
 	}
     
-    func storeObservation(userId: NSInteger, tripId: NSInteger, observation: Observation) -> ReturnMessage{
-        var returnMessage = ReturnMessage(message: "Failed", isDone: false)
+    func storeObservation(userId: NSInteger, trip: Trip, observation: Observation) -> ReturnMessage{
+        var returnMessage = ReturnMessage(message: "Failed", isDone: false, objects: nil)
         
         return returnMessage
     }

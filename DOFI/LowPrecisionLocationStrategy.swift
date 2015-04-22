@@ -10,32 +10,25 @@ import Foundation
 import CoreLocation
 
 class LowPrecisionLocationStrategy: LocationStrategy {
-    func getLocation() -> Location{
-        var locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+    func getLocation(locationManager: CLLocationManager) -> Location{
 
-        if CLLocationManager.authorizationStatus() == .NotDetermined {
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
-        }
-            
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        
         var location = locationManager.location
-            
+        
+        if (location == nil){
+            return Location(latitude: nil, longitude: nil)
+        }
+        
         var coordinate = location.coordinate
             
         var latitude = coordinate.latitude
             
         var longitude = coordinate.longitude
-            
+        
+        locationManager.stopUpdatingLocation()
+        
         return Location(latitude: latitude, longitude: longitude)
     }
     
-    //    func locationManager(manager: CLLocationManager!,
-    //        didChangeAuthorizationStatus status: CLAuthorizationStatus)
-    //    {
-    //        if status == .AuthorizedWhenInUse {
-    //            manager.startUpdatingLocation()
-    //        }
-    //    }
-
 }

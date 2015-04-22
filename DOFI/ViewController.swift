@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: DOFIViewController {
-
+class ViewController: DOFIViewController, CLLocationManagerDelegate {
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
@@ -23,6 +24,8 @@ class ViewController: DOFIViewController {
 		var color = UIColor(red: 0.6, green:0.0, blue: 0.0, alpha: 1.0)
 		nav?.barTintColor = color
 		nav?.backgroundColor = color
+        
+        setupLocationManager()
 
 	}
 
@@ -36,7 +39,11 @@ class ViewController: DOFIViewController {
 		if (!isLoggedIn) {
 			self.performSegueWithIdentifier("goto", sender: self)
 		} else {
-			//self.usernameLabel.text = prefs.valueForKey("USERNAME") as NSString
+            var user = prefs.objectForKey("USER")
+            
+            var test = User(id: user?.valueForKey("ID") as! NSInteger, name: user?.valueForKey("NAME") as! NSString, surname: user?.valueForKey("SURNAME") as! NSString)
+            
+			Session.setUser(test)
 		}
 	}
 
@@ -58,6 +65,36 @@ class ViewController: DOFIViewController {
 
 	}
 
+    func setupLocationManager(){
+        self.locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: { (placemarks, error) -> Void in
+            
+            if (error != nil){
+                println("Error: " + error.localizedDescription)
+                return
+            }
+            
+            if (placemarks.count>0) {
+                let pm = placemarks[0] as! CLPlacemark
+                self.displayLocationInfo(pm)
+            }else {
+                println("No placemarks")
+            }
+        })
+    }
+    
+    func displayLocationInfo(placemark: CLPlacemark)
+    {
+        println(placemark.location.coordinate.latitude)
+        println(placemark.location.coordinate.longitude)
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println("Did fail with error: " + error.localizedDescription)
+    }
 
 }
 

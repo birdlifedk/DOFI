@@ -17,12 +17,12 @@ public class User {
 
 	private var username:NSString = ""
 
-	private let name:NSString
+	private let name:NSString?
 
 	private var surname:NSString
 
 	private var token:Token?
-
+    
 	init(name: NSString, surname: NSString) {
 		self.name = name
         self.surname = surname
@@ -55,7 +55,7 @@ public class User {
 	//
 	// :Returns: Name - A users name
 	public func getName () -> NSString {
-		return self.name
+		return self.name!
 	}
 
 	//

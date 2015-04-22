@@ -10,7 +10,7 @@ import Foundation
 
 protocol StorageStrategy {
 
-	func login(username:NSString, password:NSString) -> (ReturnMessage, User, [Trip])
+	func login(username:NSString, password:NSString) -> ReturnMessage
     
-    func storeObservation(userId:NSInteger, tripId:NSInteger, observation:Observation) -> ReturnMessage
+    func storeObservation(userId:NSInteger, trip: Trip, observation:Observation) -> ReturnMessage
 }

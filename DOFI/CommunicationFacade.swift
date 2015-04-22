@@ -7,32 +7,56 @@
 //
 
 import Foundation
+import CoreLocation
 
+/// A way to communicate with different storages and location handlers
 class CommunicationFacade {
 
+    ///The factory responsible for choosing strategies for CommunicationFacade
     var strategyFactory = StrategyFactory()
     
-    var storageStrategy:StorageStrategy
-    var locationStrategy:LocationStrategy
+    ///The strategy for storing data
+    var storageStrategy:StorageStrategy?
+    ///The strategy for getting the location of the device
+    var locationStrategy:LocationStrategy?
 
+    /**
+        Initializes the CommunicationFacade with the strategies provided by the StrategyFactory
+    */
     init(){
-        storageStrategy = strategyFactory.getStorageStrategy()
-        locationStrategy = strategyFactory.getLocationStrategy()
+        storageStrategy = nil
+        locationStrategy = nil
     }
     
-	func login(username:NSString, password:NSString) -> (ReturnMessage, User, [Trip]){
+    /**
+        Log in a user
+    
+        :param: username - The user's user name
+        :param: password - The user's password
+    */
+	func login(username:NSString, password:NSString) -> ReturnMessage{
 		getStorageStrategy()
-        return storageStrategy.login(username, password: password)
+        return storageStrategy!.login(username, password: password)
 	}
     
-    func storeObservation(userId:NSInteger, tripId:NSInteger, observation:Observation) -> ReturnMessage{
+    /**
+        Store Observation
+        
+        
+    */
+    func storeObservation(userId:NSInteger, trip: Trip, observation:Observation) -> ReturnMessage{
         getStorageStrategy()
-        return storageStrategy.storeObservation(userId, tripId: tripId, observation: observation)
+        return storageStrategy!.storeObservation(userId, trip: trip, observation: observation)
     }
     
-    func getLocation() -> Location{
+    func getLocation(locationManager: CLLocationManager) -> Location{
+        locationManager.startUpdatingLocation()
         getLocationStrategy()
-        return locationStrategy.getLocation()
+        
+        
+        var location = locationStrategy!.getLocation(locationManager)
+        
+        return location
     }
     
     private func getStorageStrategy(){
