@@ -184,7 +184,6 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 		Session.setTrip(self.trip)
 		self.navigationController?.popViewControllerAnimated(true)
 	}
-}
 
 class AutoCompleteDelegate: NSObject, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
@@ -249,4 +248,4 @@ class AutoCompleteDelegate: NSObject, UITableViewDelegate, UITableViewDataSource
 
 	}
 
-}
+}}
