@@ -10,7 +10,7 @@ import Foundation
 
 struct Session {
 
-	private static var trip:Trip?
+	private static var trip:Trip? = nil
 
 	private static var loggedIn = false
 
@@ -20,8 +20,8 @@ struct Session {
 		return self.user!
 	}
 
-	static func getTrip() -> Trip {
-		return self.trip!
+	static func getTrip() -> Trip? {
+		return self.trip
 	}
 
 	static func isLoggedIn() -> Bool {
