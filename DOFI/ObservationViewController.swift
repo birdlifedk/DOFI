@@ -7,17 +7,28 @@
 //
 
 import Foundation
+import MapKit
 import UIKit
 
 class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPickerViewDelegate
 {
+	@IBOutlet var primaryBehaviourText: UITextField!
 	@IBOutlet var secondaryBehaviourText: UITextField!
 	@IBOutlet var directionText: UITextField!
 	@IBOutlet var outfitText: UITextField!
+	@IBOutlet var speciesText: UITextField!
+	@IBOutlet var speciesQuantity: UITextField!
+	@IBOutlet var fromTime: UIDatePicker!
+	@IBOutlet var toTime: UIDatePicker!
+	@IBOutlet var age: UITextField!
+	@IBOutlet var suit: UITextField!
+	@IBOutlet var observationNote: UITextView!
+	@IBOutlet var observationMap: MKMapView!
 
 	@IBOutlet var secondaryBehaviourPicker: UIPickerView! = UIPickerView()
 
 	var activeTextView: UITextField!
+	var observation: Observation = Observation()
 
 	var picks = [""]
 	var secondaryBehaviours = ["1", "2"]
@@ -103,11 +114,55 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 		return true
 	}
 
+	@IBAction func sliderHandler(sender: UISlider) {
+		var value = sender.value
+		let sex = ["M", "F"]
+		if(value > 0.3 && value < 0.8) {
+			sender.value = 0.5
+		} else if (value <= 0.3) {
+			sender.value = 0
+		} else if (value >= 0.8) {
+			sender.value = 1
+		}
+		observation.sex = sex[Int(value)]
+		println(observation)
+	}
+
+	@IBAction func formHandler(sender: AnyObject) {
+		if(speciesText != nil && sender as! NSObject == speciesText) {
+			observation.species = speciesText.text
+		}
+		if(speciesQuantity != nil && sender as! NSObject == speciesQuantity) {
+			observation.quantity = (speciesQuantity.text as String).toInt()!
+		}
+		if(primaryBehaviourText != nil && sender as! NSObject == primaryBehaviourText) {
+			observation.primaryBehaviour = primaryBehaviourText.text
+		}
+		if(secondaryBehaviourText != nil && sender as! NSObject == secondaryBehaviourText) {
+			observation.secondaryBehaviour = secondaryBehaviourText.text
+		}
+		if((fromTime != nil && sender as! NSObject == fromTime) || (toTime != nil && sender as! NSObject == toTime)) {
+			let dateFormatter = NSDateFormatter()
+			dateFormatter.dateFormat = "hh:mm"
+			var test = dateFormatter.stringFromDate(fromTime.date)
+			observation.time = Time(from: dateFormatter.stringFromDate(fromTime.date), to: dateFormatter.stringFromDate(toTime.date))
+		}
+		if(directionText != nil && sender as! NSObject == directionText) {
+			observation.direction = directionText.text
+		}
+		if(age != nil && sender as! NSObject == age) {
+			observation.age = (age.text as String).toInt()!
+		}
+		if(suit != nil && sender as! NSObject == suit) {
+			observation.suit = suit.text
+		}
+		println(observation)
+	}
 
     @IBAction func confirmButtonHandler(sender: UIButton) {
         var userId = Session.getUser().getId()
         var trip = Trip()
-        var observation = Observation()
+        var observation = self.observation
         
         var returnMessage = communicationFacade.getLocation(self.locationManager)
         //var returnMessage = communicationFacade.storeObservation(userId, trip: trip, observation: observation)

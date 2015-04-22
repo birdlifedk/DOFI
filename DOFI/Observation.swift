@@ -7,8 +7,29 @@
 //
 
 import Foundation
+import Realm
 
-public class Observation
-{
-    
+class Observation: RLMObject {
+
+	var species:NSString = ""
+
+	var quantity:NSInteger = -1
+
+	var primaryBehaviour:NSString = ""
+
+	var secondaryBehaviour:NSString = ""
+
+	var direction:NSString = ""
+
+	var time: Time?
+
+	var sex:NSString = ""
+
+	var age:NSInteger = -1
+
+	var suit:NSString = ""
+
+	var note:NSString = ""
+	
+	
 }
