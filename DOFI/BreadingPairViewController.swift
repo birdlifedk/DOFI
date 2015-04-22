@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import UIKit
 
-class BreadingPairViewController: DOFIViewController, UITextViewDelegate {
+class BreadingPairViewController: DOFIViewController, UITextViewDelegate, UITextFieldDelegate, UIPickerViewDelegate {
 
 	@IBOutlet var speciesText: UITextField!
 	@IBOutlet var min: UITextField!
@@ -18,15 +18,95 @@ class BreadingPairViewController: DOFIViewController, UITextViewDelegate {
 	@IBOutlet var behaviour: UITextField!
 	@IBOutlet var note: UITextView!
 	@IBOutlet var map: MKMapView!
+	@IBOutlet var picker: UIPickerView! = UIPickerView()
 
+	var activeTextView: UITextField!
+	var picks = [""]
 	var breadingPair = BreadingPair()
+	var delegate = AutoCompleteDelegate()
+	var tableView = UITableView(frame: CGRectMake(0,80,320,120), style: UITableViewStyle.Plain)
+	var breadingPairBehaviour = ["Adfærd1", "Adfærd2", "Adfærd3"]
+
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		if(note != nil) {
 			note.delegate = self
 		}
+
+		if(speciesText != nil) {
+			speciesText.delegate = self.delegate
+
+			tableView.delegate = self.delegate
+			tableView.dataSource = self.delegate
+			tableView.scrollEnabled = true
+			tableView.hidden = true
+
+			self.view.addSubview(tableView)
+
+			self.delegate.activeText = speciesText
+			self.delegate.activeTableView = tableView
+			self.delegate.locations = ["test1", "test2", "test3"] as NSMutableArray
+		}
+
+		if(behaviour != nil) {
+			var toolbar = UIToolbar()
+			toolbar.barStyle = UIBarStyle.Default
+			toolbar.translucent = true
+			toolbar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+			toolbar.sizeToFit()
+
+			var doneButton = UIBarButtonItem(title: "Ok", style: UIBarButtonItemStyle.Bordered, target: self, action: "donePicker:")
+			var spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+			var cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+
+			toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+			toolbar.userInteractionEnabled = true
+
+			behaviour.delegate = self
+			behaviour.inputView = picker
+			behaviour.inputAccessoryView = toolbar
+
+			picker.delegate = self
+			picker.hidden = true
+			picker.showsSelectionIndicator = true
+
+		}
+
 	}
+
+	func donePicker(sender:UIButton){
+		activeTextView.text = picks[picker.selectedRowInComponent(0)]
+		activeTextView.resignFirstResponder()
+	}
+
+	func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int {
+		return 1
+	}
+
+	// returns the # of rows in each component..
+	func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int{
+		return picks.count
+	}
+
+	func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+		return picks[row]
+	}
+
+	func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+		activeTextView.text = picks[row]
+	}
+
+	func textFieldDidBeginEditing(textField: UITextField) {
+		activeTextView = textField
+
+		if(textField == behaviour) {
+			picks = breadingPairBehaviour
+			picker.reloadAllComponents()
+		}
+		picker.hidden = false
+	}
+
 
 	func textViewDidEndEditing(textView: UITextView) {
 		if(textView == note) {

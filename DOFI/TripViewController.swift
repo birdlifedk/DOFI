@@ -54,6 +54,8 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 
 			self.delegate.activeText = locationText
 			self.delegate.activeTableView = autocompleteTableView
+
+			self.delegate.locations = ["lok1", "lok2", "lok3"] as NSMutableArray
 		}
 
 
@@ -184,6 +186,7 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 		Session.setTrip(self.trip)
 		self.navigationController?.popViewControllerAnimated(true)
 	}
+}
 
 class AutoCompleteDelegate: NSObject, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
@@ -191,7 +194,7 @@ class AutoCompleteDelegate: NSObject, UITableViewDelegate, UITableViewDataSource
 
 	var activeTableView: UITableView?
 
-	var locations: NSMutableArray = ["lok1", "lok2", "lok3"]
+	var locations: NSMutableArray = [""]
 	var locationsAuto = [String]()
 
 	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -245,7 +248,7 @@ class AutoCompleteDelegate: NSObject, UITableViewDelegate, UITableViewDataSource
 		activeText!.text = selectedCell.textLabel!.text
 		activeTableView?.hidden = true
 		activeText!.resignFirstResponder()
-
+		
 	}
-
-}}
+	
+}
