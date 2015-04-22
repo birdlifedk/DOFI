@@ -23,9 +23,8 @@ class Monitor {
 		NSLog("Start")
 		while run {
 
+            sleep(5)
 			uploadContent()
-			sleep(5)
-
 		}
 	}
 

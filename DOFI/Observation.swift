@@ -15,6 +15,8 @@ struct Time {
 
 class Observation: RLMObject {
 
+    var id = -1
+    
 	var origin = Time()
 
 	var species:NSString = ""
@@ -46,6 +48,22 @@ class Observation: RLMObject {
 	var suit:NSString = ""
 
 	var note:NSString = ""
-
-
+    
+    func makeCopy() -> Observation{
+        var observation = Observation()
+        observation.id = self.id
+        observation.origin = self.origin
+        observation.species = self.species
+        observation.quantity = self.quantity
+        observation.primaryBehaviour = self.primaryBehaviour
+        observation.secondaryBehaviour = self.secondaryBehaviour
+        observation.direction = self.direction
+        observation.time = self.time
+        observation.sex = self.sex
+        observation.age = self.age
+        observation.suit = self.suit
+        observation.note = self.note
+        
+        return observation
+    }
 }

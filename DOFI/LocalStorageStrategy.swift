@@ -30,6 +30,10 @@ class LocalStorageStrategy: StorageStrategy {
         return localStorageFacade.storeObservation(userId, trip: trip, observation: observation)
     }
     
+    func storeTrip(userId:NSInteger, trip: Trip) -> ReturnMessage{
+        return localStorageFacade.storeTrip(userId, trip: trip)
+    }
+    
     func uploadContent(){
         println("Monitoring!")
         
@@ -43,8 +47,8 @@ class LocalStorageStrategy: StorageStrategy {
                 println(returnMessage.message)
                 
                 if (returnMessage.isDone){
-                    println("Upload was successful")
-                    //Something here
+                    println(rlmResults)
+                    //delete something
                 }
                 
             }
@@ -55,5 +59,9 @@ class LocalStorageStrategy: StorageStrategy {
     
     func getAllObservations() -> RLMResults {
         return localStorageFacade.getAllObservations()
+    }
+    
+    func deleteRLMObject(rlmObject: RLMObject) -> ReturnMessage {
+        return localStorageFacade.deleteRLMObject(rlmObject)
     }
 }

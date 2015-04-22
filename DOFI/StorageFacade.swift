@@ -16,10 +16,25 @@ class StorageFacade {
 
     func storeObservation(userId:NSInteger, trip: Trip, observation: Observation) -> ReturnMessage{
         
-        localStorage.store(observation)
-        inMemory.store(observation)
+        var observationCopy = observation.makeCopy()
         
-        var returnMessage = ReturnMessage(message: "Failed", isDone: false)
+        localStorage.store(observation)
+        
+        inMemory.store(observationCopy)
+        
+        var returnMessage = ReturnMessage(message: "Done storing observation", isDone: true)
+        
+        return returnMessage
+    }
+    
+    func storeTrip(userId:NSInteger, trip: Trip) -> ReturnMessage{
+        var tripCopy = trip.makeCopy()
+        
+        localStorage.store(trip)
+        
+        inMemory.store(tripCopy)
+        
+        var returnMessage = ReturnMessage(message: "Done storing trip", isDone: true)
         
         return returnMessage
     }
@@ -27,4 +42,12 @@ class StorageFacade {
 	func getAllObservations() -> RLMResults {
 		return localStorage.getAllObservations()
 	}
+    
+    func deleteRLMObject(rlmObject: RLMObject) -> ReturnMessage {
+        localStorage.delete(rlmObject)
+        
+        var returnMessage = ReturnMessage(message: "Done deleting", isDone: true)
+        
+        return returnMessage
+    }
 }

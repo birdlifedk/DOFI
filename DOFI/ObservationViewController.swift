@@ -109,8 +109,18 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
         var trip = Trip()
         var observation = Observation()
         
-        var returnMessage = communicationFacade.getLocation(self.locationManager)
-        //var returnMessage = communicationFacade.storeObservation(userId, trip: trip, observation: observation)
+//        var observation2 = Observation()
+//        
+//        trip.id = 1
+//        observation.id = 1
+//        observation2.id = 2
+//        var test = communicationFacade.storeTrip(Session.getUser().id, trip: trip)
+//        var returnMessage = communicationFacade.storeObservation(Session.getUser().id, trip: trip, observation: observation)
+//        communicationFacade.storeObservation(Session.getUser().id, trip: trip, observation: observation2)
+//        var localStorageTest = LocalStorageStrategy()
+//        localStorageTest.uploadContent()
+        //var returnMessage = communicationFacade.getLocation(self.locationManager)
+        var returnMessage = communicationFacade.storeObservation(userId, trip: trip, observation: observation)
         self.navigationController?.popViewControllerAnimated(true)
     }
     

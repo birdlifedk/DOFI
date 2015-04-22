@@ -14,7 +14,9 @@ class DOFILocalStorage {
 	let realm =  RLMRealm.defaultRealm()
 
 	func store(object: RLMObject) {
+        self.realm.beginWriteTransaction()
 		self.realm.addObject(object)
+        self.realm.commitWriteTransaction()
 	}
 
 	func delete(object: RLMObject) {

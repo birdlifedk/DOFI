@@ -14,7 +14,9 @@ class DOFIInMemoryStorage {
 	let realm =  RLMRealm.inMemoryRealmWithIdentifier("DOFIMemory")
 
 	func store(object: RLMObject) {
-		self.realm.addObject(object)
+        self.realm.beginWriteTransaction()
+        self.realm.addObject(object)
+        self.realm.commitWriteTransaction()
 	}
 
 	func delete(object: RLMObject) {

@@ -60,8 +60,7 @@ class DOFIService: WebserviceProtocol {
     }
     
     func uploadContent(rlmResults: RLMResults) -> ReturnMessage{
-        tripMapper.uploadContent(rlmResults)
         
-        return ReturnMessage(message: "Test", isDone: false)
+        return tripMapper.uploadContent(rlmResults)
     }
 }

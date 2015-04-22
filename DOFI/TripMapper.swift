@@ -15,14 +15,52 @@ class TripMapper: Mapper {
     {
         var jsonData = webserviceAPICommunication.getTripsAsJSONDictionary()
         
-        var trips = [Trip(), Trip()]
+        var trips = [Trip(), Trip()] as [Trip]
         
         return trips
     }
     
     func uploadContent(rlmResults: RLMResults) -> ReturnMessage{
         
-        var dictionary = NSDictionary()
+        var trips = [Trip]()
+        var observations = [Observation]()
+        
+        var index = 0 as UInt
+        var count = rlmResults.count - 1
+        
+        if (count >= 0){
+            
+            var ended = false
+        
+            while (!ended){
+                var rlmObject = rlmResults.objectAtIndex(index)
+            
+                if (rlmObject.isKindOfClass(Observation)){
+                    var observation = rlmObject as! Observation
+                    
+                    println(observation)
+                    
+                    observations.append(observation)
+                } else if (rlmObject.isKindOfClass(Trip)) {
+                    var trip = rlmObject as! Trip
+                    
+                    println(trip)
+                    
+                    trips.append(trip)
+                }
+                
+                
+                if (index==count){
+                    ended = true
+                }
+                index++
+            }
+        }
+        
+        var dictionary:NSDictionary = [
+            "trips" : trips,
+            "observations" : observations
+        ]
         
         return webserviceAPICommunication.uploadContent(dictionary)
     }

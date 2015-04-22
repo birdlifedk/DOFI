@@ -77,10 +77,15 @@ class WebserviceAPICommunication {
         return NSDictionary()
     }
     
-    func uploadContent(NSDictionary) -> ReturnMessage{
+    func uploadContent(dictionary: NSDictionary) -> ReturnMessage{
         getUserIdAndAccessToken()
         
-        return ReturnMessage(message: "", isDone: false)
+        var responseError:NSError?
+        //var jsonData = NSJSONSerialization.
+        
+        println("id: " + userId.description + "token: " + accessToken)
+        
+        return ReturnMessage(message: "Uploaded", isDone: true)
     }
     
     private func getUserIdAndAccessToken(){

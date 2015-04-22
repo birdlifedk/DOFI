@@ -7,6 +7,16 @@
 //
 
 import Foundation
-public class Trip {
+import Realm
+
+public class Trip: RLMObject{
     
+    var id = -1
+    
+    func makeCopy() -> Trip{
+        var trip = Trip()
+        trip.id = self.id
+        
+        return trip
+    }
 }
