@@ -13,6 +13,7 @@ class DOFIService: WebserviceProtocol {
 
     let userMapper = UserMapper()
     let tokenMapper = TokenMapper()
+    let tripMapper = TripMapper()
     
 	func login(username: NSString, password:NSString) -> ReturnMessage{
 		let params = ["username":username, "password":password, "grant_type":"password", "client_id": "2", "client_secret" : "DOFISECRET"] as Dictionary<NSString, NSString>

@@ -20,6 +20,7 @@
 		57175C401AE6934D00116D0F /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57175C3F1AE6934D00116D0F /* UserMapper.swift */; };
 		57175C421AE69E1D00116D0F /* TokenMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57175C411AE69E1D00116D0F /* TokenMapper.swift */; };
 		57175C441AE6BD8600116D0F /* TripMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57175C431AE6BD8600116D0F /* TripMapper.swift */; };
+		57EBF4761AE790A300AA268F /* WebserviceAPICommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF4751AE790A300AA268F /* WebserviceAPICommunication.swift */; };
 		E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A50091AB5B9B4008CB207 /* AppDelegate.swift */; };
 		E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A500B1AB5B9B4008CB207 /* ViewController.swift */; };
 		E12A500F1AB5B9B4008CB207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12A500D1AB5B9B4008CB207 /* Main.storyboard */; };
@@ -73,6 +74,7 @@
 		57175C3F1AE6934D00116D0F /* UserMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
 		57175C411AE69E1D00116D0F /* TokenMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenMapper.swift; sourceTree = "<group>"; };
 		57175C431AE6BD8600116D0F /* TripMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripMapper.swift; sourceTree = "<group>"; };
+		57EBF4751AE790A300AA268F /* WebserviceAPICommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceAPICommunication.swift; sourceTree = "<group>"; };
 		E12A50041AB5B9B4008CB207 /* DOFI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOFI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12A50081AB5B9B4008CB207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E12A50091AB5B9B4008CB207 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				57175C3F1AE6934D00116D0F /* UserMapper.swift */,
 				57175C411AE69E1D00116D0F /* TokenMapper.swift */,
 				57175C431AE6BD8600116D0F /* TripMapper.swift */,
+				57EBF4751AE790A300AA268F /* WebserviceAPICommunication.swift */,
 			);
 			name = Webservice;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				E16961E61AD9AC6F002D8814 /* WebserviceProtocol.swift in Sources */,
 				57133D951ADD651B00665C77 /* HighPrecisionLocationStrategy.swift in Sources */,
 				57133D851ADD3B9600665C77 /* StrategyFactory.swift in Sources */,
+				57EBF4761AE790A300AA268F /* WebserviceAPICommunication.swift in Sources */,
 				57175C421AE69E1D00116D0F /* TokenMapper.swift in Sources */,
 				57133D931ADD62EC00665C77 /* Position.swift in Sources */,
 				E16D7BD21AD9479D00C75CD9 /* User.swift in Sources */,
