@@ -9,22 +9,24 @@
 import Foundation
 import Realm
 
-class UserMapper {
-
-    func getUser(urlData: NSData) -> User{
-        var responseError:NSError?
-        let jsonDataa:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData, options:NSJSONReadingOptions.MutableContainers , error: &responseError) as! NSDictionary
-        
-        
-        var newUser = User()
-        println(jsonDataa)
-        var id: String = jsonDataa.valueForKey("id") as! String
-        
-        newUser.id = id.toInt()!
-        newUser.username = jsonDataa.valueForKey("obserkode") as? NSString
-        newUser.name = jsonDataa.valueForKey("fornavn") as? NSString
-        newUser.surname = jsonDataa.valueForKey("efternavn") as? NSString
+class UserMapper: Mapper {
     
-        return newUser
+    func getUser(username: NSString, accessToken: NSString) -> User{
+        
+        let jsonData = webserviceAPICommunication.getUserAsJSONDictionary(username, accessToken: accessToken)
+        
+        if (jsonData.count == 0){
+            return User()
+        }
+        var user = User()
+
+        var id: String = jsonData.valueForKey("id") as! String
+        
+        user.id = id.toInt()!
+        user.username = jsonData.valueForKey("obserkode") as? NSString
+        user.name = jsonData.valueForKey("fornavn") as? NSString
+        user.surname = jsonData.valueForKey("efternavn") as? NSString
+    
+        return user
     }
 }

@@ -9,10 +9,21 @@
 import Foundation
 import Realm
 
-class TripMapper {
+class TripMapper: Mapper {
     
-    func getTrip(rlmObject: RLMObject) -> Trip
+    func getTrips() -> [Trip]
     {
-        return Trip()
+        var jsonData = webserviceAPICommunication.getTripsAsJSONDictionary()
+        
+        var trips = [Trip(), Trip()]
+        
+        return trips
+    }
+    
+    func uploadContent(rlmResults: RLMResults) -> ReturnMessage{
+        
+        var dictionary = NSDictionary()
+        
+        return webserviceAPICommunication.uploadContent(dictionary)
     }
 }

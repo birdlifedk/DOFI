@@ -8,10 +8,15 @@
 
 import Foundation
 
-class TokenMapper {
-    func getToken(urlData: NSData) -> Token{
-        var responseError:NSError?
-        let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData, options:NSJSONReadingOptions.MutableContainers , error: &responseError) as! NSDictionary
+class TokenMapper: Mapper {
+    
+    func getToken(urlData: Dictionary<NSString, NSString>) -> Token{
+        
+        let jsonData = webserviceAPICommunication.getTokensAsJSONDictionary(urlData)
+        
+        if (jsonData.count == 0){
+            return Token(accessToken: "", refreshToken: "", expiresIn: 0.0)
+        }
         
         let accessToken:NSString = jsonData.valueForKey("access_token") as! NSString
         let refreshToken:NSString = jsonData.valueForKey("refresh_token") as! NSString
