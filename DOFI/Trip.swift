@@ -24,4 +24,10 @@ class Trip: RLMObject {
 	var method:NSString?
 	
 	var note:NSString?
+
+	var interference:NSString?
+
+	var interferenceQuantity:NSInteger?
+
+	var interferenceNote:NSString?
 }

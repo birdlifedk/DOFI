@@ -221,12 +221,18 @@
                                                 <rect key="frame" x="274" y="586" width="54" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="formHandler:forEvent:" destination="XXb-fw-DXF" eventType="editingDidEnd" id="mGI-u0-ubN"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHn-EJ-OzN">
                                                 <rect key="frame" x="273" y="780" width="55" height="30"/>
                                                 <state key="normal" title="Bekræft">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="submitForm:" destination="XXb-fw-DXF" eventType="touchUpInside" id="Bbg-0j-zT1"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Metode" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="81M-Gb-FPr">
                                                 <rect key="frame" x="20" y="330" width="561" height="30"/>
@@ -240,6 +246,9 @@
                                                 <rect key="frame" x="20" y="548" width="561" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="formHandler:forEvent:" destination="XXb-fw-DXF" eventType="editingDidEnd" id="npl-he-5Hc"/>
+                                                </connections>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETn-cz-GUV">
                                                 <rect key="frame" x="20" y="644" width="561" height="128"/>
@@ -387,6 +396,8 @@
                     <size key="freeformSize" width="600" height="1400"/>
                     <connections>
                         <outlet property="fromTime" destination="SBx-hp-ZvW" id="Eda-U1-Ocq"/>
+                        <outlet property="interferenceNote" destination="ETn-cz-GUV" id="DBp-Ho-NNA"/>
+                        <outlet property="interferenceQuantity" destination="Hfb-hv-Uhr" id="sCq-tx-o7b"/>
                         <outlet property="interferenceText" destination="TeL-QI-yTk" id="s0y-ZL-8hN"/>
                         <outlet property="methodText" destination="81M-Gb-FPr" id="vSc-5X-0j5"/>
                         <outlet property="secondaryView" destination="wgy-uw-VsC" id="C28-n5-XWu"/>
@@ -423,6 +434,9 @@
                                 <state key="normal" title="Bekræft">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitForm:" destination="Lpq-BM-hLx" eventType="touchUpInside" id="px9-8B-krs"/>
+                                </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="U6q-jy-Ve8">
                                 <rect key="frame" x="140" y="94" width="320" height="162"/>

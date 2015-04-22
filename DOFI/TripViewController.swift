@@ -20,6 +20,8 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 	@IBOutlet var methodPicker: UIPickerView! = UIPickerView()
 	@IBOutlet var interferenceText: UITextField!
 	@IBOutlet var tripNote: UITextView!
+	@IBOutlet var interferenceQuantity: UITextField!
+	@IBOutlet var interferenceNote: UITextView!
 
 	var activeTextView: UITextField!
 
@@ -83,6 +85,7 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 			methodPicker.showsSelectionIndicator = true
 
 			tripNote.delegate = self
+			interferenceNote.delegate = self
 		}
 		//secondaryView.hidden = true
 	}
@@ -105,8 +108,7 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 		return picks[row]
 	}
 
-	func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-	{
+	func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		activeTextView.text = picks[row]
 	}
 
@@ -126,7 +128,6 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 	}
 
 	func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-
 		return true
 	}
 
@@ -136,11 +137,18 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 	}
 
 	func textViewDidEndEditing(textView: UITextView) {
-		trip.note = textView.text
-		println(trip)
+		if(textView == tripNote) {
+			trip.note = textView.text
+		}
+		if(textView == interferenceNote) {
+			trip.interferenceNote = interferenceNote.text
+		}
 	}
 
+	// When something is changed in a textfield, we store it in a trip object.
 	@IBAction func formHandler(sender: AnyObject, forEvent event: UIEvent) {
+
+		// @TODO get rit of some of the if's
 		if(locationText != nil && sender as! NSObject == locationText) {
 			trip.location = locationText.text
 			println(trip)
@@ -160,8 +168,21 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 			dateFormatter.dateFormat = "hh:mm"
 			var test = dateFormatter.stringFromDate(fromTime.date)
 			trip.time = Time(from: dateFormatter.stringFromDate(fromTime.date), to: dateFormatter.stringFromDate(toTime.date))
-
 		}
+
+		if(interferenceText != nil) {
+			trip.interference = interferenceText.text
+		}
+
+		if(interferenceQuantity != nil) {
+			trip.interferenceQuantity = (interferenceQuantity.text as String).toInt()
+		}
+	}
+
+	// The submit button, terminates the view, and saves the current trip object in the Session struct.
+	@IBAction func submitForm(sender: UIButton) {
+		Session.setTrip(self.trip)
+		self.navigationController?.popViewControllerAnimated(true)
 	}
 }
 
