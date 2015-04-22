@@ -16,7 +16,7 @@ class DOFIService: WebserviceProtocol {
     
 	func login(username: NSString, password:NSString) -> ReturnMessage{
 		let params = ["username":username, "password":password, "grant_type":"password", "client_id": "2", "client_secret" : "DOFISECRET"] as Dictionary<NSString, NSString>
-		var url:NSURL = NSURL(string: "http://dev.backbone/login")!
+		var url:NSURL = NSURL(string: "http://dev.dofbasenweb/login")!
 
 		var err: NSError?
 		var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)

@@ -31,14 +31,19 @@ class LocalStorageStrategy: StorageStrategy {
     }
     
     func uploadContent(){
+        println("Monitoring!")
         
         if(connection.isReachableViaWiFi()) {
             var rlmResults = getAllObservations()
+            println("Number of observations: " + rlmResults.count.description)
             
             if (rlmResults.count>0){
                 var returnMessage = dofiService.uploadContent(rlmResults)
                 
+                println(returnMessage.message)
+                
                 if (returnMessage.isDone){
+                    println("Upload was successful")
                     //Something here
                 }
                 

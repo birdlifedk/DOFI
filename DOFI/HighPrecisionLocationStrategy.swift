@@ -12,6 +12,8 @@ import CoreLocation
 class HighPrecisionLocationStrategy: LocationStrategy {
     func getLocation(locationManager: CLLocationManager) -> Location{
 
+        locationManager.startUpdatingLocation()
+        
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         var location = locationManager.location
