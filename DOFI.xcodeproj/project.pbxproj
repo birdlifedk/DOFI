@@ -40,6 +40,8 @@
 		E16961E81AD9AE59002D8814 /* DOFIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961E71AD9AE59002D8814 /* DOFIService.swift */; };
 		E16961EF1AD9B01F002D8814 /* LocalStorageStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961EE1AD9B01F002D8814 /* LocalStorageStrategy.swift */; };
 		E16961F31AD9B23A002D8814 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961F21AD9B23A002D8814 /* Reachability.swift */; };
+		E16AFC271AE7B4940071CEB3 /* BreadingPairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16AFC261AE7B4940071CEB3 /* BreadingPairViewController.swift */; };
+		E16AFC291AE7B6280071CEB3 /* BreadingPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16AFC281AE7B6280071CEB3 /* BreadingPair.swift */; };
 		E16BB8541ADE5EFA006D54EB /* DOFIInMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BB8501ADE5EFA006D54EB /* DOFIInMemoryStorage.swift */; };
 		E16BB8551ADE5EFA006D54EB /* DOFILocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BB8511ADE5EFA006D54EB /* DOFILocalStorage.swift */; };
 		E16BB8561ADE5EFA006D54EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16BB8521ADE5EFA006D54EB /* Images.xcassets */; };
@@ -103,6 +105,8 @@
 		E16961E71AD9AE59002D8814 /* DOFIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFIService.swift; sourceTree = "<group>"; };
 		E16961EE1AD9B01F002D8814 /* LocalStorageStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageStrategy.swift; sourceTree = "<group>"; };
 		E16961F21AD9B23A002D8814 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		E16AFC261AE7B4940071CEB3 /* BreadingPairViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadingPairViewController.swift; sourceTree = "<group>"; };
+		E16AFC281AE7B6280071CEB3 /* BreadingPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadingPair.swift; sourceTree = "<group>"; };
 		E16BB8501ADE5EFA006D54EB /* DOFIInMemoryStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFIInMemoryStorage.swift; sourceTree = "<group>"; };
 		E16BB8511ADE5EFA006D54EB /* DOFILocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFILocalStorage.swift; sourceTree = "<group>"; };
 		E16BB8521ADE5EFA006D54EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 		E12A4FFB1AB5B9B4008CB207 = {
 			isa = PBXGroup;
 			children = (
+				E1AFF0AC1AE7D9050059E011 /* default.gpx */,
 				E19B93801ADE63A800072ED6 /* libc++.dylib */,
 				E19B93821ADE665200072ED6 /* Realm.framework */,
 				E18130B21AD8003A00C8E952 /* ExternalAccessory.framework */,
@@ -268,6 +273,7 @@
 				57133D8A1ADD43FB00665C77 /* ReturnMessage.swift */,
 				57133D921ADD62EC00665C77 /* Position.swift */,
 				57133D981ADD687600665C77 /* Location.swift */,
+				E16AFC281AE7B6280071CEB3 /* BreadingPair.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 				E1BC48C31AD2C5DB008C1BC1 /* ObservationViewController.swift */,
 				E18130B01AD7CA1900C8E952 /* LoginController.swift */,
 				E16961E21AD9A89F002D8814 /* DOFIViewController.swift */,
+				E16AFC261AE7B4940071CEB3 /* BreadingPairViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -375,6 +382,7 @@
 				E16BB8561ADE5EFA006D54EB /* Images.xcassets in Resources */,
 				E12A502A1AB5CBFD008CB207 /* nav-bar.png in Resources */,
 				E12A50141AB5B9B4008CB207 /* LaunchScreen.xib in Resources */,
+				E1AFF0AD1AE7D9050059E011 /* default.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +435,7 @@
 				57133D871ADD41A700665C77 /* Observation.swift in Sources */,
 				57175C441AE6BD8600116D0F /* TripMapper.swift in Sources */,
 				E18130B11AD7CA1900C8E952 /* LoginController.swift in Sources */,
+				E16AFC271AE7B4940071CEB3 /* BreadingPairViewController.swift in Sources */,
 				E16961F31AD9B23A002D8814 /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
