@@ -8,10 +8,7 @@
 
 import Foundation
 import Realm
-
-struct Time {
-	var from = "", to = ""
-}
+import MapKit
 
 class Observation: RLMObject {
 
@@ -31,17 +28,7 @@ class Observation: RLMObject {
 
 	var direction:NSString = ""
 
-	var time: Time {
-		get {
-			let from = ""
-			let to   = ""
-			return Time(from: "", to: "")
-		}
-		set(newTime) {
-			origin.from = newTime.from
-			origin.to   = newTime.to
-		}
-	}
+	var time: Time?
 
 	var sex:NSString = ""
 
@@ -50,6 +37,10 @@ class Observation: RLMObject {
 	var suit:NSString = ""
 
 	var note:NSString = ""
+
+	var location:CLLocationCoordinate2D?
+	
+	
     
     func makeCopy() -> Observation{
         var observation = Observation()

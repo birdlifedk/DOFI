@@ -9,7 +9,27 @@
 import Foundation
 import Realm
 
-public class Trip: RLMObject{
+struct Time {
+    var from = "", to = ""
+}
+
+class Trip: RLMObject {
+
+	var location:NSString?
+
+	var date:NSDate?
+
+	var time:Time?
+
+	var method:NSString?
+	
+	var note:NSString?
+
+	var interference:NSString?
+
+	var interferenceQuantity:NSInteger?
+
+	var interferenceNote:NSString?
     
     var id = -1
     

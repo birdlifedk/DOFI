@@ -172,7 +172,7 @@ class BreadingPairViewController: DOFIViewController, UITextViewDelegate, UIText
 	@IBAction func submitButtonHandler(sender: UIButton) {
 		//Do some stuff here
 		println(breadingPair)
-		println(Session.getTrip())
+		println(Session.sharedInstance.getTrip())
 	}
 }
 

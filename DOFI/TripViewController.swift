@@ -183,7 +183,7 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 
 	// The submit button, terminates the view, and saves the current trip object in the Session struct.
 	@IBAction func submitForm(sender: UIButton) {
-		Session.setTrip(self.trip)
+		Session.sharedInstance.setTrip(self.trip)
 		self.navigationController?.popViewControllerAnimated(true)
 	}
 }

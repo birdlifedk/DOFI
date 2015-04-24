@@ -10,6 +10,8 @@ import Foundation
 
  class Session {
 
+	private var trip:Trip? = nil
+
 	private var loggedIn = false
 
 	private var user:User?
@@ -26,6 +28,10 @@ import Foundation
         return self.token!
     }
 
+	func getTrip() -> Trip? {
+		return self.trip
+	}
+
 	func isLoggedIn() -> Bool {
 		return self.loggedIn
 	}
@@ -36,6 +42,10 @@ import Foundation
 
 	func setUser(user: User) {
 		self.user = user
+	}
+
+	func setTrip(trip: Trip) {
+		self.trip = trip
 	}
     
     func setToken(token: Token) {
