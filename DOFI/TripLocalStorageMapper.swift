@@ -10,16 +10,27 @@ import Foundation
 
 class TripLocalStorageMapper: LocalStorageMapper {
     
+    func storeTrip(trip: Trip) -> ReturnMessage{
+        var tripCopy = trip.makeCopy()
+        
+        localStorage.store(trip)
+        
+        inMemoryStorage.store(tripCopy)
+        
+        return ReturnMessage(message: "Done storing trip", isDone: true)
+    }
+    
     func getAllTrips() -> [Trip]{
         var rlmTrips = localStorage.getAllTrips()
         
         var trips = [Trip]()
         
         var index = 0 as UInt
-        var count = rlmTrips.count - 1
+        var count = rlmTrips.count
         
-        if (count >= 0){
+        if (count >= 1){
             
+            count = count - 1
             var ended = false
             
             while (!ended){
@@ -40,15 +51,5 @@ class TripLocalStorageMapper: LocalStorageMapper {
             }
         }
         return trips
-    }
-    
-    func storeTrip(trip: Trip) -> ReturnMessage{
-        var tripCopy = trip.makeCopy()
-        
-        localStorage.store(trip)
-        
-        inMemoryStorage.store(tripCopy)
-        
-        return ReturnMessage(message: "Done storing trip", isDone: true)
     }
 }

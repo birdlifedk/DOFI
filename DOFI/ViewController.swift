@@ -39,17 +39,17 @@ class ViewController: DOFIViewController, CLLocationManagerDelegate {
             sessionUser.id = user?.valueForKey("ID") as! NSInteger
             sessionUser.name = user?.valueForKey("NAME") as! NSString
             sessionUser.surname = user?.valueForKey("SURNAME") as! NSString
+            //sessionUser.token = user?.valueForKey(<#key: String#>)
             
+            println(Session.sharedInstance)
             
-			Session.setUser(sessionUser)
+            Session.sharedInstance.setUser(sessionUser)
 		}
 
 	}
 
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(true)
-
-
 	}
 
 	

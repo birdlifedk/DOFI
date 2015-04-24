@@ -9,6 +9,7 @@
 import Foundation
 
 class ObservationLocalStorageMapper: LocalStorageMapper {
+    
     func storeObservation(observation: Observation) -> ReturnMessage{
         var observationCopy = observation.makeCopy()
         
@@ -25,10 +26,11 @@ class ObservationLocalStorageMapper: LocalStorageMapper {
         var observations = [Observation]()
         
         var index = 0 as UInt
-        var count = rlmObservations.count - 1
+        var count = rlmObservations.count
         
-        if (count >= 0){
+        if (count >= 1){
             
+            count = count - 1
             var ended = false
             
             while (!ended){

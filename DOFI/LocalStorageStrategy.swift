@@ -40,13 +40,15 @@ class LocalStorageStrategy: StorageStrategy {
         if(connection.isReachableViaWiFi()) {
             var objectDictionary = getAllLocalObjects()
             
+            println(objectDictionary)
+            
             if (objectDictionary != nil){
                 var returnMessage = dofiService.uploadContent(objectDictionary!)
                 
                 println(returnMessage.message)
                 
                 if (returnMessage.isDone){
-                    println(objectDictionary)
+                    println("Ended uploading.. deleting locally?")
                     //delete something
                 }
                 

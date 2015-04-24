@@ -22,20 +22,20 @@ class DOFIService: WebserviceProtocol {
 		var token = tokenMapper.getToken(params)
         
         if (token.expiresIn > 0.0){
-            Session.setToken(token)
+            Session.sharedInstance.setToken(token)
 
-            var user = userMapper.getUser(username, accessToken: Session.getToken().accessToken)
+            var user = userMapper.getUser(username, accessToken: Session.sharedInstance.getToken().accessToken)
 				
             if (user.id >= 0)
             {
-                Session.setUser(user)
-                Session.setLoggedInStatus(true)
+                Session.sharedInstance.setUser(user)
+                Session.sharedInstance.setLoggedInStatus(true)
                 //self.performSegueWithIdentifier("gotoWelcome", sender: self)
 
                 var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
                 //prefs.setValue(user.user, forKey: "USER")
                 prefs.setObject(["ID" : user.id, "USERNAME" : user.username!, "NAME" : user.name!, "SURNAME" : user.surname!], forKey: "USER")
-                prefs.setBool(Session.isLoggedIn(), forKey: "ISLOGGEDIN")
+                prefs.setBool(Session.sharedInstance.isLoggedIn(), forKey: "ISLOGGEDIN")
                 prefs.synchronize()
                         
                 return ReturnMessage(message: "Success!", isDone: true, objects: [user])

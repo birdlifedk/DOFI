@@ -72,13 +72,13 @@ class WebserviceAPICommunication {
     }
     
     func getTripsAsJSONDictionary() -> NSDictionary{
-        getUserIdAndAccessToken()
+        //getUserIdAndAccessToken()
         
         return NSDictionary()
     }
     
     func uploadContent(dictionary: NSDictionary) -> ReturnMessage{
-        getUserIdAndAccessToken()
+        //getUserIdAndAccessToken()
         
         var responseError:NSError?
         //var jsonData = NSJSONSerialization.
@@ -89,7 +89,7 @@ class WebserviceAPICommunication {
     }
     
     private func getUserIdAndAccessToken(){
-        userId = Session.getUser().id
-        accessToken = Session.getToken().accessToken as String
+        userId = Session.sharedInstance.getUser().id
+        accessToken = Session.sharedInstance.getToken().accessToken as String
     }
 }

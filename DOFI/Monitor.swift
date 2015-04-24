@@ -20,11 +20,17 @@ class Monitor {
     }
     
 	func start() {
-		NSLog("Start")
 		while run {
-
-            sleep(5)
-			uploadContent()
+            if (Session.sharedInstance.isLoggedIn()){
+            
+                uploadContent()
+                sleep(5)
+                
+            }else{
+                println("Monitor: User not logged in")
+                println(Session.sharedInstance)
+                sleep(10)
+            }
 		}
 	}
 

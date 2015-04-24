@@ -8,35 +8,46 @@
 
 import Foundation
 
-struct Session {
+ class Session {
 
-	private static var loggedIn = false
+	private var loggedIn = false
 
-	private static var user:User?
+	private var user:User?
     
-    private static var token:Token?
-
-	static func getUser() -> User {
+    private var token:Token?
+    
+    private init() {}
+    
+	func getUser() -> User {
 		return self.user!
 	}
     
-    static func getToken() -> Token {
+    func getToken() -> Token {
         return self.token!
     }
 
-	static func isLoggedIn() -> Bool {
+	func isLoggedIn() -> Bool {
 		return self.loggedIn
 	}
 
-	static func setLoggedInStatus(status: Bool) {
+	func setLoggedInStatus(status: Bool) {
 		self.loggedIn = status
 	}
 
-	static func setUser(user: User) {
+	func setUser(user: User) {
 		self.user = user
 	}
     
-    static func setToken(token: Token) {
+    func setToken(token: Token) {
         self.token = token
+    }
+    
+    class var sharedInstance :Session {
+        
+        struct Singleton {
+            static let instance = Session()
+        }
+        
+        return Singleton.instance
     }
 }

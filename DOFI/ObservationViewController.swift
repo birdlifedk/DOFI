@@ -120,6 +120,7 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 //        localStorageTest.uploadContent()
         //var returnMessage = communicationFacade.getLocation(self.locationManager)
         var returnMessage = communicationFacade.storeObservation(trip, observation: observation)
+        println(returnMessage.message)
         self.navigationController?.popViewControllerAnimated(true)
     }
     

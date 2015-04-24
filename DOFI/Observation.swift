@@ -54,6 +54,7 @@ class Observation: RLMObject {
     func makeCopy() -> Observation{
         var observation = Observation()
         observation.id = self.id
+        observation.tripId = self.tripId
         observation.origin = self.origin
         observation.species = self.species
         observation.quantity = self.quantity
