@@ -13,11 +13,11 @@ protocol StorageStrategy {
 
 	func login(username:NSString, password:NSString) -> ReturnMessage
     
-    func storeObservation(userId:NSInteger, trip: Trip, observation: Observation) -> ReturnMessage
+    func storeObservation(trip: Trip, observation: Observation) -> ReturnMessage
     
-    func storeTrip(userId:NSInteger, trip: Trip) -> ReturnMessage
+    func storeTrip(trip: Trip) -> ReturnMessage
     
     func uploadContent()
     
-    func getAllObservations() -> RLMResults
+    func getAllLocalObjects() -> NSDictionary?
 }

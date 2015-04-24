@@ -11,42 +11,55 @@ import Realm
 
 class StorageFacade {
 
-	let inMemory = DOFIInMemoryStorage()
-	let localStorage = DOFILocalStorage()
-
-    func storeObservation(userId:NSInteger, trip: Trip, observation: Observation) -> ReturnMessage{
+    let localStorageMapper = LocalStorageMapper()
+    let observationMapper = ObservationLocalStorageMapper()
+    let tripMapper = TripLocalStorageMapper()
+    
+    func storeObservation(trip: Trip, observation: Observation) -> ReturnMessage{
         
-        var observationCopy = observation.makeCopy()
+        observation.tripId = trip.id
         
-        localStorage.store(observation)
-        
-        inMemory.store(observationCopy)
-        
-        var returnMessage = ReturnMessage(message: "Done storing observation", isDone: true)
+        var returnMessage = observationMapper.storeObservation(observation)
         
         return returnMessage
     }
     
-    func storeTrip(userId:NSInteger, trip: Trip) -> ReturnMessage{
-        var tripCopy = trip.makeCopy()
+    func storeTrip(trip: Trip) -> ReturnMessage{
         
-        localStorage.store(trip)
         
-        inMemory.store(tripCopy)
-        
-        var returnMessage = ReturnMessage(message: "Done storing trip", isDone: true)
+        var returnMessage = tripMapper.storeTrip(trip)
         
         return returnMessage
     }
 
-	func getAllObservations() -> RLMResults {
-		return localStorage.getAllObservations()
+    func getAllObjects() -> NSDictionary? {
+        
+        var trips = tripMapper.getAllTrips()
+        var observations = observationMapper.getAllObservations()
+        
+        if (trips.count == 0 && observations.count == 0){
+            return nil
+        }
+        
+        var dictionary:NSDictionary = [
+            "trips" : trips,
+            "observations" : observations
+        ]
+        
+        return dictionary
+    }
+    
+	private func getAllObservations() -> [Observation] {
+		return observationMapper.getAllObservations()
 	}
     
+    private func getAllTrips() -> [Trip]{
+        return tripMapper.getAllTrips()
+    }
+    
     func deleteRLMObject(rlmObject: RLMObject) -> ReturnMessage {
-        localStorage.delete(rlmObject)
         
-        var returnMessage = ReturnMessage(message: "Done deleting", isDone: true)
+        var returnMessage = localStorageMapper.deleteRLMObject(rlmObject)
         
         return returnMessage
     }

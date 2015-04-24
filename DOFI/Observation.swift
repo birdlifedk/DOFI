@@ -17,6 +17,8 @@ class Observation: RLMObject {
 
     var id = -1
     
+    var tripId = -1
+    
 	var origin = Time()
 
 	var species:NSString = ""

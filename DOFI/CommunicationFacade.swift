@@ -54,12 +54,12 @@ class CommunicationFacade {
         
         
     */
-    func storeObservation(userId:NSInteger, trip: Trip, observation: Observation) -> ReturnMessage{
-        return storageStrategy.storeObservation(userId, trip: trip, observation: observation)
+    func storeObservation(trip: Trip, observation: Observation) -> ReturnMessage{
+        return storageStrategy.storeObservation(trip, observation: observation)
     }
     
-    func storeTrip(userId:NSInteger, trip: Trip) -> ReturnMessage{
-        return storageStrategy.storeTrip(userId, trip: trip)
+    func storeTrip(trip: Trip) -> ReturnMessage{
+        return storageStrategy.storeTrip(trip)
     }
     
     func getLocation(locationManager: CLLocationManager) -> Location{

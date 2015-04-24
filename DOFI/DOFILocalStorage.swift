@@ -26,4 +26,8 @@ class DOFILocalStorage {
 	func getAllObservations() -> RLMResults {
 		return Observation.allObjects()
 	}
+    
+    func getAllTrips() -> RLMResults {
+        return Trip.allObjects()
+    }
 }

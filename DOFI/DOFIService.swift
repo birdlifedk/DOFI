@@ -59,8 +59,8 @@ class DOFIService: WebserviceProtocol {
         return returnMessage
     }
     
-    func uploadContent(rlmResults: RLMResults) -> ReturnMessage{
+    func uploadContent(dictionary: NSDictionary) -> ReturnMessage{
         
-        return tripMapper.uploadContent(rlmResults)
+        return tripMapper.uploadContent(dictionary)
     }
 }

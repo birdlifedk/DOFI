@@ -26,28 +26,27 @@ class LocalStorageStrategy: StorageStrategy {
         
 	}
     
-    func storeObservation(userId:NSInteger, trip: Trip, observation: Observation) -> ReturnMessage{
-        return localStorageFacade.storeObservation(userId, trip: trip, observation: observation)
+    func storeObservation(trip: Trip, observation: Observation) -> ReturnMessage{
+        return localStorageFacade.storeObservation(trip, observation: observation)
     }
     
-    func storeTrip(userId:NSInteger, trip: Trip) -> ReturnMessage{
-        return localStorageFacade.storeTrip(userId, trip: trip)
+    func storeTrip(trip: Trip) -> ReturnMessage{
+        return localStorageFacade.storeTrip(trip)
     }
     
     func uploadContent(){
         println("Monitoring!")
         
         if(connection.isReachableViaWiFi()) {
-            var rlmResults = getAllObservations()
-            println("Number of observations: " + rlmResults.count.description)
+            var objectDictionary = getAllLocalObjects()
             
-            if (rlmResults.count>0){
-                var returnMessage = dofiService.uploadContent(rlmResults)
+            if (objectDictionary != nil){
+                var returnMessage = dofiService.uploadContent(objectDictionary!)
                 
                 println(returnMessage.message)
                 
                 if (returnMessage.isDone){
-                    println(rlmResults)
+                    println(objectDictionary)
                     //delete something
                 }
                 
@@ -57,8 +56,8 @@ class LocalStorageStrategy: StorageStrategy {
         
     }
     
-    func getAllObservations() -> RLMResults {
-        return localStorageFacade.getAllObservations()
+    func getAllLocalObjects() -> NSDictionary?{
+        return localStorageFacade.getAllObjects()
     }
     
     func deleteRLMObject(rlmObject: RLMObject) -> ReturnMessage {

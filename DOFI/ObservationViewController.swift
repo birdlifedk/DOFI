@@ -105,7 +105,6 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 
 
     @IBAction func confirmButtonHandler(sender: UIButton) {
-        var userId = Session.getUser().id
         var trip = Trip()
         var observation = Observation()
         
@@ -120,7 +119,7 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 //        var localStorageTest = LocalStorageStrategy()
 //        localStorageTest.uploadContent()
         //var returnMessage = communicationFacade.getLocation(self.locationManager)
-        var returnMessage = communicationFacade.storeObservation(userId, trip: trip, observation: observation)
+        var returnMessage = communicationFacade.storeObservation(trip, observation: observation)
         self.navigationController?.popViewControllerAnimated(true)
     }
     

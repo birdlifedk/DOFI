@@ -22,6 +22,9 @@
 		57175C441AE6BD8600116D0F /* TripMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57175C431AE6BD8600116D0F /* TripMapper.swift */; };
 		57EBF4761AE790A300AA268F /* WebserviceAPICommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF4751AE790A300AA268F /* WebserviceAPICommunication.swift */; };
 		57EBF4781AE79CF200AA268F /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF4771AE79CF200AA268F /* Mapper.swift */; };
+		57EBF47A1AEA34C200AA268F /* TripLocalStorageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF4791AEA34C200AA268F /* TripLocalStorageMapper.swift */; };
+		57EBF47C1AEA34DE00AA268F /* ObservationLocalStorageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF47B1AEA34DE00AA268F /* ObservationLocalStorageMapper.swift */; };
+		57EBF47E1AEA350100AA268F /* LocalStorageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF47D1AEA350100AA268F /* LocalStorageMapper.swift */; };
 		E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A50091AB5B9B4008CB207 /* AppDelegate.swift */; };
 		E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A500B1AB5B9B4008CB207 /* ViewController.swift */; };
 		E12A500F1AB5B9B4008CB207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12A500D1AB5B9B4008CB207 /* Main.storyboard */; };
@@ -77,6 +80,9 @@
 		57175C431AE6BD8600116D0F /* TripMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripMapper.swift; sourceTree = "<group>"; };
 		57EBF4751AE790A300AA268F /* WebserviceAPICommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceAPICommunication.swift; sourceTree = "<group>"; };
 		57EBF4771AE79CF200AA268F /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		57EBF4791AEA34C200AA268F /* TripLocalStorageMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripLocalStorageMapper.swift; sourceTree = "<group>"; };
+		57EBF47B1AEA34DE00AA268F /* ObservationLocalStorageMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationLocalStorageMapper.swift; sourceTree = "<group>"; };
+		57EBF47D1AEA350100AA268F /* LocalStorageMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageMapper.swift; sourceTree = "<group>"; };
 		E12A50041AB5B9B4008CB207 /* DOFI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOFI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12A50081AB5B9B4008CB207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E12A50091AB5B9B4008CB207 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +146,9 @@
 				E16BB8501ADE5EFA006D54EB /* DOFIInMemoryStorage.swift */,
 				E16BB8511ADE5EFA006D54EB /* DOFILocalStorage.swift */,
 				57133D8E1ADD5FD600665C77 /* StorageFacade.swift */,
+				57EBF4791AEA34C200AA268F /* TripLocalStorageMapper.swift */,
+				57EBF47B1AEA34DE00AA268F /* ObservationLocalStorageMapper.swift */,
+				57EBF47D1AEA350100AA268F /* LocalStorageMapper.swift */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -391,6 +400,7 @@
 				E16961DD1AD9A33C002D8814 /* CommunicationFacade.swift in Sources */,
 				E16961DA1AD97C5F002D8814 /* Session.swift in Sources */,
 				E16961D81AD96920002D8814 /* Token.swift in Sources */,
+				57EBF47E1AEA350100AA268F /* LocalStorageMapper.swift in Sources */,
 				E14DD9031ABC847300EB7B92 /* TripViewController.swift in Sources */,
 				57175C401AE6934D00116D0F /* UserMapper.swift in Sources */,
 				57175C3E1ADE61AF00116D0F /* StorageStrategy.swift in Sources */,
@@ -398,6 +408,7 @@
 				E16BB8541ADE5EFA006D54EB /* DOFIInMemoryStorage.swift in Sources */,
 				E1BC48C41AD2C5DB008C1BC1 /* ObservationViewController.swift in Sources */,
 				E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */,
+				57EBF47A1AEA34C200AA268F /* TripLocalStorageMapper.swift in Sources */,
 				E16961EF1AD9B01F002D8814 /* LocalStorageStrategy.swift in Sources */,
 				E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */,
 				57133D991ADD687600665C77 /* Location.swift in Sources */,
@@ -407,6 +418,7 @@
 				57EBF4761AE790A300AA268F /* WebserviceAPICommunication.swift in Sources */,
 				57175C421AE69E1D00116D0F /* TokenMapper.swift in Sources */,
 				57133D931ADD62EC00665C77 /* Position.swift in Sources */,
+				57EBF47C1AEA34DE00AA268F /* ObservationLocalStorageMapper.swift in Sources */,
 				E16D7BD21AD9479D00C75CD9 /* User.swift in Sources */,
 				E16961E81AD9AE59002D8814 /* DOFIService.swift in Sources */,
 				57133D911ADD628C00665C77 /* LocationStrategy.swift in Sources */,
