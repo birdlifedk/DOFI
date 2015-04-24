@@ -23,14 +23,14 @@ class StrategyFactory {
     
     func getLocationStrategy() -> LocationStrategy{
         
-        var currentBatteryLevel = batteryLevel()
-        
-        if(currentBatteryLevel>0.1)
-        {
-            return HighPrecisionLocationStrategy()
-        }else {
-            return LowPrecisionLocationStrategy()
-        }
+        //var currentBatteryLevel = batteryLevel()
+        return HighPrecisionLocationStrategy()
+        //if(currentBatteryLevel>0.1)
+        //{
+          //  return HighPrecisionLocationStrategy()
+        //}else {
+          //  return LowPrecisionLocationStrategy()
+        //}
         //return NoConnectionLocationStrategi()
     }
     

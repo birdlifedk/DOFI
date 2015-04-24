@@ -27,6 +27,7 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 
 	@IBOutlet var secondaryBehaviourPicker: UIPickerView! = UIPickerView()
 
+	var annotation:MKPointAnnotation?
 	var activeTextView: UITextField!
 	var observation: Observation = Observation()
 
@@ -55,6 +56,7 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 
 
         if(secondaryBehaviourText != nil && directionText != nil && secondaryBehaviourPicker != nil) {
+			initMap()
             secondaryBehaviourText.delegate = self
             secondaryBehaviourText.inputView = secondaryBehaviourPicker
             secondaryBehaviourText.inputAccessoryView = toolbar
@@ -67,8 +69,24 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
             secondaryBehaviourPicker.hidden = true
             secondaryBehaviourPicker.showsSelectionIndicator = true
         }
+	}
 
+	override func viewDidAppear(animated: Bool) {
+		if(observationMap != nil) {
+			initMap()
+		}
+	}
 
+	func initMap() {
+		//self.map.delegate = self.mapDelegate
+		var locations = self.communicationFacade.getLocation(self.locationManager)
+		if(locations.longitude != nil ) {
+			let location = CLLocationCoordinate2D(latitude: locations.latitude!, longitude: locations.longitude!)
+			let span = MKCoordinateSpanMake(0.005, 0.005)
+			let region = MKCoordinateRegion(center: location, span: span)
+
+			self.observationMap.setRegion(region, animated: true)
+		}
 	}
 
 	func donePicker(sender:UIButton){
@@ -126,6 +144,20 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 		}
 		observation.sex = sex[Int(value)]
 		println(observation)
+	}
+
+	@IBAction func pinHandler(sender: UILongPressGestureRecognizer) {
+		if(self.annotation == nil) {
+			self.annotation = MKPointAnnotation()
+			self.observationMap.addAnnotation(annotation)
+
+		}
+		var point:CGPoint = sender.locationInView(self.observationMap)
+		var location = self.observationMap.convertPoint(point, toCoordinateFromView: self.observationMap)
+		self.annotation!.coordinate = location
+		self.annotation!.title = self.observation.species as String
+
+		self.observation.location = location
 	}
 
 	@IBAction func formHandler(sender: AnyObject) {

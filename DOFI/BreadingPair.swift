@@ -8,6 +8,7 @@
 
 import Foundation
 import Realm
+import MapKit
 
 class BreadingPair: RLMObject {
 
@@ -20,5 +21,7 @@ class BreadingPair: RLMObject {
 	var behaviour:NSString = ""
 
 	var note:NSString = ""
+
+	var location: CLLocationCoordinate2D?
 	
 }

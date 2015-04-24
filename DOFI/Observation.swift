@@ -8,6 +8,7 @@
 
 import Foundation
 import Realm
+import MapKit
 
 class Observation: RLMObject {
 
@@ -30,6 +31,8 @@ class Observation: RLMObject {
 	var suit:NSString = ""
 
 	var note:NSString = ""
+
+	var location:CLLocationCoordinate2D?
 	
 	
 }

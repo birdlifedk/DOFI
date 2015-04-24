@@ -20,13 +20,14 @@ class BreadingPairViewController: DOFIViewController, UITextViewDelegate, UIText
 	@IBOutlet var map: MKMapView!
 	@IBOutlet var picker: UIPickerView! = UIPickerView()
 
+	var annotation: MKPointAnnotation?
 	var activeTextView: UITextField!
 	var picks = [""]
 	var breadingPair = BreadingPair()
 	var delegate = AutoCompleteDelegate()
 	var tableView = UITableView(frame: CGRectMake(0,80,320,120), style: UITableViewStyle.Plain)
 	var breadingPairBehaviour = ["Adfærd1", "Adfærd2", "Adfærd3"]
-
+	var mapDelegate = DOFIMapDelegate()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -50,6 +51,7 @@ class BreadingPairViewController: DOFIViewController, UITextViewDelegate, UIText
 		}
 
 		if(behaviour != nil) {
+			initMap()
 			var toolbar = UIToolbar()
 			toolbar.barStyle = UIBarStyle.Default
 			toolbar.translucent = true
@@ -73,6 +75,25 @@ class BreadingPairViewController: DOFIViewController, UITextViewDelegate, UIText
 
 		}
 
+	}
+
+	override func viewDidAppear(animated: Bool) {
+		if(map != nil) {
+			initMap()
+		}
+
+	}
+	
+	func initMap() {
+		//self.map.delegate = self.mapDelegate
+		var locations = self.communicationFacade.getLocation(self.locationManager)
+		if(locations.longitude != nil ) {
+			let location = CLLocationCoordinate2D(latitude: locations.latitude!, longitude: locations.longitude!)
+			let span = MKCoordinateSpanMake(0.005, 0.005)
+			let region = MKCoordinateRegion(center: location, span: span)
+
+			map.setRegion(region, animated: true)
+		}
 	}
 
 	func donePicker(sender:UIButton){
@@ -114,6 +135,20 @@ class BreadingPairViewController: DOFIViewController, UITextViewDelegate, UIText
 		}
 	}
 
+	@IBAction func pinHandler(sender: UILongPressGestureRecognizer) {
+		if(self.annotation == nil) {
+			self.annotation = MKPointAnnotation()
+			map.addAnnotation(annotation)
+
+		}
+		var point:CGPoint = sender.locationInView(self.map)
+		var location = self.map.convertPoint(point, toCoordinateFromView: self.map)
+		self.annotation!.coordinate = location
+		self.annotation!.title = self.breadingPair.species as String
+
+		self.breadingPair.location = location
+	}
+
 	@IBAction func formHandler(sender: AnyObject) {
 		// Just to make shure we only use objects that are available
 		if(speciesText != nil) {
@@ -138,5 +173,17 @@ class BreadingPairViewController: DOFIViewController, UITextViewDelegate, UIText
 		//Do some stuff here
 		println(breadingPair)
 		println(Session.getTrip())
+	}
+}
+
+class DOFIMapDelegate: NSObject, MKMapViewDelegate {
+
+	func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+		var pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pinIdentifier")
+		pin.canShowCallout = true
+
+
+
+		return pin
 	}
 }

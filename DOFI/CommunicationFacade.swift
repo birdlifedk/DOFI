@@ -52,8 +52,7 @@ class CommunicationFacade {
     func getLocation(locationManager: CLLocationManager) -> Location{
         locationManager.startUpdatingLocation()
         getLocationStrategy()
-        
-        
+
         var location = locationStrategy!.getLocation(locationManager)
         
         return location

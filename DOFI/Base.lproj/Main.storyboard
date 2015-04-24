@@ -509,13 +509,17 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqY-Zj-L3x">
-                                <rect key="frame" x="20" y="280" width="560" height="164"/>
+                                <rect key="frame" x="0.0" y="246" width="600" height="250"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="164" id="bwL-HX-miS"/>
+                                    <constraint firstAttribute="height" constant="250" id="bwL-HX-miS"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2nD-f3-QID" appends="YES" id="nOk-IU-Zve"/>
+                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vkj-O2-CyA">
-                                <rect key="frame" x="273" y="484" width="55" height="30"/>
+                                <rect key="frame" x="273" y="513" width="55" height="30"/>
                                 <state key="normal" title="Bekræft">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -530,12 +534,12 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="vkj-O2-CyA" secondAttribute="centerX" constant="-0.5" id="2Wz-JC-WNg"/>
-                            <constraint firstItem="BX6-ol-JvG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vkj-O2-CyA" secondAttribute="bottom" priority="250" constant="86" id="40K-V1-kyi"/>
+                            <constraint firstItem="BX6-ol-JvG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vkj-O2-CyA" secondAttribute="bottom" priority="250" constant="57" id="40K-V1-kyi"/>
                             <constraint firstItem="Z6B-JH-t83" firstAttribute="top" secondItem="Haj-nV-H3S" secondAttribute="bottom" constant="40" id="4Vh-MD-vHE"/>
-                            <constraint firstItem="TqY-Zj-L3x" firstAttribute="top" secondItem="Y14-tB-7F7" secondAttribute="bottom" constant="54" id="AiT-W0-uwP"/>
+                            <constraint firstItem="TqY-Zj-L3x" firstAttribute="top" secondItem="Y14-tB-7F7" secondAttribute="bottom" constant="20" id="AiT-W0-uwP"/>
                             <constraint firstAttribute="centerX" secondItem="TqY-Zj-L3x" secondAttribute="centerX" id="GbT-4u-2eR"/>
-                            <constraint firstItem="TqY-Zj-L3x" firstAttribute="leading" secondItem="LVF-jp-COC" secondAttribute="leading" constant="20" symbolic="YES" id="I6H-h0-4mq"/>
-                            <constraint firstItem="vkj-O2-CyA" firstAttribute="top" secondItem="TqY-Zj-L3x" secondAttribute="bottom" constant="40" id="SmF-6h-8Qv"/>
+                            <constraint firstItem="TqY-Zj-L3x" firstAttribute="leading" secondItem="LVF-jp-COC" secondAttribute="leading" id="I6H-h0-4mq"/>
+                            <constraint firstItem="vkj-O2-CyA" firstAttribute="top" secondItem="TqY-Zj-L3x" secondAttribute="bottom" constant="17" id="SmF-6h-8Qv"/>
                             <constraint firstItem="Y14-tB-7F7" firstAttribute="top" secondItem="Z6B-JH-t83" secondAttribute="bottom" constant="8" symbolic="YES" id="aGr-4h-PGl"/>
                             <constraint firstAttribute="centerX" secondItem="Z6B-JH-t83" secondAttribute="centerX" constant="-0.5" id="gXi-dj-99n"/>
                             <constraint firstItem="Y14-tB-7F7" firstAttribute="leading" secondItem="LVF-jp-COC" secondAttribute="leading" constant="20" symbolic="YES" id="kBw-Jh-ELr"/>
@@ -555,6 +559,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1J-oo-2Xl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="2nD-f3-QID">
+                    <connections>
+                        <action selector="pinHandler:" destination="bgS-lc-Ge7" id="kNW-de-8xV"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3343" y="1298"/>
         </scene>
@@ -729,14 +738,14 @@
                         <viewControllerLayoutGuide type="bottom" id="d78-kE-5ef"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zqu-U4-mVS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1102"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ovg-EX-o53">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="1102"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6XV-fp-ggw" userLabel="contentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="945"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1102"/>
                                         <subviews>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="iK7-X0-f60">
                                                 <rect key="frame" x="20" y="130" width="200" height="162"/>
@@ -825,13 +834,17 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ud3-g0-Ubs">
-                                                <rect key="frame" x="20" y="688" width="560" height="164"/>
+                                                <rect key="frame" x="0.0" y="688" width="600" height="250"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="164" id="4lO-N7-g3h"/>
+                                                    <constraint firstAttribute="height" constant="250" id="4lO-N7-g3h"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="tpx-P9-aIB" appends="YES" id="RPf-Es-Ig3"/>
+                                                </connections>
                                             </mapView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBQ-iM-Zb2">
-                                                <rect key="frame" x="273" y="895" width="55" height="30"/>
+                                                <rect key="frame" x="273" y="962" width="55" height="30"/>
                                                 <state key="normal" title="Bekræft">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -843,10 +856,10 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="X7h-90-Ejr" secondAttribute="trailing" constant="20" symbolic="YES" id="1Ie-SD-hhn"/>
-                                            <constraint firstItem="Ud3-g0-Ubs" firstAttribute="leading" secondItem="6XV-fp-ggw" secondAttribute="leading" constant="20" symbolic="YES" id="1d9-jV-y69"/>
+                                            <constraint firstItem="Ud3-g0-Ubs" firstAttribute="leading" secondItem="6XV-fp-ggw" secondAttribute="leading" id="1d9-jV-y69"/>
                                             <constraint firstItem="BJG-68-BOz" firstAttribute="leading" secondItem="6XV-fp-ggw" secondAttribute="leading" constant="20" symbolic="YES" id="2Rr-ZO-dlZ"/>
                                             <constraint firstItem="IIb-5x-HfQ" firstAttribute="top" secondItem="6XV-fp-ggw" secondAttribute="top" constant="80" id="2ht-2v-xpW"/>
-                                            <constraint firstAttribute="bottom" secondItem="yBQ-iM-Zb2" secondAttribute="bottom" constant="20" symbolic="YES" id="3dC-C4-P87"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yBQ-iM-Zb2" secondAttribute="bottom" constant="8" id="3dC-C4-P87"/>
                                             <constraint firstItem="ad4-Yj-LJt" firstAttribute="top" secondItem="WWk-zv-9s5" secondAttribute="bottom" constant="20" id="4X7-Ey-RXh"/>
                                             <constraint firstAttribute="centerX" secondItem="0Q6-eh-l6c" secondAttribute="centerX" id="5RZ-Zk-GW9"/>
                                             <constraint firstAttribute="centerX" secondItem="WWk-zv-9s5" secondAttribute="centerX" id="7y8-Fr-SX5"/>
@@ -854,7 +867,7 @@
                                             <constraint firstItem="0Q6-eh-l6c" firstAttribute="leading" secondItem="6XV-fp-ggw" secondAttribute="leading" constant="20" symbolic="YES" id="Clb-yT-7E4"/>
                                             <constraint firstItem="Ud3-g0-Ubs" firstAttribute="top" secondItem="0Q6-eh-l6c" secondAttribute="bottom" constant="48" id="DMH-4r-mVv"/>
                                             <constraint firstItem="BJG-68-BOz" firstAttribute="top" secondItem="X7h-90-Ejr" secondAttribute="bottom" constant="20" id="DkU-ae-fyR"/>
-                                            <constraint firstItem="yBQ-iM-Zb2" firstAttribute="top" secondItem="Ud3-g0-Ubs" secondAttribute="bottom" constant="43" id="LI3-lY-Gje"/>
+                                            <constraint firstItem="yBQ-iM-Zb2" firstAttribute="top" secondItem="Ud3-g0-Ubs" secondAttribute="bottom" constant="24" id="LI3-lY-Gje"/>
                                             <constraint firstItem="WWk-zv-9s5" firstAttribute="leading" secondItem="jxT-dz-dgV" secondAttribute="trailing" constant="8" symbolic="YES" id="TFV-N0-jFR"/>
                                             <constraint firstItem="ZAm-MN-Rb9" firstAttribute="top" secondItem="BJG-68-BOz" secondAttribute="bottom" constant="20" id="UQ8-kE-Fql"/>
                                             <constraint firstItem="jxT-dz-dgV" firstAttribute="leading" secondItem="6XV-fp-ggw" secondAttribute="leading" constant="20" symbolic="YES" id="VOy-yC-KsL"/>
@@ -902,6 +915,8 @@
                             <constraint firstItem="6XV-fp-ggw" firstAttribute="height" secondItem="Zqu-U4-mVS" secondAttribute="height" priority="250" id="wY0-pK-Fa3"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="1102"/>
                     <connections>
                         <outlet property="age" destination="ad4-Yj-LJt" id="uSt-Qt-aiI"/>
                         <outlet property="directionText" destination="BJG-68-BOz" id="Jvm-4R-edX"/>
@@ -915,6 +930,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWh-hk-IMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="tpx-P9-aIB">
+                    <connections>
+                        <action selector="pinHandler:" destination="12g-Kh-fIM" id="KWR-aI-I5L"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3343" y="2789"/>
         </scene>
