@@ -37,10 +37,17 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 	var locations: NSMutableArray = ["lok1", "lok2", "lok3"]
 	var locationsAuto = [String]()
 
-	var trip = Trip()
+	var trip:Trip?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		if(Session.getTrip() == nil){
+			self.trip = Trip()
+		} else {
+			self.trip = Session.getTrip()
+			fillForm()
+		}
 
 		if(locationText != nil ) {
 			locationText.delegate = self.delegate
@@ -57,8 +64,6 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 
 			self.delegate.locations = ["lok1", "lok2", "lok3"] as NSMutableArray
 		}
-
-
 
 		if(methodText != nil) {
 			var toolbar = UIToolbar()
@@ -90,6 +95,50 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 			interferenceNote.delegate = self
 		}
 		//secondaryView.hidden = true
+	}
+
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+
+		if(Session.getTrip() == nil){
+			self.trip = Trip()
+		} else {
+			self.trip = Session.getTrip()
+			fillForm()
+		}
+	}
+
+	func fillForm() {
+		println(self.trip?.location)
+		if(self.trip?.location != nil && self.locationText != nil ) {
+			self.locationText.text = self.trip?.location as! String
+		}
+		if(self.trip?.date != nil && self.tripDate != nil) {
+			self.tripDate.date = self.trip!.date!
+		}
+		if(self.trip?.time != nil && (self.fromTime != nil && self.toTime != nil)) {
+			let dateFormatter = NSDateFormatter()
+			dateFormatter.dateFormat = "hh:mm"
+			self.fromTime.date = dateFormatter.dateFromString(self.trip!.time!.from)!
+			self.toTime.date = dateFormatter.dateFromString(self.trip!.time!.to)!
+		}
+		if(self.trip?.method != nil && self.methodText != nil) {
+			self.methodText.text = self.trip?.method as! String
+		}
+		if(self.trip?.note != nil && self.tripNote != nil) {
+			self.tripNote.text = self.trip?.note as! String
+		}
+		if(self.trip?.interference != nil && self.interferenceText != nil) {
+			self.interferenceText.text = self.trip?.interference as! String
+		}
+		if(self.trip?.interferenceQuantity != nil && self.interferenceQuantity != nil) {
+			self.interferenceQuantity.text = "\(self.trip!.interferenceQuantity!)"
+		}
+		if(self.trip?.interferenceNote != nil && self.interferenceNote != nil) {
+			self.interferenceNote.text = self.trip!.interferenceNote as! String
+		}
+
+
 	}
 
 	func donePicker(sender:UIButton){
@@ -140,10 +189,10 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 
 	func textViewDidEndEditing(textView: UITextView) {
 		if(textView == tripNote) {
-			trip.note = textView.text
+			trip!.note = textView.text
 		}
 		if(textView == interferenceNote) {
-			trip.interferenceNote = interferenceNote.text
+			trip!.interferenceNote = interferenceNote.text
 		}
 	}
 
@@ -152,38 +201,38 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 
 		// @TODO get rit of some of the if's
 		if(locationText != nil && sender as! NSObject == locationText) {
-			trip.location = locationText.text
+			trip!.location = locationText.text
 			println(trip)
 		}
 
 		if(tripDate != nil && sender as! NSObject == tripDate) {
-			trip.date = tripDate.date
+			trip!.date = tripDate.date
 			println(trip)
 		}
 
 		if(methodText != nil && sender as! NSObject == methodText) {
-			trip.method = methodText.text
+			trip!.method = methodText.text
 		}
 
 		if((fromTime != nil && sender as! NSObject == fromTime) || (toTime != nil && sender as! NSObject == toTime)) {
 			let dateFormatter = NSDateFormatter()
 			dateFormatter.dateFormat = "hh:mm"
 			var test = dateFormatter.stringFromDate(fromTime.date)
-			trip.time = Time(from: dateFormatter.stringFromDate(fromTime.date), to: dateFormatter.stringFromDate(toTime.date))
+			trip!.time = Time(from: dateFormatter.stringFromDate(fromTime.date), to: dateFormatter.stringFromDate(toTime.date))
 		}
 
 		if(interferenceText != nil) {
-			trip.interference = interferenceText.text
+			trip!.interference = interferenceText.text
 		}
 
 		if(interferenceQuantity != nil) {
-			trip.interferenceQuantity = (interferenceQuantity.text as String).toInt()
+			trip!.interferenceQuantity = (interferenceQuantity.text as String).toInt()
 		}
 	}
 
 	// The submit button, terminates the view, and saves the current trip object in the Session struct.
 	@IBAction func submitForm(sender: UIButton) {
-		Session.setTrip(self.trip)
+		Session.setTrip(self.trip!)
 		self.navigationController?.popViewControllerAnimated(true)
 	}
 }
