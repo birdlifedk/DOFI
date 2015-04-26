@@ -27,19 +27,29 @@ class ObservationPageViewController: UIPageViewController, UIPageViewControllerD
 
 		if(origin == "newObservation") {
 			identifiers = obsPages
+
+			self.navigationController?.navigationItem.title = "Observation"
 		}
 		if(origin == "newBreadingPair") {
 			identifiers = breadingPages
+			self.navigationController?.navigationItem.title = "Ynglepar"
 		}
 		if(origin == "tripSettings") {
 			identifiers = tripPages
+			self.navigationItem.title = "Tur"
+
+			self.navigationItem.setRightBarButtonItem(UIBarButtonItem(title: "Historik", style:  UIBarButtonItemStyle.Plain, target:self, action: "historyHandler"), animated: false)
 		}
 
 		let startingViewController = self.viewControllerAtIndex(self.index)
 		//let secondViewController   = self.viewControllerAtIndex(1)
 		let viewControllers: NSArray = [startingViewController]
 		self.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+	}
 
+	func historyHandler() {
+		var vc = self.storyboard?.instantiateViewControllerWithIdentifier("tripHistory") as! UIViewController
+		self.navigationController?.pushViewController(vc, animated: true)
 	}
 
 	func viewControllerAtIndex(index: Int) -> UIViewController! {

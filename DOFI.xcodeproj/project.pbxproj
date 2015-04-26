@@ -290,6 +290,7 @@
 				E18130B01AD7CA1900C8E952 /* LoginController.swift */,
 				E16961E21AD9A89F002D8814 /* DOFIViewController.swift */,
 				E16AFC261AE7B4940071CEB3 /* BreadingPairViewController.swift */,
+				E1BAB85D1AEA72DC0021EE18 /* HistoryViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -434,6 +435,7 @@
 				E16961E81AD9AE59002D8814 /* DOFIService.swift in Sources */,
 				57133D911ADD628C00665C77 /* LocationStrategy.swift in Sources */,
 				E17342111AC55B16009020CC /* ObservationPageViewController.swift in Sources */,
+				E1BAB85E1AEA72DC0021EE18 /* HistoryViewController.swift in Sources */,
 				E16BB8551ADE5EFA006D54EB /* DOFILocalStorage.swift in Sources */,
 				57133D871ADD41A700665C77 /* Observation.swift in Sources */,
 				57175C441AE6BD8600116D0F /* TripMapper.swift in Sources */,
