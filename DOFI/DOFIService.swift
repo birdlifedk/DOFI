@@ -38,12 +38,12 @@ class DOFIService: WebserviceProtocol {
                 prefs.setBool(Session.sharedInstance.isLoggedIn(), forKey: "ISLOGGEDIN")
                 prefs.synchronize()
                         
-                return ReturnMessage(message: "Success!", isDone: true, objects: [user])
+                return ReturnMessage(message: "Success!", isSuccess: true, objects: [user])
             }else {
-                return (ReturnMessage(message: "Kunne ikke hente en bruger", isDone: false, objects: nil))
+                return (ReturnMessage(message: "Kunne ikke hente en bruger", isSuccess: false, objects: nil))
             }
         }else {
-            return (ReturnMessage(message: "Kunne ikke finde en brugbar access token", isDone: false, objects: nil))
+            return (ReturnMessage(message: "Kunne ikke finde en brugbar access token", isSuccess: false, objects: nil))
         }
 	}
     
@@ -54,7 +54,7 @@ class DOFIService: WebserviceProtocol {
     }
     
     func storeObservation(userId: NSInteger, trip: Trip, observation: Observation) -> ReturnMessage{
-        var returnMessage = ReturnMessage(message: "Failed", isDone: false, objects: nil)
+        var returnMessage = ReturnMessage(message: "Failed", isSuccess: false, objects: nil)
         
         return returnMessage
     }

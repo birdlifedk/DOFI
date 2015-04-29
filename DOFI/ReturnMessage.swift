@@ -11,19 +11,19 @@ import Realm
 
 class ReturnMessage {
     let message:NSString
-    let isDone:Bool
+    let isSuccess:Bool
     
     let realmObjects:[RLMObject]?
     
-    init(message: NSString, isDone: Bool, objects: [RLMObject]?) {
+    init(message: NSString, isSuccess: Bool, objects: [RLMObject]?) {
         self.message = message
-        self.isDone = isDone
+        self.isSuccess = isSuccess
         self.realmObjects = objects
     }
     
-    init(message: NSString, isDone: Bool) {
+    init(message: NSString, isSuccess: Bool) {
         self.message = message
-        self.isDone = isDone
+        self.isSuccess = isSuccess
         self.realmObjects = nil
     }
 }

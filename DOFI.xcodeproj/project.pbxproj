@@ -25,6 +25,7 @@
 		57EBF47A1AEA34C200AA268F /* TripLocalStorageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF4791AEA34C200AA268F /* TripLocalStorageMapper.swift */; };
 		57EBF47C1AEA34DE00AA268F /* ObservationLocalStorageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF47B1AEA34DE00AA268F /* ObservationLocalStorageMapper.swift */; };
 		57EBF47E1AEA350100AA268F /* LocalStorageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF47D1AEA350100AA268F /* LocalStorageMapper.swift */; };
+		57EBF4821AEA75AC00AA268F /* DOFIObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF4811AEA75AC00AA268F /* DOFIObject.swift */; };
 		E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A50091AB5B9B4008CB207 /* AppDelegate.swift */; };
 		E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A500B1AB5B9B4008CB207 /* ViewController.swift */; };
 		E12A500F1AB5B9B4008CB207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12A500D1AB5B9B4008CB207 /* Main.storyboard */; };
@@ -51,8 +52,8 @@
 		E18130B31AD8003A00C8E952 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18130B21AD8003A00C8E952 /* ExternalAccessory.framework */; };
 		E19B93811ADE63A800072ED6 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E19B93801ADE63A800072ED6 /* libc++.dylib */; };
 		E19B93831ADE665200072ED6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19B93821ADE665200072ED6 /* Realm.framework */; };
-		E1AFF0AD1AE7D9050059E011 /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E1AFF0AC1AE7D9050059E011 /* default.gpx */; };
 		E19B93851AE0081D00072ED6 /* Monitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B93841AE0081D00072ED6 /* Monitor.swift */; };
+		E1AFF0AD1AE7D9050059E011 /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E1AFF0AC1AE7D9050059E011 /* default.gpx */; };
 		E1BC48C41AD2C5DB008C1BC1 /* ObservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BC48C31AD2C5DB008C1BC1 /* ObservationViewController.swift */; };
 		E1BC48C61AD3F2D4008C1BC1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BC48C51AD3F2D4008C1BC1 /* MapKit.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		57EBF4791AEA34C200AA268F /* TripLocalStorageMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripLocalStorageMapper.swift; sourceTree = "<group>"; };
 		57EBF47B1AEA34DE00AA268F /* ObservationLocalStorageMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationLocalStorageMapper.swift; sourceTree = "<group>"; };
 		57EBF47D1AEA350100AA268F /* LocalStorageMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageMapper.swift; sourceTree = "<group>"; };
+		57EBF4811AEA75AC00AA268F /* DOFIObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFIObject.swift; sourceTree = "<group>"; };
 		E12A50041AB5B9B4008CB207 /* DOFI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOFI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12A50081AB5B9B4008CB207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E12A50091AB5B9B4008CB207 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,8 +120,8 @@
 		E18130B41AD8003A00C8E952 /* DOFI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DOFI.entitlements; sourceTree = "<group>"; };
 		E19B93801ADE63A800072ED6 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		E19B93821ADE665200072ED6 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		E1AFF0AC1AE7D9050059E011 /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
 		E19B93841AE0081D00072ED6 /* Monitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monitor.swift; sourceTree = "<group>"; };
+		E1AFF0AC1AE7D9050059E011 /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
 		E1BC48C31AD2C5DB008C1BC1 /* ObservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationViewController.swift; sourceTree = "<group>"; };
 		E1BC48C51AD3F2D4008C1BC1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -276,6 +278,7 @@
 				57133D921ADD62EC00665C77 /* Position.swift */,
 				57133D981ADD687600665C77 /* Location.swift */,
 				E16AFC281AE7B6280071CEB3 /* BreadingPair.swift */,
+				57EBF4811AEA75AC00AA268F /* DOFIObject.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				E16961EF1AD9B01F002D8814 /* LocalStorageStrategy.swift in Sources */,
 				E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */,
 				57133D991ADD687600665C77 /* Location.swift in Sources */,
+				57EBF4821AEA75AC00AA268F /* DOFIObject.swift in Sources */,
 				E16961E61AD9AC6F002D8814 /* WebserviceProtocol.swift in Sources */,
 				57133D951ADD651B00665C77 /* HighPrecisionLocationStrategy.swift in Sources */,
 				57133D851ADD3B9600665C77 /* StrategyFactory.swift in Sources */,

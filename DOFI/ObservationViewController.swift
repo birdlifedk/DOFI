@@ -192,23 +192,31 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 	}
 
     @IBAction func confirmButtonHandler(sender: UIButton) {
-        var trip = Trip()
-        var observation = self.observation
+        var trip = Session.sharedInstance.getTrip()
         
-//        var observation2 = Observation()
-//        
-//        trip.id = 1
-//        observation.id = 1
-//        observation2.id = 2
-//        var test = communicationFacade.storeTrip(Session.getUser().id, trip: trip)
-//        var returnMessage = communicationFacade.storeObservation(Session.getUser().id, trip: trip, observation: observation)
-//        communicationFacade.storeObservation(Session.getUser().id, trip: trip, observation: observation2)
-//        var localStorageTest = LocalStorageStrategy()
-//        localStorageTest.uploadContent()
-        //var returnMessage = communicationFacade.getLocation(self.locationManager)
-        var returnMessage = communicationFacade.storeObservation(trip, observation: observation)
-        println(returnMessage.message)
-        self.navigationController?.popViewControllerAnimated(true)
+        if (trip != nil)
+        {
+            var observation = self.observation
+            
+            var observationValidation = observation.validate()
+            
+            if (observationValidation.isSuccess){
+                var returnMessage = communicationFacade.storeObservation(trip!, observation: observation)
+                println(returnMessage.message)
+                self.navigationController?.popViewControllerAnimated(true)
+            }else{
+                var alertView:UIAlertView = UIAlertView()
+                alertView.title = "Noget kig galt"
+                alertView.message = observationValidation.message as String
+                alertView.addButtonWithTitle("Ok")
+                alertView.show()
+            }
+        } else {
+            var alertView:UIAlertView = UIAlertView()
+            alertView.title = "Noget kig galt"
+            alertView.message = "Ingen tur valgt" as String
+            alertView.addButtonWithTitle("Ok")
+            alertView.show()
+        }
     }
-    
 }
