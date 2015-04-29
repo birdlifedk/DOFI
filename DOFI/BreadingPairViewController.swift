@@ -170,9 +170,32 @@ class BreadingPairViewController: DOFIViewController, UITextViewDelegate, UIText
 	}
 
 	@IBAction func submitButtonHandler(sender: UIButton) {
-		//Do some stuff here
-		println(breadingPair)
-		println(Session.sharedInstance.getTrip())
+        var trip = Session.sharedInstance.getTrip()
+        
+        if (trip != nil)
+        {
+            var breedingPair = self.breadingPair
+            
+            var breedingPairValidation = breedingPair.validate()
+            
+            if (breedingPairValidation.isSuccess){
+                var returnMessage = communicationFacade.storeBreedingPair(trip!, breadingPair: breedingPair)
+                println(returnMessage.message)
+                self.navigationController?.popViewControllerAnimated(true)
+            }else{
+                var alertView:UIAlertView = UIAlertView()
+                alertView.title = "Noget kig galt"
+                alertView.message = breedingPairValidation.message as String
+                alertView.addButtonWithTitle("Ok")
+                alertView.show()
+            }
+        } else {
+            var alertView:UIAlertView = UIAlertView()
+            alertView.title = "Noget kig galt"
+            alertView.message = "Ingen tur valgt" as String
+            alertView.addButtonWithTitle("Ok")
+            alertView.show()
+        }
 	}
 }
 

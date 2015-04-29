@@ -25,6 +25,7 @@
 		57EBF47A1AEA34C200AA268F /* TripLocalStorageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF4791AEA34C200AA268F /* TripLocalStorageMapper.swift */; };
 		57EBF47C1AEA34DE00AA268F /* ObservationLocalStorageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF47B1AEA34DE00AA268F /* ObservationLocalStorageMapper.swift */; };
 		57EBF47E1AEA350100AA268F /* LocalStorageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF47D1AEA350100AA268F /* LocalStorageMapper.swift */; };
+		57EBF4821AEA75AC00AA268F /* DOFIObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF4811AEA75AC00AA268F /* DOFIObject.swift */; };
 		E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A50091AB5B9B4008CB207 /* AppDelegate.swift */; };
 		E12A500C1AB5B9B4008CB207 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A500B1AB5B9B4008CB207 /* ViewController.swift */; };
 		E12A500F1AB5B9B4008CB207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12A500D1AB5B9B4008CB207 /* Main.storyboard */; };
@@ -88,6 +89,7 @@
 		57EBF4791AEA34C200AA268F /* TripLocalStorageMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripLocalStorageMapper.swift; sourceTree = "<group>"; };
 		57EBF47B1AEA34DE00AA268F /* ObservationLocalStorageMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationLocalStorageMapper.swift; sourceTree = "<group>"; };
 		57EBF47D1AEA350100AA268F /* LocalStorageMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageMapper.swift; sourceTree = "<group>"; };
+		57EBF4811AEA75AC00AA268F /* DOFIObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFIObject.swift; sourceTree = "<group>"; };
 		E12A50041AB5B9B4008CB207 /* DOFI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOFI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12A50081AB5B9B4008CB207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E12A50091AB5B9B4008CB207 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				57133D921ADD62EC00665C77 /* Position.swift */,
 				57133D981ADD687600665C77 /* Location.swift */,
 				E16AFC281AE7B6280071CEB3 /* BreadingPair.swift */,
+				57EBF4811AEA75AC00AA268F /* DOFIObject.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				E16961EF1AD9B01F002D8814 /* LocalStorageStrategy.swift in Sources */,
 				E12A500A1AB5B9B4008CB207 /* AppDelegate.swift in Sources */,
 				57133D991ADD687600665C77 /* Location.swift in Sources */,
+				57EBF4821AEA75AC00AA268F /* DOFIObject.swift in Sources */,
 				E16961E61AD9AC6F002D8814 /* WebserviceProtocol.swift in Sources */,
 				57133D951ADD651B00665C77 /* HighPrecisionLocationStrategy.swift in Sources */,
 				57133D851ADD3B9600665C77 /* StrategyFactory.swift in Sources */,

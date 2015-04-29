@@ -17,7 +17,7 @@ class ObservationLocalStorageMapper: LocalStorageMapper {
         
         inMemoryStorage.store(observationCopy)
         
-        return ReturnMessage(message: "Done storing observation", isDone: true)
+        return ReturnMessage(message: "Done storing observation", isSuccess: true)
     }
     
     func getAllObservations() -> [Observation]{

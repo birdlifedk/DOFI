@@ -10,7 +10,7 @@ import Foundation
 import Realm
 import MapKit
 
-class Observation: RLMObject {
+class Observation: RLMObject, DOFIObject {
 
     var id = -1
     
@@ -40,9 +40,8 @@ class Observation: RLMObject {
 
 	var location:CLLocationCoordinate2D?
 	
-	
     
-    func makeCopy() -> Observation{
+    func makeCopy() -> RLMObject{
         var observation = Observation()
         observation.id = self.id
         observation.tripId = self.tripId
@@ -57,7 +56,57 @@ class Observation: RLMObject {
         observation.age = self.age
         observation.suit = self.suit
         observation.note = self.note
+        observation.location = self.location
         
         return observation
+    }
+    
+    func validate() -> ReturnMessage {
+        var speciesValidationResult = validateSpecies()
+        
+        if (!speciesValidationResult.isSuccess){
+            return speciesValidationResult
+        }
+        
+        var quantityValidationResult = validateQuantity()
+        
+        if (!quantityValidationResult.isSuccess){
+            return quantityValidationResult
+        }
+        
+        var primaryBehaviourValidateResult = validatePrimaryBehaviour()
+        
+        if (!primaryBehaviourValidateResult.isSuccess){
+            return primaryBehaviourValidateResult
+        }
+        
+        return ReturnMessage(message: "Valid", isSuccess: true)
+    }
+    
+    func validateSpecies() -> ReturnMessage{
+        
+        if (species.length == 0){
+            return ReturnMessage(message: "Art mangler at blive udfyldt", isSuccess: false)
+        }
+        
+        return ReturnMessage(message: "Valid", isSuccess: true)
+    }
+    
+    func validateQuantity() -> ReturnMessage{
+        
+        if (quantity < 1){
+            return ReturnMessage(message: "Der skal minimum være 1 af den pågældende art", isSuccess: false)
+        }
+        
+        return ReturnMessage(message: "Valid", isSuccess: true)
+    }
+    
+    func validatePrimaryBehaviour() -> ReturnMessage{
+        
+        if (primaryBehaviour.length == 0){
+            return ReturnMessage(message: "Primær adfærd mangler at blive udfyldt", isSuccess: false)
+        }
+        
+        return ReturnMessage(message: "Valid", isSuccess: true)
     }
 }

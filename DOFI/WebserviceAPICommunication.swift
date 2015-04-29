@@ -85,7 +85,7 @@ class WebserviceAPICommunication {
         
         println("id: " + userId.description + "token: " + accessToken)
         
-        return ReturnMessage(message: "Uploaded", isDone: true)
+        return ReturnMessage(message: "Uploaded", isSuccess: true)
     }
     
     private func getUserIdAndAccessToken(){

@@ -21,7 +21,7 @@ class LocalStorageStrategy: StorageStrategy {
             return dofiService.login(username, password: password)
         }
         else{
-            return ReturnMessage(message: "Det ser ud til du ikke har forbindelse til internettet", isDone: false, objects: [])
+            return ReturnMessage(message: "Det ser ud til du ikke har forbindelse til internettet", isSuccess: false, objects: [])
         }
         
 	}
@@ -47,7 +47,7 @@ class LocalStorageStrategy: StorageStrategy {
                 
                 println(returnMessage.message)
                 
-                if (returnMessage.isDone){
+                if (returnMessage.isSuccess){
                     println("Ended uploading.. deleting locally?")
                     //delete something
                 }

@@ -232,9 +232,30 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 
 	// The submit button, terminates the view, and saves the current trip object in the Session struct.
 	@IBAction func submitForm(sender: UIButton) {
-		Session.sharedInstance.setTrip(self.trip!)
-		self.navigationController?.popViewControllerAnimated(true)
-	}
+        var trip = self.trip
+        
+        if (trip != nil){
+            var tripValidation = trip.validate()
+            
+            if (tripValidation.isSuccess){
+                Session.sharedInstance.setTrip(self.trip)
+                self.navigationController?.popViewControllerAnimated(true)
+            } else{
+                var alertView:UIAlertView = UIAlertView()
+                alertView.title = "Noget kig galt"
+                alertView.message = tripValidation.message as String
+                alertView.addButtonWithTitle("Ok")
+                alertView.show()
+            }
+        } else {
+            var alertView:UIAlertView = UIAlertView()
+            alertView.title = "Noget kig galt"
+            alertView.message = "Tur er nil"
+            alertView.addButtonWithTitle("Ok")
+            alertView.show()
+        }
+        
+    }
 }
 
 class AutoCompleteDelegate: NSObject, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
