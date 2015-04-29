@@ -31,13 +31,15 @@ class HistoryViewController: UITableViewController, UITableViewDelegate {
 
 	
 	override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+		let vc: UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("tripHistoryDetails") as! UIViewController
 
+		self.navigationController?.pushViewController(vc, animated: true)
 		println("Icon pressed")
 	}
 
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		println("row selected")
-		Session.setTrip(self.trips[indexPath.row])
+		Session.sharedInstance.setTrip(self.trips[indexPath.row])
 		self.navigationController?.popViewControllerAnimated(true)
 	}
 

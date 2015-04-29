@@ -42,10 +42,10 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		if(Session.getTrip() == nil){
+		if(Session.sharedInstance.getTrip() == nil){
 			self.trip = Trip()
 		} else {
-			self.trip = Session.getTrip()
+			self.trip = Session.sharedInstance.getTrip()
 			fillForm()
 		}
 
@@ -100,10 +100,10 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 
-		if(Session.getTrip() == nil){
+		if(Session.sharedInstance.getTrip() == nil){
 			self.trip = Trip()
 		} else {
-			self.trip = Session.getTrip()
+			self.trip = Session.sharedInstance.getTrip()
 			fillForm()
 		}
 	}
@@ -232,7 +232,7 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 
 	// The submit button, terminates the view, and saves the current trip object in the Session struct.
 	@IBAction func submitForm(sender: UIButton) {
-		Session.sharedInstance.setTrip(self.trip)
+		Session.sharedInstance.setTrip(self.trip!)
 		self.navigationController?.popViewControllerAnimated(true)
 	}
 }
