@@ -33,7 +33,7 @@ class LoginController: DOFIViewController {
 		} else {
 			var returnMessage = login(username, password: password)
             
-            if (returnMessage.isDone){
+            if (returnMessage.isSuccess){
                 closeSite()
             } else {
                 var alert = UIAlertView()

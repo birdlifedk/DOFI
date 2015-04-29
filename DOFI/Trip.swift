@@ -13,8 +13,10 @@ struct Time {
     var from = "", to = ""
 }
 
-class Trip: RLMObject {
+class Trip: RLMObject, DOFIObject {
 
+    var id = -1
+    
 	var location:NSString?
 
 	var date:NSDate?
@@ -31,12 +33,42 @@ class Trip: RLMObject {
 
 	var interferenceNote:NSString?
     
-    var id = -1
-    
-    func makeCopy() -> Trip{
+    func makeCopy() -> RLMObject{
         var trip = Trip()
         trip.id = self.id
-        
+        trip.location = self.location
+        trip.date = self.date
+        trip.time = self.time
+        trip.method = self.method
+        trip.note = self.note
+        trip.interference = self.interference
+        trip.interferenceQuantity = self.interferenceQuantity
+        trip.interferenceNote = self.interferenceNote
+
         return trip
+    }
+    
+    func validate() -> ReturnMessage {
+        var returnMessage = ReturnMessage(message: "Valid", isSuccess: true)
+        
+        var locationValidationResult = validateLocation()
+        
+        if(!locationValidationResult.isSuccess){
+            return locationValidationResult
+        }
+        
+        return returnMessage
+    }
+    
+    func validateLocation() -> ReturnMessage {
+        var location = self.location
+        if (location == nil) {
+            return ReturnMessage(message: "En gyldig lokalitet mangler at blive valgt", isSuccess: false)
+        }
+        if (location!.length == 0){
+            return ReturnMessage(message: "En gyldig lokalitet mangler at blive valgt", isSuccess: false)
+        }
+        
+        return ReturnMessage(message: "Valid", isSuccess: true)
     }
 }

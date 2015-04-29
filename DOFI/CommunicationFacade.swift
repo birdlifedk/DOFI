@@ -58,6 +58,11 @@ class CommunicationFacade {
         return storageStrategy.storeObservation(trip, observation: observation)
     }
     
+    func storeBreedingPair(trip: Trip, breadingPair: BreadingPair) -> ReturnMessage{
+        
+        return ReturnMessage(message: "", isSuccess: true)
+    }
+    
     func storeTrip(trip: Trip) -> ReturnMessage{
         return storageStrategy.storeTrip(trip)
     }
@@ -71,6 +76,6 @@ class CommunicationFacade {
     }
     
     func uploadContent() -> ReturnMessage{
-        return ReturnMessage(message: "", isDone: false)
+        return ReturnMessage(message: "", isSuccess: false)
     }
 }

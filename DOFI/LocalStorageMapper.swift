@@ -16,6 +16,6 @@ class LocalStorageMapper {
     func deleteRLMObject(rlmObject: RLMObject) -> ReturnMessage{
         localStorage.delete(rlmObject)
         
-        return ReturnMessage(message: "Done deleting", isDone: true)
+        return ReturnMessage(message: "Done deleting", isSuccess: true)
     }
 }

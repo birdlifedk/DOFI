@@ -17,7 +17,7 @@ class TripLocalStorageMapper: LocalStorageMapper {
         
         inMemoryStorage.store(tripCopy)
         
-        return ReturnMessage(message: "Done storing trip", isDone: true)
+        return ReturnMessage(message: "Done storing trip", isSuccess: true)
     }
     
     func getAllTrips() -> [Trip]{
