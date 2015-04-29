@@ -11,10 +11,13 @@ import UIKit
 
 class HistoryViewController: UITableViewController, UITableViewDelegate {
 
+	var communication = CommunicationFacade()
+
 	var trips:[Trip] = []
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		var trips = self.communication.getTrips()
 
 		var testTrip1 = Trip()
 		var testTrip2 = Trip()

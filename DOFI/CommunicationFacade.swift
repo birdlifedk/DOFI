@@ -27,16 +27,6 @@ class CommunicationFacade {
     init(){
         storageStrategy = strategyFactory.getStorageStrategy()
         locationStrategy = strategyFactory.getLocationStrategy()
-        self.startMonitoring(storageStrategy)
-    }
-    
-    func startMonitoring(storageStrategy: StorageStrategy) {
-        let queue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-        
-        dispatch_async(queue) {
-            var monitor = Monitor(storageStrategy: storageStrategy)
-            monitor.start()
-        }
     }
     
     /**
@@ -69,6 +59,10 @@ class CommunicationFacade {
         
         return location
     }
+
+	func getTrips() -> NSDictionary {
+		return storageStrategy.getAllLocalObjects()!
+	}
     
     func uploadContent() -> ReturnMessage{
         return ReturnMessage(message: "", isDone: false)

@@ -13,6 +13,7 @@ class ViewController: DOFIViewController, CLLocationManagerDelegate {
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.startMonitoring(self.communicationFacade.storageStrategy)
 		// Do any additional setup after loading the view, typically from a nib
 
 		var nav = self.navigationController?.navigationBar
@@ -46,6 +47,15 @@ class ViewController: DOFIViewController, CLLocationManagerDelegate {
             Session.sharedInstance.setUser(sessionUser)
 		}
 
+	}
+
+	func startMonitoring(storageStrategy: StorageStrategy) {
+		let queue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
+		dispatch_async(queue) {
+			var monitor = Monitor(storageStrategy: storageStrategy)
+			monitor.start()
+		}
 	}
 
 	override func viewDidAppear(animated: Bool) {
