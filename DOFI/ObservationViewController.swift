@@ -46,7 +46,7 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 		toolbar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
 		toolbar.sizeToFit()
 
-		var doneButton = UIBarButtonItem(title: "Ok", style: UIBarButtonItemStyle.Bordered, target: self, action: "donePicker:")
+		var doneButton = UIBarButtonItem(title: "Ok", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker:")
 		var spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
 		var cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)//title: "Cancel", style: UIBarButtonItemStyle.Bordered, target: self, action: "canclePicker:")
 
@@ -107,7 +107,7 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 		return picks[row]
 	}
 
-	func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
+	func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
 	{
 		activeTextView.text = picks[row]
 	}

@@ -32,6 +32,10 @@ class Trip: RLMObject, DOFIObject {
 	var interferenceQuantity:NSInteger?
 
 	var interferenceNote:NSString?
+
+	var observations:Dictionary<Int, Observation> = Dictionary<Int, Observation>()
+
+	var breadingPairs:Dictionary<Int, BreadingPair> = Dictionary<Int, BreadingPair>()
     
     func makeCopy() -> RLMObject{
         var trip = Trip()

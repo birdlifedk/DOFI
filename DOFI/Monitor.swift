@@ -28,7 +28,7 @@ class Monitor {
                 
             }else{
                 println("Monitor: User not logged in")
-                println(Session.sharedInstance)
+                println(Session.sharedInstance.isLoggedIn())
                 sleep(10)
             }
 		}

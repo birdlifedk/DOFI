@@ -10,7 +10,5 @@ import Foundation
 
 protocol WebserviceProtocol {
 
-	func login(username: NSString, password: NSString) -> ReturnMessage
-    
-    func storeObservation(userId: NSInteger, trip: Trip, observation: Observation) -> ReturnMessage
+	func didRecieveResponse(results: NSDictionary)
 }

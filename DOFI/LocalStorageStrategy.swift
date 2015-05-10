@@ -40,7 +40,7 @@ class LocalStorageStrategy: StorageStrategy {
         if(connection.isReachableViaWiFi()) {
             var objectDictionary = getAllLocalObjects()
             
-            println(objectDictionary)
+            //println(objectDictionary)
             
             if (objectDictionary != nil){
                 var returnMessage = dofiService.uploadContent(objectDictionary!)

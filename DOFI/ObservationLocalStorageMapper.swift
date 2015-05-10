@@ -12,11 +12,11 @@ class ObservationLocalStorageMapper: LocalStorageMapper {
     
     func storeObservation(observation: Observation) -> ReturnMessage{
         var observationCopy = observation.makeCopy()
-        
+
         localStorage.store(observation)
         
         inMemoryStorage.store(observationCopy)
-        
+
         return ReturnMessage(message: "Done storing observation", isSuccess: true)
     }
     
@@ -34,7 +34,7 @@ class ObservationLocalStorageMapper: LocalStorageMapper {
             var ended = false
             
             while (!ended){
-                var rlmObject = rlmObservations.objectAtIndex(index)
+                var rlmObject: AnyObject! = rlmObservations.objectAtIndex(index)
                 
                 if (rlmObject.isKindOfClass(Observation)){
                     var observation = rlmObject as! Observation

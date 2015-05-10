@@ -12,20 +12,17 @@ import Realm
 
 class HistoryDetailViewController: UITableViewController {
 
+	@IBOutlet var historyDetailTable: UITableView!
+
 	var inputs:[RLMObject] = []
+
+	var trip:Trip?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.tableView.allowsMultipleSelectionDuringEditing = false;
-		var obs1 = Observation()
-		obs1.species = "Ravn"
-		obs1.quantity = 2
 
-		var breading1 = BreadingPair()
-		breading1.species = "Musvit"
-		breading1.max = 3
-		breading1.min = 1
-		self.inputs = [obs1, breading1]
+		addRLMObjects()
 	}
 
 
@@ -34,6 +31,17 @@ class HistoryDetailViewController: UITableViewController {
 	//return YES;
 	//}
 
+	func addRLMObjects() {
+
+		for (key, value) in self.trip!.observations {
+			self.inputs.append(value)
+		}
+
+		for (key, value) in self.trip!.breadingPairs {
+			self.inputs.append(value)
+		}
+	}
+
 	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
 		return true
 	}
@@ -41,6 +49,8 @@ class HistoryDetailViewController: UITableViewController {
 	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 		if (editingStyle == UITableViewCellEditingStyle.Delete) {
 			//add code here for when you hit delete
+			self.inputs.removeAtIndex(indexPath.row)
+			self.historyDetailTable.reloadData()
 			println("Delete this motherfucker!")
 		}
 	}

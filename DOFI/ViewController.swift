@@ -34,12 +34,12 @@ class ViewController: DOFIViewController, CLLocationManagerDelegate {
 		if (!isLoggedIn) {
 			self.performSegueWithIdentifier("goto", sender: self)
 		} else {
-            var user = prefs.objectForKey("USER")
+            var user: AnyObject? = prefs.objectForKey("USER")
             
             var sessionUser = User()
             sessionUser.id = user?.valueForKey("ID") as! NSInteger
-            sessionUser.name = user?.valueForKey("NAME") as! NSString
-            sessionUser.surname = user?.valueForKey("SURNAME") as! NSString
+            sessionUser.name = user?.valueForKey("NAME") as? NSString
+            sessionUser.surname = user?.valueForKey("SURNAME") as? NSString
             //sessionUser.token = user?.valueForKey(<#key: String#>)
             
             println(Session.sharedInstance)

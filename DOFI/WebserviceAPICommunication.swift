@@ -31,8 +31,8 @@ class WebserviceAPICommunication {
         
         if ( urlData != nil ) {
             var res = response as! NSHTTPURLResponse;
-            println(response)
-            println(res)
+            //println(response)
+            //println(res)
             
             if (res.statusCode >= 200 && res.statusCode < 300) {
                 var responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
@@ -40,10 +40,10 @@ class WebserviceAPICommunication {
                 var responseError:NSError?
                 return NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &responseError) as! NSDictionary
             }
-            println("getToken res.statusCode: " + res.statusCode.description)
+            //println("getToken res.statusCode: " + res.statusCode.description)
             return NSDictionary()
         }
-        println("getToken: urlData == nil")
+        //println("getToken: urlData == nil")
         return NSDictionary()
     }
     
@@ -64,16 +64,22 @@ class WebserviceAPICommunication {
                 var responseError:NSError?
                 return NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &responseError) as! NSDictionary
             }
-            println("getUser res.statusCode: " + res.statusCode.description)
+           // println("getUser res.statusCode: " + res.statusCode.description)
             return NSDictionary()
         }
-        println("getUser: urlData == nil")
+      //  println("getUser: urlData == nil")
         return NSDictionary()
     }
     
     func getTripsAsJSONDictionary() -> NSDictionary{
+		var urlPath = "http://dev.dofbasenweb/observation"
+		var url: NSURL = NSURL(string: urlPath)!
+		var request: NSURLRequest = NSURLRequest(URL: url)
+		var connection: NSURLConnection = NSURLConnection(request: request, delegate: self,
+			startImmediately: false)!
         //getUserIdAndAccessToken()
-        
+		connection.start()
+
         return NSDictionary()
     }
     
@@ -83,7 +89,7 @@ class WebserviceAPICommunication {
         var responseError:NSError?
         //var jsonData = NSJSONSerialization.
         
-        println("id: " + userId.description + "token: " + accessToken)
+       // println("id: " + userId.description + "token: " + accessToken)
         
         return ReturnMessage(message: "Uploaded", isSuccess: true)
     }

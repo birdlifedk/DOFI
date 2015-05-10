@@ -34,7 +34,7 @@ class TripLocalStorageMapper: LocalStorageMapper {
             var ended = false
             
             while (!ended){
-                var rlmObject = rlmTrips.objectAtIndex(index)
+                var rlmObject: AnyObject! = rlmTrips.objectAtIndex(index)
                 
                 if (rlmObject.isKindOfClass(Trip)) {
                     var trip = rlmObject as! Trip

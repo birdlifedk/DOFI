@@ -72,7 +72,7 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
 			toolbar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
 			toolbar.sizeToFit()
 
-			var doneButton = UIBarButtonItem(title: "Ok", style: UIBarButtonItemStyle.Bordered, target: self, action: "donePicker:")
+			var doneButton = UIBarButtonItem(title: "Ok", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker:")
 			var spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
 			var cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)//title: "Cancel", style: UIBarButtonItemStyle.Bordered, target: self, action: "canclePicker:")
 
@@ -235,10 +235,10 @@ class TripViewController: DOFIViewController, UITextFieldDelegate, UITextViewDel
         var trip = self.trip
         
         if (trip != nil){
-            var tripValidation = trip.validate()
+            var tripValidation = trip!.validate()
             
             if (tripValidation.isSuccess){
-                Session.sharedInstance.setTrip(self.trip)
+                Session.sharedInstance.setTrip(self.trip!)
                 self.navigationController?.popViewControllerAnimated(true)
             } else{
                 var alertView:UIAlertView = UIAlertView()

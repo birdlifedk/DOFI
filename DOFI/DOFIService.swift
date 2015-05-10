@@ -9,7 +9,10 @@
 import Foundation
 import Realm
 
-class DOFIService: WebserviceProtocol {
+class DOFIService: NSObject {
+
+	var data: NSMutableData = NSMutableData()
+	var delegate: WebserviceProtocol?
 
     let userMapper = UserMapper()
     let tokenMapper = TokenMapper()
@@ -47,10 +50,17 @@ class DOFIService: WebserviceProtocol {
         }
 	}
     
-    func getTrips(userId: NSInteger, accessToken: NSString) -> [Trip]{
-        
-        return tripMapper.getTrips()
-    
+    func getTrips(userId: NSInteger, accessToken: NSString) {
+		var urlPath = "http://dev.dofbasenweb/observations"
+		var url: NSURL = NSURL(string: urlPath)!
+		var request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
+		request.HTTPMethod = "GET"
+
+		var connection: NSURLConnection = NSURLConnection(request: request, delegate: self,
+			startImmediately: false)!
+
+
+		connection.start()
     }
     
     func storeObservation(userId: NSInteger, trip: Trip, observation: Observation) -> ReturnMessage{
@@ -63,4 +73,33 @@ class DOFIService: WebserviceProtocol {
         
         return tripMapper.uploadContent(dictionary)
     }
+	
+	//NSURLConnection delegate method
+	func connection(connection: NSURLConnection!, didFailWithError error: NSError!) {
+		println("Failed with error:\(error.localizedDescription)")
+	}
+
+	//NSURLConnection delegate method
+	func connection(didReceiveResponse: NSURLConnection!, didReceiveResponse response: NSURLResponse!) {
+		//New request so we need to clear the data object
+		self.data = NSMutableData()
+	}
+
+	//NSURLConnection delegate method
+	func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
+		//Append incoming data
+		println(data)
+		self.data.appendData(data)
+	}
+
+	//NSURLConnection delegate method
+	func connectionDidFinishLoading(connection: NSURLConnection!) {
+		//Finished receiving data and convert it to a JSON object
+		var err: NSError?
+		var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(self.data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+
+		delegate?.didRecieveResponse(jsonResult)
+
+	}
+
 }

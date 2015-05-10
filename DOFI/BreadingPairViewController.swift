@@ -58,7 +58,7 @@ class BreadingPairViewController: DOFIViewController, UITextViewDelegate, UIText
 			toolbar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
 			toolbar.sizeToFit()
 
-			var doneButton = UIBarButtonItem(title: "Ok", style: UIBarButtonItemStyle.Bordered, target: self, action: "donePicker:")
+			var doneButton = UIBarButtonItem(title: "Ok", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker:")
 			var spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
 			var cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
 
@@ -180,7 +180,7 @@ class BreadingPairViewController: DOFIViewController, UITextViewDelegate, UIText
             
             if (breedingPairValidation.isSuccess){
                 var returnMessage = communicationFacade.storeBreedingPair(trip!, breadingPair: breedingPair)
-                println(returnMessage.message)
+                //println(returnMessage.message)
                 self.navigationController?.popViewControllerAnimated(true)
             }else{
                 var alertView:UIAlertView = UIAlertView()

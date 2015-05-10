@@ -32,6 +32,8 @@
 		E12A50141AB5B9B4008CB207 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12A50121AB5B9B4008CB207 /* LaunchScreen.xib */; };
 		E12A50201AB5B9B4008CB207 /* DOFITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A501F1AB5B9B4008CB207 /* DOFITests.swift */; };
 		E12A502A1AB5CBFD008CB207 /* nav-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = E12A50291AB5CBFD008CB207 /* nav-bar.png */; };
+		E140D60B1AF2923100F5B25F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140D60A1AF2923100F5B25F /* Request.swift */; };
+		E140D60D1AF2C7BE00F5B25F /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140D60C1AF2C7BE00F5B25F /* SwiftyJSON.swift */; };
 		E14DD9031ABC847300EB7B92 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14DD9021ABC847300EB7B92 /* TripViewController.swift */; };
 		E16961D81AD96920002D8814 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961D71AD96920002D8814 /* Token.swift */; };
 		E16961DA1AD97C5F002D8814 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16961D91AD97C5E002D8814 /* Session.swift */; };
@@ -101,6 +103,8 @@
 		E12A501E1AB5B9B4008CB207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E12A501F1AB5B9B4008CB207 /* DOFITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOFITests.swift; sourceTree = "<group>"; };
 		E12A50291AB5CBFD008CB207 /* nav-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-bar.png"; sourceTree = "<group>"; };
+		E140D60A1AF2923100F5B25F /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		E140D60C1AF2C7BE00F5B25F /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		E14DD9021ABC847300EB7B92 /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		E16961D71AD96920002D8814 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		E16961D91AD97C5E002D8814 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			children = (
 				E1AFF0AC1AE7D9050059E011 /* default.gpx */,
 				E19B93801ADE63A800072ED6 /* libc++.dylib */,
+				E140D60C1AF2C7BE00F5B25F /* SwiftyJSON.swift */,
 				E19B93821ADE665200072ED6 /* Realm.framework */,
 				E18130B21AD8003A00C8E952 /* ExternalAccessory.framework */,
 				E1BC48C51AD3F2D4008C1BC1 /* MapKit.framework */,
@@ -244,6 +249,7 @@
 				57175C431AE6BD8600116D0F /* TripMapper.swift */,
 				57EBF4751AE790A300AA268F /* WebserviceAPICommunication.swift */,
 				57EBF4771AE79CF200AA268F /* Mapper.swift */,
+				E140D60A1AF2923100F5B25F /* Request.swift */,
 			);
 			name = Webservice;
 			sourceTree = "<group>";
@@ -418,6 +424,7 @@
 				57133D891ADD429900665C77 /* Trip.swift in Sources */,
 				57EBF4781AE79CF200AA268F /* Mapper.swift in Sources */,
 				E16961DD1AD9A33C002D8814 /* CommunicationFacade.swift in Sources */,
+				E140D60D1AF2C7BE00F5B25F /* SwiftyJSON.swift in Sources */,
 				E16961DA1AD97C5F002D8814 /* Session.swift in Sources */,
 				E16961D81AD96920002D8814 /* Token.swift in Sources */,
 				57EBF47E1AEA350100AA268F /* LocalStorageMapper.swift in Sources */,
@@ -436,6 +443,7 @@
 				E16961E61AD9AC6F002D8814 /* WebserviceProtocol.swift in Sources */,
 				57133D951ADD651B00665C77 /* HighPrecisionLocationStrategy.swift in Sources */,
 				57133D851ADD3B9600665C77 /* StrategyFactory.swift in Sources */,
+				E140D60B1AF2923100F5B25F /* Request.swift in Sources */,
 				57EBF4761AE790A300AA268F /* WebserviceAPICommunication.swift in Sources */,
 				57175C421AE69E1D00116D0F /* TokenMapper.swift in Sources */,
 				57133D931ADD62EC00665C77 /* Position.swift in Sources */,
