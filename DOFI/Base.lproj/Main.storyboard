@@ -759,6 +759,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="formHandler:" destination="UZs-HK-m6e" eventType="editingChanged" id="Mb3-Pt-jGN"/>
+                                    <action selector="formHandler:" destination="UZs-HK-m6e" eventType="editingDidEnd" id="ULX-pW-xSL"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQQ-j9-SjZ">
@@ -1039,7 +1040,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="k4H-uH-kFc"/>
-        <segue reference="wcl-Ci-UQB"/>
+        <segue reference="Wc6-nB-715"/>
+        <segue reference="YAQ-d7-BTU"/>
     </inferredMetricsTieBreakers>
 </document>

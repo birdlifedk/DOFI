@@ -26,7 +26,7 @@ class BreadingPairViewController: DOFIViewController, UITextViewDelegate, UIText
 	var breadingPair = BreadingPair()
 	var delegate = AutoCompleteDelegate()
 	var tableView = UITableView(frame: CGRectMake(0,80,320,120), style: UITableViewStyle.Plain)
-	var breadingPairBehaviour = ["Adfærd1", "Adfærd2", "Adfærd3"]
+	var breadingPairBehaviour = ["Fugle med ekskrementsække", "Gamle fugle med føde", "Parringsadfærd", "Rede fra samme år", "Rede(r) med unger", "Rede(r) med æg", "Redebyggende fugle", "Redeoptælling", "Ruger/flyver til/fra rede", "Syngende hanner", "Territoriehævdende fugle", "Tydelig afledningsadfærd", "Udfløjne unger/ungerførende", "Ængstelige/urolige fugle" ]
 	var mapDelegate = DOFIMapDelegate()
 
 	override func viewDidLoad() {

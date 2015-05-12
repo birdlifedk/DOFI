@@ -32,8 +32,9 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 	var observation: Observation = Observation()
 
 	var picks = [""]
-	var secondaryBehaviours = ["1", "2"]
-	var directions = ["d1", "d2", "d3"]
+	var primaryBehaviours = ["Rastende","Trækkende", "Overflyvende", "Ynglende", "Død"]
+	var secondaryBehaviours = ["Fouragerende", "Fouragerende, derefter trækkende", "Rastende på overnatningsplads", "Rastende derefter trækkende", "Fanget og ringmærket", "Syngende", "Territoriehævdende"]
+	var directions = ["N", "NV", "NØ","S","SV","SØ","V","Ø"]
 
     
 	override func viewDidLoad() {
@@ -54,6 +55,15 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 		toolbar.userInteractionEnabled = true
 
 
+
+		if(primaryBehaviourText != nil) {
+			primaryBehaviourText.delegate = self
+			primaryBehaviourText.inputView = secondaryBehaviourPicker
+			primaryBehaviourText.inputAccessoryView = toolbar
+			secondaryBehaviourPicker.delegate = self
+			secondaryBehaviourPicker.hidden = true
+			secondaryBehaviourPicker.showsSelectionIndicator = true
+		}
 
         if(secondaryBehaviourText != nil && directionText != nil && secondaryBehaviourPicker != nil) {
 			initMap()
@@ -115,12 +125,17 @@ class ObservationViewController: DOFIViewController, UITextFieldDelegate, UIPick
 	func textFieldDidBeginEditing(textField: UITextField) {
 		activeTextView = textField
 
-		if(textField == secondaryBehaviourText) {
+		if(primaryBehaviourText != nil &&  textField == primaryBehaviourText) {
+			picks = primaryBehaviours
+			secondaryBehaviourPicker.reloadAllComponents()
+			secondaryBehaviourPicker.hidden = false
+		}
+		if(secondaryBehaviourText != nil && textField == secondaryBehaviourText) {
 			picks = secondaryBehaviours
 			secondaryBehaviourPicker.reloadAllComponents()
 			secondaryBehaviourPicker.hidden = false
 		}
-		if(textField == directionText) {
+		if(directionText != nil &&  textField == directionText) {
 			picks = directions
 			secondaryBehaviourPicker.reloadAllComponents()
 			secondaryBehaviourPicker.hidden = false

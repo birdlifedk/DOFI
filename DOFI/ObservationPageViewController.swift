@@ -28,11 +28,15 @@ class ObservationPageViewController: UIPageViewController, UIPageViewControllerD
 		if(origin == "newObservation") {
 			identifiers = obsPages
 
-			self.navigationController?.navigationItem.title = "Observation"
+			self.navigationItem.title = "Observation"
+
+			self.navigationItem.setRightBarButtonItem(UIBarButtonItem(title: "Tur", style:  UIBarButtonItemStyle.Plain, target:self, action: "tripHandler"), animated: false)
 		}
 		if(origin == "newBreadingPair") {
 			identifiers = breadingPages
-			self.navigationController?.navigationItem.title = "Ynglepar"
+			self.navigationItem.title = "Ynglepar"
+
+			self.navigationItem.setRightBarButtonItem(UIBarButtonItem(title: "Tur", style:  UIBarButtonItemStyle.Plain, target:self, action: "tripHandler"), animated: false)
 		}
 		if(origin == "tripSettings") {
 			identifiers = tripPages
@@ -45,6 +49,14 @@ class ObservationPageViewController: UIPageViewController, UIPageViewControllerD
 		//let secondViewController   = self.viewControllerAtIndex(1)
 		let viewControllers: NSArray = [startingViewController]
 		self.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+	}
+
+	func tripHandler() {
+		var vc = self.storyboard?.instantiateViewControllerWithIdentifier("tripRequired") as! UIViewController
+		vc.navigationItem.title = "Tur"
+		vc.navigationItem.setRightBarButtonItem(UIBarButtonItem(title: "Historik", style:  UIBarButtonItemStyle.Plain, target:self, action: "historyHandler"), animated: false)
+		self.navigationController?.pushViewController(vc, animated: true)
+
 	}
 
 	func historyHandler() {
