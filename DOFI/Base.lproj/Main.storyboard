@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BQY-WP-8nC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BQY-WP-8nC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -226,7 +226,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
-                                                    <action selector="formHandler:forEvent:" destination="XXb-fw-DXF" eventType="editingDidEnd" id="mGI-u0-ubN"/>
+                                                    <action selector="formHandler:forEvent:" destination="XXb-fw-DXF" eventType="editingChanged" id="OOC-Fn-Nce"/>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHn-EJ-OzN">
@@ -243,7 +243,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="formHandler:forEvent:" destination="XXb-fw-DXF" eventType="editingDidEnd" id="5ks-BN-B1O"/>
+                                                    <action selector="formHandler:forEvent:" destination="XXb-fw-DXF" eventType="editingChanged" id="lCg-9w-Oby"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Forstyrrelser" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TeL-QI-yTk">
@@ -251,7 +251,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="formHandler:forEvent:" destination="XXb-fw-DXF" eventType="editingDidEnd" id="npl-he-5Hc"/>
+                                                    <action selector="formHandler:forEvent:" destination="XXb-fw-DXF" eventType="editingChanged" id="ZBh-7x-WhI"/>
                                                 </connections>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETn-cz-GUV">
@@ -504,7 +504,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="formHandler:forEvent:" destination="Lpq-BM-hLx" eventType="editingDidEnd" id="Cvp-hl-oUW"/>
+                                    <action selector="formHandler:forEvent:" destination="Lpq-BM-hLx" eventType="editingChanged" id="Zr7-GQ-ICF"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9i-rq-Sfo">
@@ -574,6 +574,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="formHandler:" destination="bgS-lc-Ge7" eventType="editingDidEnd" id="VaR-KD-N9Y"/>
+                                    <action selector="formHandler:" destination="bgS-lc-Ge7" eventType="editingChanged" id="iMp-4H-VBg"/>
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y14-tB-7F7">
@@ -661,7 +662,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="formHandler:" destination="6Ga-FM-New" eventType="editingDidEnd" id="ItL-HE-JgI"/>
+                                    <action selector="formHandler:" destination="6Ga-FM-New" eventType="editingChanged" id="vth-v6-f9i"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minimum" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ll-bH-jN7">
@@ -669,7 +670,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="formHandler:" destination="6Ga-FM-New" eventType="editingDidEnd" id="T6m-29-NrP"/>
+                                    <action selector="formHandler:" destination="6Ga-FM-New" eventType="editingChanged" id="r75-0a-QnQ"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Maksimum" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zHG-Ro-FRo">
@@ -677,7 +678,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="formHandler:" destination="6Ga-FM-New" eventType="editingDidEnd" id="f3d-gH-9lO"/>
+                                    <action selector="formHandler:" destination="6Ga-FM-New" eventType="editingChanged" id="Wce-4c-O0D"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7V-zE-1P8">
@@ -738,7 +739,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="formHandler:" destination="UZs-HK-m6e" eventType="editingDidEnd" id="NPE-qa-osy"/>
+                                    <action selector="formHandler:" destination="UZs-HK-m6e" eventType="editingChanged" id="crF-34-TtF"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Antal" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WEy-C1-IY7">
@@ -746,7 +747,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="formHandler:" destination="UZs-HK-m6e" eventType="editingDidEnd" id="GEI-Vp-sap"/>
+                                    <action selector="formHandler:" destination="UZs-HK-m6e" eventType="editingChanged" id="4Ee-CJ-HUc"/>
                                 </connections>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KLE-IL-uTN">
@@ -757,7 +758,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
-                                    <action selector="formHandler:" destination="UZs-HK-m6e" eventType="editingDidEnd" id="Tu3-aQ-bKg"/>
+                                    <action selector="formHandler:" destination="UZs-HK-m6e" eventType="editingChanged" id="Mb3-Pt-jGN"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQQ-j9-SjZ">
@@ -840,7 +841,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="formHandler:" destination="12g-Kh-fIM" eventType="editingDidEnd" id="fVa-dI-Pss"/>
+                                                    <action selector="formHandler:" destination="12g-Kh-fIM" eventType="editingChanged" id="aLZ-Vs-OkM"/>
                                                 </connections>
                                             </textField>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="X7h-90-Ejr">
@@ -870,7 +871,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="formHandler:" destination="12g-Kh-fIM" eventType="editingDidEnd" id="MM1-OY-ZVo"/>
+                                                    <action selector="formHandler:" destination="12g-Kh-fIM" eventType="editingChanged" id="gx2-rb-o5K"/>
                                                 </connections>
                                             </textField>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="WWk-zv-9s5">
@@ -889,7 +890,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
-                                                    <action selector="formHandler:" destination="12g-Kh-fIM" eventType="editingDidEnd" id="i4j-PI-Ja3"/>
+                                                    <action selector="formHandler:" destination="12g-Kh-fIM" eventType="editingChanged" id="Vyn-Mm-idy"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dragt" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5fM-BB-OTh">
@@ -897,7 +898,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="formHandler:" destination="12g-Kh-fIM" eventType="editingDidEnd" id="njv-cM-5Uw"/>
+                                                    <action selector="formHandler:" destination="12g-Kh-fIM" eventType="editingChanged" id="qna-JM-UpL"/>
                                                 </connections>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Q6-eh-l6c">
@@ -992,6 +993,8 @@
                             <constraint firstItem="6XV-fp-ggw" firstAttribute="height" secondItem="Zqu-U4-mVS" secondAttribute="height" priority="250" id="wY0-pK-Fa3"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="age" destination="ad4-Yj-LJt" id="uSt-Qt-aiI"/>
                         <outlet property="directionText" destination="BJG-68-BOz" id="Jvm-4R-edX"/>
