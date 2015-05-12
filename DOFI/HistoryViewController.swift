@@ -103,8 +103,12 @@ class HistoryViewController: UITableViewController, UITableViewDelegate, Webserv
 		testTripH.location = "Enghaveparken (tidl. Enghaven)"
 		testTripH.time = Time(from: "14:00", to: "16:00")
 		testTripH.date = dateFormatter.dateFromString("11/05/2015")
-		println(testTripH.date)
 
+		var vibe = Observation()
+		vibe.species = "Vibe"
+		vibe.quantity = 1
+		vibe.primaryBehaviour = "Syngende"
+		testTripH.observations[0] = vibe
 
 		testTrip1.date = NSDate()
 		self.trips = [0: testTrip1, 1: testTripH]
