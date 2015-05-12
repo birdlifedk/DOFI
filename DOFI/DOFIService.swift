@@ -88,16 +88,16 @@ class DOFIService: NSObject {
 	//NSURLConnection delegate method
 	func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
 		//Append incoming data
-		println(data)
-		self.data.appendData(data)
+		//println(data)
+		//self.data.appendData(data)
 	}
 
 	//NSURLConnection delegate method
 	func connectionDidFinishLoading(connection: NSURLConnection!) {
 		//Finished receiving data and convert it to a JSON object
-		var err: NSError?
-		var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(self.data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
-
+		//var err: NSError?
+		//var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(self.data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+		var jsonResult: NSDictionary = NSDictionary()
 		delegate?.didRecieveResponse(jsonResult)
 
 	}

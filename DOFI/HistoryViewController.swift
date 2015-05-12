@@ -74,6 +74,9 @@ class HistoryViewController: UITableViewController, UITableViewDelegate, Webserv
 	}
 
 	func didRecieveResponse(results: NSDictionary) {
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.locale = NSLocale(localeIdentifier: "DK_da")
+		dateFormatter.dateFormat = "dd/MM/yyyy"
 		var testTrip1 = Trip()
 		var svale = BreadingPair()
 		svale.species = "Svale"
@@ -82,7 +85,7 @@ class HistoryViewController: UITableViewController, UITableViewDelegate, Webserv
 
 
 		var ørn = Observation()
-		ørn.species = "Havørn"
+		ørn.species = "Høgeørn"
 		ørn.quantity = 1
 		ørn.primaryBehaviour = "Syngende"
 
@@ -96,8 +99,15 @@ class HistoryViewController: UITableViewController, UITableViewDelegate, Webserv
 		testTrip1.breadingPairs[0] = svale
 		testTrip1.time = Time(from: "10:00", to: "11:00")
 
+		var testTripH = Trip()
+		testTripH.location = "Enghaveparken (tidl. Enghaven)"
+		testTripH.time = Time(from: "14:00", to: "16:00")
+		testTripH.date = dateFormatter.dateFromString("11/05/2015")
+		println(testTripH.date)
+
+
 		testTrip1.date = NSDate()
-		self.trips = [0: testTrip1]
+		self.trips = [0: testTrip1, 1: testTripH]
 		self.historyTableView.reloadData()
 
 		//self.trips = results as! Dictionary
