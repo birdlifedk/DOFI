@@ -34,6 +34,7 @@ class ViewController: DOFIViewController, CLLocationManagerDelegate {
 		if (!isLoggedIn) {
 			self.performSegueWithIdentifier("goto", sender: self)
 		} else {
+			
             var user: AnyObject? = prefs.objectForKey("USER")
             
             var sessionUser = User()
@@ -47,6 +48,17 @@ class ViewController: DOFIViewController, CLLocationManagerDelegate {
             Session.sharedInstance.setUser(sessionUser)
 		}
 
+	}
+
+	@IBAction func logOut(sender: UIBarButtonItem) {
+		Session.sharedInstance.logOut()
+
+		let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+		prefs.removeObjectForKey("ID")
+		prefs.removeObjectForKey("NAME")
+		prefs.removeObjectForKey("SURNAME")
+		prefs.setBool(false, forKey: "ISLOGGEDIN")
+		self.viewDidLoad()
 	}
 
 	func startMonitoring(storageStrategy: StorageStrategy) {

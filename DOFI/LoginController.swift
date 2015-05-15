@@ -18,6 +18,7 @@ class LoginController: DOFIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.navigationController?.navigationBarHidden = true
 	}
 
 	@IBAction func loginHandler(sender: UIButton) {
@@ -34,6 +35,7 @@ class LoginController: DOFIViewController {
 			var returnMessage = login(username, password: password)
             
             if (returnMessage.isSuccess){
+				self.navigationController?.navigationBarHidden = false
                 closeSite()
             } else {
                 var alert = UIAlertView()

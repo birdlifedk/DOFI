@@ -23,6 +23,10 @@ import Foundation
 	func getUser() -> User {
 		return self.user!
 	}
+
+	func logOut() {
+		self.user = nil
+	}
     
     func getToken() -> Token {
         return self.token!
